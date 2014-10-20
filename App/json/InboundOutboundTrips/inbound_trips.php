@@ -18,20 +18,20 @@
 	for($multiplier = 1; $multiplier < $no_of_bins + 1; $multiplier++){	
 		if($multiplier != $no_of_bins){
 			$sql .= ("SELECT '" 
-			     . (date_format($lower,"h:i")) .
+			     . (date_format($lower,"G:i")) .
 				"' AS TIME_INTERVAL, TO_STATION_ID AS STATION_ID, TO_STATION_NAME AS STATION, COUNT(*) AS TOTAL 
 				FROM trips_data 
-				WHERE '" . (date_format($lower,"h:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"h:i")) . "' 
+				WHERE '" . (date_format($lower,"G:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "' 
 				GROUP BY STATION UNION ");
 		} else {
 
 			$sql .= ("SELECT '" 
-			     . (date_format($lower,"h:i")) .
+			     . (date_format($lower,"G:i")) .
 				"' AS TIME_INTERVAL, TO_STATION_ID AS STATION_ID, TO_STATION_NAME AS STATION, COUNT(*) AS TOTAL
 				FROM trips_data 
-				WHERE '" . (date_format($lower,"h:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"h:i")) . "' 
+				WHERE '" . (date_format($lower,"G:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "' 
 				GROUP BY STATION ");
 		}
     
