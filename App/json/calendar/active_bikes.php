@@ -7,36 +7,33 @@
 	$server = mysql_connect($host, $username, $password);
 	$connection = mysql_select_db($database, $server);
 
-	$no_of_bins = 12;
-	$range = 24;
+	$no_of_bins = 60*24;
+	$range = 60*24;
 	$intervals = floor($range/$no_of_bins);
 	$lower = date_create('6/27/2013 00:00');
 	$higher = date_create('6/27/2013 00:00');
-	date_add($higher, date_interval_create_from_date_string($intervals . " hours"));
+	date_add($higher, date_interval_create_from_date_string($intervals . " minutes"));
 
 	$sql = "";
 	for($multiplier = 1; $multiplier < $no_of_bins + 1; $multiplier++){	
 		if($multiplier != $no_of_bins){
-			$sql .= ("SELECT '" 
+			$sql .= ("SELECT DISTINCT '" 
 			     . (date_format($lower,"G:i")) .
-				"' AS TIME_INTERVAL, TO_STATION_ID AS STATION_ID, TO_STATION_NAME AS STATION, COUNT(*) AS TOTAL 
+				"' AS TIME_INTERVAL, BIKEID
 				FROM trips_data 
 				WHERE '" . (date_format($lower,"G:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "' 
-				GROUP BY STATION UNION ");
+				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "' UNION ");
 		} else {
-
-			$sql .= ("SELECT '" 
+			$sql .= ("SELECT DISTINCT '" 
 			     . (date_format($lower,"G:i")) .
-				"' AS TIME_INTERVAL, TO_STATION_ID AS STATION_ID, TO_STATION_NAME AS STATION, COUNT(*) AS TOTAL
+				"' AS TIME_INTERVAL, BIKEID
 				FROM trips_data 
 				WHERE '" . (date_format($lower,"G:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "' 
-				GROUP BY STATION ");
+				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "'");
 		}
     
-  		date_add($lower, date_interval_create_from_date_string( $intervals . " hours"));
-		date_add($higher, date_interval_create_from_date_string( $intervals . " hours"));	
+  		date_add($lower, date_interval_create_from_date_string( $intervals . " minutes"));
+		date_add($higher, date_interval_create_from_date_string( $intervals . " minutes"));	
 	}
 	
 print($sql);
