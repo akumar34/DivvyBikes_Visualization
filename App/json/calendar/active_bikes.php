@@ -7,36 +7,46 @@
 	$server = mysql_connect($host, $username, $password);
 	$connection = mysql_select_db($database, $server);
 
-	$no_of_bins = 60*24;
-	$range = 60*24;
+	$no_of_bins = 24; // 12 total bins
+	$range = 24; // 24 hours
 	$intervals = floor($range/$no_of_bins);
 	$lower = date_create('6/27/2013 00:00');
 	$higher = date_create('6/27/2013 00:00');
-	date_add($higher, date_interval_create_from_date_string($intervals . " minutes"));
+	date_add($higher, date_interval_create_from_date_string($intervals . " hours"));
 
-	$sql = "";
+	$sql = "SELECT DAY, TIME_INTERVAL, COUNT(*) AS TOTAL FROM (";
 	for($multiplier = 1; $multiplier < $no_of_bins + 1; $multiplier++){	
 		if($multiplier != $no_of_bins){
 			$sql .= ("SELECT DISTINCT '" 
-			     . (date_format($lower,"G:i")) .
-				"' AS TIME_INTERVAL, BIKEID
+			     . (date_format($lower,"G:i")) . "' AS TIME_INTERVAL, 
+				DATE(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AS DAY, 
+				BIKEID
 				FROM trips_data 
-				WHERE '" . (date_format($lower,"G:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "' UNION ");
+				WHERE 
+				TIME(STR_TO_DATE('". (date_format($lower,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE('". (date_format($higher,"G:i")) . "', '%H:%i')) > TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE('". (date_format($lower,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE('". (date_format($higher,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) UNION ");
 		} else {
 			$sql .= ("SELECT DISTINCT '" 
-			     . (date_format($lower,"G:i")) .
-				"' AS TIME_INTERVAL, BIKEID
+			     . (date_format($lower,"G:i")) . "' AS TIME_INTERVAL, 
+				DATE(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AS DAY, 
+				BIKEID
 				FROM trips_data 
-				WHERE '" . (date_format($lower,"G:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "'");
-		}
+				WHERE 
+				TIME(STR_TO_DATE('". (date_format($lower,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE('". (date_format($higher,"G:i")) . "', '%H:%i')) > TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE('". (date_format($lower,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE('". (date_format($higher,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) ");		}
     
-  		date_add($lower, date_interval_create_from_date_string( $intervals . " minutes"));
-		date_add($higher, date_interval_create_from_date_string( $intervals . " minutes"));	
+  		date_add($lower, date_interval_create_from_date_string( $intervals . " hours"));
+		date_add($higher, date_interval_create_from_date_string( $intervals . " hours"));	
 	}
-	
-print($sql);
+
+	$sql .= ") TBL GROUP BY DAY, TIME_INTERVAL ";
+
+	print($sql);
+
 /*	$query = mysql_query($sql);
 	if ( ! $query ) {
 		echo mysql_error();
