@@ -1,67 +1,117 @@
 <html lang="en">
 <head>
+    <style>
+            /* tell the SVG path to be a thin blue line without any area fill */
+
+        #Vis1 path {
+            stroke: steelblue;
+            stroke-width: 1;
+            fill: none;
+        }
+
+        #Vis1 .axis {
+            shape-rendering: crispEdges;
+        }
+
+        #Vis1 .x.axis line {
+            stroke: lightgrey;
+        }
+
+        #Vis1 .x.axis .minor {
+            stroke-opacity: .5;
+        }
+
+        #Vis1 .x.axis path {
+            display: none;
+        }
+
+        #Vis1 .y.axis line, .y.axis path {
+            fill: none;
+            stroke: #000;
+        }
+
+    </style>
     <title></title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="App/Map/jquery-timepicker.css">
     <script src="App/Map/jquery-1.11.1.min.js"></script>
     <script src="App/Map/jquery_ui_js.js"></script>
-    <script src="App/js/ClassExtension.js">
+    <script src="App/Map/jquery-timepicker-addon.js"></script>
+    <script src="App/Map/jquery-timpicker-ui.js"></script>
+    <script src="App/js/ClassExtension.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
 
-    </script>
-<script>
-    src="App/js/calendar/CalendarControl.js";
-</script>
+<script src="App/js/calendar/CalendarControl.js"></script>
     <script>
+        var CalendarApp;
+        function init(){
+            CalendarApp = new CalendarControl();
+            CalendarApp.startup('#Vis1');
+            CalendarApp.startup('#Vis2');
 
-        function logDate(){
-            var current = $( ".selector" ).datepicker( "getDate");
-            var currentDate = current.getDate() + " " + current.getMonth() + " "
-            + current.getYear();
-            console.log(currentDate);
         }
     </script>
 </head>
-<body>
+<body onload="init()">
 <div id="container" style="position: relative;float: left;width: 100%;height:100%;">
 
     <div id="leftContainer" style="position: relative;float: left;width:34%;height: 100%;border-right: thin solid #d3d3d3;">
-        <div id="calView" style="position: relative;float: left;width: 100%;height: 50%;">
-            <div id="datepicker" onchange="logDate()"></div>
+        <div id="calView" style="position: relative;float: left;width: 100%;height: 45%;">
+            <div id="datetimepicker"></div>
             <script>
-                $(function() {
-                    $( "#datepicker" ).datepicker({showButtonPanel: true, defaultDate: new Date(2013,6,1), minDate: new Date(2013,6,1),
-                        maxDate:new Date(2013,11,31),
-                        inline: true,
-                        onSelect: function(dateText, inst) {
-                            var date = $(this).datepicker('getDate'),
-                                    day  = date.getDate(),
-                                    month = date.getMonth() + 1,
-                                    year =  date.getFullYear();
-                            //alert(day + '-' + month + '-' + year);
-                            var current = $( this).datepicker( "getDate");
-                            var currentDate = current.getDate() + " " + (current.getMonth()+1) + " "
-                                    + current.getFullYear();
-                            console.log(currentDate);
-                        }
-                    });
+
+
+                $('#datetimepicker').datetimepicker({
+                    //altField: '#alternate',
+                    showSecond: false,
+                    showMinute: false,
+                    dateFormat: 'mm/dd/yy',
+                    timeFormat: 'HH',
+                    showButtonPanel: false,
+                    defaultDate: new Date(2013, 6, 1),
+                    minDate: new Date(2013,6,1),
+                    maxDate:new Date(2013,11,31),
+                    inline: true,
+                    onSelect: function(dateText, inst) {
+                        var dateAsString;
+                        var dateAsObject;
+                        dateAsString = dateText; //the first parameter of this function
+                        dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
+                        dateAsObject = $.datepicker.formatDate('mm/dd/yy', new Date(dateAsObject));
+                        var div = document.getElementById("DateAndTimePickerValue");
+//                        div.value = '';
+                        div.innerHTML =  dateAsString;
+                       //$("#DateAndTimePickerValue").innerHTML = dateAsString;
+                        CalendarApp.setDateAndTime(dateAsString);
+                        console.log("This is it : " + dateAsString)
+                      }
+
                 });
+
+                //console.log( dateAsObject + " " + "This is it : " + dateAsString)
             </script>
+
         </div>
-        <div id="stationList" style="position: relative;float: left;width: 100%;height: 50%;">
+
+        <div id="stationList" style="position: relative;float: left;width: 100%;height: 45%;">
 
         </div>
     </div>
     <div id="rightContainer" style="position: relative;float: left;width:65%;height: 100%;">
-        <div id="vis1" style="position: relative;float: left;width: 100%;height: 45%;">
+        <div id="Vis1" style="position: relative;float: left;width: 100%;height: 45%;">
 
         </div>
         <div id="activeBikes" style="position: relative;float: left;width: 100%;height: 10%;">
-            <label id="activeBikesLabel">Active Bikes: </label>
+            <label id="activeBikesLabel">Active Bikes: </label><label id="activeBikesData">Active Bikes: </label>
             <div id="noOfBikes"></div>
         </div>
-        <div id="vis2" style="position: relative;float: left;width: 100%;height: 45%;">
+        <div id="Vis2" style="position: relative;float: left;width: 100%;height: 45%;">
 
         </div>
     </div>
+</div>
+<div id="DateAndTimePickerValue" style="position: relative; height: 8%;visibility: hidden;">
+
 </div>
 </body>
 </html>

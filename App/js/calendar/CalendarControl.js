@@ -1,30 +1,23 @@
-/**
- * Created by Prateek on 10/19/14.
- */
 var CalendarControl = Class.extend({
 
     construct: function() {
-        this.areaMargin = {top: 100, right: 20, bottom: 200, left: 110};
-        this.areaCanvasWidth = 1200;
-        this.areaCanvasHeight = 500;
+        this.dateAsString = "07/26/2013 00";
+        //this.station = "Dayton St & North Ave";
 
-        this.areaWidth = 0;
-        this.areaHeight = 0;
+        this.barMargin = {top: 20, right: 20, bottom: 20, left: 20};
+        this.barCanvasWidth = 1000;
+        this.barCanvasHeight = 500;
 
-        this.svgarea1 = null;
+        this.barWidth = 0;
+        this.barHeight = 0;
+
+        this.svgBar1 = null;
+        this.svgBar2 = null;
 
         this.myTag = "";
-        this.communityArea = "";
-        this.station = "";
     },
-    /////////////////////////////////////////////////////////////
 
-    //Begin the application with a specific community instead of the default Chicago.
-    initAppWithCommunityAndStation: function(community,station)
-    {
-        this.communityArea = community;
-        this.station = station;
-    },
+
 
     /////////////////////////////////////////////////////////////
 
@@ -33,131 +26,193 @@ var CalendarControl = Class.extend({
         this.myTag = whereToRender;
         this.updateScreen();
     },
-    /////////////////////////////////////////////////////////////
+
+
 
     /////////////////////////////////////////////////////////////
 
-    showCommunityList: function(){
-
-        d3.csv("App/json/calendar/bikes_starttime_stoptime.csv",function(_data){
-            //populate dropdown
-            var community = d3.select("#communitySelection");
-            community.selectAll("option")
-                .data(_data)
-                .enter()
-                .append("option")
-                .attr("value",function(data){
-                    return data.name;
-                })
-                .text(function(data,index){
-                    return data.name;
-
-                });
-        });
-    },
-
-    showStationsList: function(){
-
-        d3.csv("App/json/calendar/bikes_starttime_stoptime.csv",function(json){
-            //populate dropdown
-            var station = d3.select("#stationSelection");
-            station.selectAll("option")
-                .data(json)
-                .enter()
-                .append("option")
-                .attr("value",function(data){
-                    return data.stationName;
-                })
-                .text(function(data,index){
-                    return data.stationName;
-                });
-        });
-    },
-
-    setCommunityArea: function(element){
-        this.communityArea = element.value;
-
-        this.myTag = "#Vis1";
-        this.updateData();
-
-    },
-
-    setStation: function(element){
-        this.station = element.value;
-
-        this.myTag = "#Vis1";
-        this.updateData();
-
-    },
-    /////////////////////////////////////////////////////////////
-
-    //Drawing the bar chart for Origin distribution for the first visualization group.	
-    drawAreaChart: function (error, data)
+    //Drawing the bar chart for Origin distribution for the first visualization group.
+    drawBarChart1: function (error, data)
     {
-        var width = this.areaCanvasWidth;
-        var height = this.areaCanvasHeight;
-        var svg = this.svgarea1;
-        var community = this.communityArea;
-        var station = this.station;
-        var parseDate = d3.time.format("%Y-%m-%d").parse;
-        svg.selectAll("*").remove();
+        var top = this.barMargin.top,
+            bottom = this.barMargin.bottom,
+            left = this.barMargin.left,
+            right = this.barMargin.right;
+        var width = this.barCanvasWidth - left - right;
+        var height = this.barCanvasHeight - top - bottom;
+        var date = this.dateAsString;
+        //var station = this.station;
 
-        var x = d3.time.scale()
-            .range([0, width]);
 
-        var y = d3.scale.linear()
+var graph = this.svgBar1;
+
+        graph.selectAll("*").remove();
+        var dataCount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        data.forEach(function(d) {
+            d.starttime = new Date(d.starttime);
+            switch(d.starttime.getHours()){
+                case 0 : dataCount[0] += 1; break;
+                case 1 : dataCount[1] += 1; break;
+                case 2 : dataCount[2] += 1; break;
+                case 3 : dataCount[3] += 1; break;
+                case 4 : dataCount[4] += 1; break;
+                case 5 : dataCount[5] += 1; break;
+                case 6 : dataCount[6] += 1; break;
+                case 7 : dataCount[7] += 1; break;
+                case 8 : dataCount[8] += 1; break;
+                case 9 : dataCount[9] += 1; break;
+                case 10 : dataCount[10] += 1; break;
+                case 11 : dataCount[11] += 1; break;
+                case 12 : dataCount[12] += 1; break;
+                case 13 : dataCount[13] += 1; break;
+                case 14 : dataCount[14] += 1; break;
+                case 15 : dataCount[15] += 1; break;
+                case 16 : dataCount[16] += 1; break;
+                case 17 : dataCount[17] += 1; break;
+                case 18 : dataCount[18] += 1; break;
+                case 19 : dataCount[19] += 1; break;
+                case 20 : dataCount[20] +=1; break;
+                case 21 : dataCount[21] += 1; break;
+                case 22 : dataCount[22] += 1; break;
+                case 23 : dataCount[23] += 1; break;
+                default : console.log("default case reached... something wrong");break;
+            }
+            d.stoptime = new Date(d.stoptime);
+        });
+        var date1 = new Date(date).getHours();
+
+        document.getElementById("activeBikesData").innerHTML = dataCount[date1];
+
+
+        var x = d3.scale.linear().domain([0, dataCount.length]).range([0,width]);
+            //scale.ordinal().rangeRoundBands([0, width], .1);
+        var y = d3.scale.linear().domain([0,d3.max(dataCount)])
             .range([height, 0]);
+        var color = d3.scale.ordinal()
+            .range(["#98abc5"]);
 
         var xAxis = d3.svg.axis()
             .scale(x)
             .orient("bottom");
-
         var yAxis = d3.svg.axis()
             .scale(y)
-            .orient("left");
+            .orient("left")
+            .tickFormat(d3.format(".2s"));
 
         var line = d3.svg.line()
-            .x(function(d) { return x(d.STARTDATE); })
-            .y(function(d) { return y(d.TOTAL_BIKES); });
+                    .x(function(d,i){
+                // verbose logging to show what's actually being done
+                console.log('data: ' + dataCount);
+                // return the X coordinate where we want to plot this datapoint
+                return x(i);
+            })
+                    .y(function(d){
+                //console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
+                // return the Y coordinate where we want to plot this datapoint
+                return y(d);
+            });
+
+      graph
+            .attr("width", width )
+          .attr("height", height )
+          .append("svg:g")
+          .attr("transform","translate("+right +"," +top + ")");
+
+       xAxis.tickSize(-height).tickSubdivide(true);
+        xAxis.ticks(23)
+        graph.append("svg:g")
+            .attr("class","x axis")
+            .attr("transform", "translate(0,"+ height +")")
+        .call(xAxis);
+
+        graph.append("svg:g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(-25,0)")
+            .call(yAxis);
+
+        graph.append("svg:path").attr("d", line(dataCount));
+
+
+    },
+
+    /////////////////////////////////////////////////////////////
+
+    //Drawing the bar chart for Origin distribution for the second visualization group.
+    drawBarChart2: function (error, data)
+    {
+        var width = this.barCanvasWidth;
+        var height = this.barCanvasHeight;
+        var date = this.dateAsString;
+
+        var svg = this.svgBar2;
+
+        svg.selectAll("*").remove();
+
+        var x = d3.scale.ordinal()
+            .rangeRoundBands([0, width], .1);
+        var y = d3.scale.linear()
+            .rangeRound([height, 0]);
+        var color = d3.scale.ordinal()
+            .range(["#98abc5"]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .tickFormat(d3.format(".2s"));
+
+        color.domain(d3.keys(data[0])
+            .filter(function(key) {return key == "TOTAL_TRIPS"}));
 
         data.forEach(function(d) {
-            d.STARTDATE = parseDate(d.STARTDATE);
-            d.TOTAL_BIKES = +d.TOTAL_BIKES;
+            d.TRIP_DURATION = +d.TRIP_DURATION;
+            d.TOTAL_TRIPS = +d.TOTAL_TRIPS;
         });
 
-
-
-        x.domain(d3.extent(data, function(d) { return d.STARTDATE; }));
-        y.domain(d3.extent(data.filter(function(d){
+        x.domain(data.map(function(d) { return d.TRIP_DURATION; }));
+        //Modified Map to filtered Map - Theja
+        y.domain([0, d3.max(data.filter(function(d){
             return d.COMMUNITY === community && d.STATION_NAME === station;
-        }), function(d) { return d.TOTAL_BIKES; }));
-
+        }), function(d) { return d.TOTAL_TRIPS; })]);
 
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+            .call(xAxis)
+            .append("text")
+            .attr("y", 50)
+            .attr("x", width/2)
+            .attr("dx", ".71em")
+            .style("text-anchor", "middle")
+            .text("Time Interval");
 
         svg.append("g")
             .attr("class", "y axis")
             .call(yAxis)
             .append("text")
             .attr("transform", "rotate(-90)")
-            .attr("y", 6)
+            .attr("y", -50)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("Active Bikes");
+            .text("Total Trips");
 
-        svg.append("path")
-            .datum(data.filter(function(d){
+        svg.selectAll("bar")
+            .data(data.filter(function(d){
                 return d.COMMUNITY === community && d.STATION_NAME === station;
             }))
-            .attr("class", "line")
-            .attr("d", line);
-
+            .enter().append("rect")
+            .style("fill", "steelblue")
+            .attr("x", function(d) { return x(d.TRIP_DURATION); })
+            .attr("width", x.rangeBand())
+            .attr("y", function(d) { return y(d.TOTAL_TRIPS); })
+            .attr("height", function(d) { return height - y(d.TOTAL_TRIPS); });
 
         svg.selectAll(".chart-title")
-            .data(data)
+            .data(data.filter(function(d){
+                return d.COMMUNITY === community && d.STATION_NAME === station;
+            }))
             .enter()
             .append("text")
             .attr("x", width/2)
@@ -165,9 +220,9 @@ var CalendarControl = Class.extend({
             .attr("text-anchor","middle")
             .attr("font-family", "sans-serif")
             .attr("font-size","20pt")
-            .text("Bikes Distribution by Day of Year");
-    },
+            .text("Ride Dist. By Time Bar Chart");	},
 
+    /////////////////////////////////////////////////////////////
 
     updateWindow: function ()
     {
@@ -176,30 +231,65 @@ var CalendarControl = Class.extend({
         xWin = d3.select(this.myTag).style("width");
         yWin = d3.select(this.myTag).style("height");
 
-        this.areaWidth = xWin;
-        this.areaHeight = yWin;
+        this.barWidth = xWin;
+        this.barHeight = yWin;
 
-        var totalAreaSizeX = this.areaCanvasWidth+this.areaMargin.left+this.areaMargin.right;
-        var totalAreaSizeY = this.areaCanvasHeight+this.areaMargin.top+this.areaMargin.bottom;
+        var totalBarSizeX = this.barCanvasWidth+this.barMargin.left+this.barMargin.right;
+        var totalBarSizeY = this.barCanvasHeight+this.barMargin.top+this.barMargin.bottom;
 
-        this.svgarea1 = d3.select(this.myTag).append("svg:svg")
-            .attr("width", this.areaWidth)
-            .attr("height", this.areaHeight)
-            .attr("viewBox", "" + -this.areaMargin.left + " 0 " + totalAreaSizeX + " " + this.areaCanvasHeight);
+        switch(this.myTag){
+            case "#Vis1":
+                this.svgBar1 = d3.select(this.myTag).append("svg:svg")
+                    .attr("width", this.barWidth)
+                    .attr("height", this.barHeight)
+                    .attr("viewBox", "" + -this.barMargin.left + " 0 " + totalBarSizeX + " " + this.barCanvasHeight);
+                break;
+            case "#Vis2":
+                this.svgBar2 = d3.select(this.myTag).append("svg:svg")
+                    .attr("width", this.barWidth)
+                    .attr("height", this.barHeight)
+                    .attr("viewBox", "" + -this.barMargin.left + " 0 " + totalBarSizeX + " " + this.barCanvasHeight);
+                break;
+        }
     },
 
     /////////////////////////////////////////////////////////////
 
     updateData: function (){
-        var fileToLoad = "App/json/calendar/bikes_starttime_stoptime.csv";
-        this.inDataCallbackFunc = this.drawAreaChart.bind(this);
-        d3.csv(fileToLoad, this.inDataCallbackFunc);
+        var date = this.dateAsString;
+        var day, month, year, time;
+        month = date.substring(0,2);
+        day = date.substring(3,5);
+        year = date.substring(6,10);
+        var fileToLoad = "App/json/Map/Trips_data/trips_data_by_" + month + "_" + day + "_" + year +".csv";
+        console.log("File to be loaded: " + fileToLoad);
+        switch(this.myTag){
+
+            case "#Vis1":
+                this.inDataCallbackFunc = this.drawBarChart1.bind(this);
+                d3.csv(fileToLoad, this.inDataCallbackFunc);
+                break;
+            case "#Vis2":
+                this.inDataCallbackFunc = this.drawBarChart2.bind(this);
+                d3.csv(fileToLoad, this.inDataCallbackFunc);
+                break;
+        }
     },
 
     /////////////////////////////////////////////////////////////
 
     updateScreen: function (){
         this.updateWindow();
+        this.updateData();
+    },
+
+    setDateAndTime: function(DateString){
+        this.dateAsString = DateString;
+
+        this.myTag = "#Vis1";
+        this.updateData();
+
+        this.myTag = "#Vis2";
         this.updateData();
     }
 });
