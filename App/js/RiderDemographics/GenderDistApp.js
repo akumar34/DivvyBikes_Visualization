@@ -172,7 +172,7 @@ var GenderDistApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "App/json/RiderDemographics/population_by_gender_and_age.json";
+		var fileToLoad = "App/json/RiderDemographics/population_by_gender_age_2.json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},

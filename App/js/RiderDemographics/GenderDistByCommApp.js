@@ -214,7 +214,7 @@ var GenderDistByCommApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "json/RiderDemographics/population_by_gender_and_age_by_community.php";
+		var fileToLoad = "json/RiderDemographics/population_by_gender__age_community_2.php";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
