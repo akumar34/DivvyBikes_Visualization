@@ -7,37 +7,41 @@
     $server = mysql_connect($host, $username, $password);
     $connection = mysql_select_db($database, $server);
 
-	$sql = "SELECT T1.*
-		FROM (
-		(
-		select
-		i.STATION_ID AS STATION_ID,
-		i.STATION AS STATION,
-		i.TIME_INTERVAL AS TIME_INTERVAL,
-		abs(o.TOTAL - i.TOTAL) AS DIFF
-		from
-		inbound_stations i,
-		outbound_stations o
-		where i.STATION_ID = o.STATION_ID
-		AND i.TIME_INTERVAL = o.TIME_INTERVAL
-		AND i.STATION = o.STATION
-		) T1)
-		WHERE (TIME_INTERVAL,T1.DIFF) IN (
-		SELECT TIME_INTERVAL,MAX(T1.DIFF)
-		FROM(
-		select
-		i.STATION_ID AS STATION_ID,
-		i.STATION AS STATION,
-		i.TIME_INTERVAL AS TIME_INTERVAL,
-		abs(o.TOTAL - i.TOTAL) AS DIFF
-		from
-		inbound_stations i,
-		outbound_stations o
-		where i.STATION_ID = o.STATION_ID
-		AND i.TIME_INTERVAL = o.TIME_INTERVAL
-		AND i.STATION = o.STATION
-		) T1
-			GROUP BY T1.time_interval)";
+    $sql = "SELECT T1.*
+	FROM (
+	(
+	select
+	i.STATION_ID AS STATION_ID,
+	i.STATION AS STATION,
+	i.TIME_INTERVAL AS TIME_INTERVAL,
+	o.TOTAL AS OUTBOUND,
+	i.TOTAL AS INBOUND,
+	abs(o.TOTAL - i.TOTAL) AS DIFF
+	from
+	inbound_stations i,
+	outbound_stations o
+	where i.STATION_ID = o.STATION_ID
+	AND i.TIME_INTERVAL = o.TIME_INTERVAL
+	AND i.STATION = o.STATION
+	) T1)
+	WHERE (TIME_INTERVAL,T1.DIFF) IN (
+	SELECT TIME_INTERVAL,MAX(T1.DIFF)
+	FROM(
+	select
+	i.STATION_ID AS STATION_ID,
+	i.STATION AS STATION,
+	i.TIME_INTERVAL AS TIME_INTERVAL,
+	o.TOTAL AS OUTBOUND,
+	i.TOTAL AS INBOUND,
+	abs(o.TOTAL - i.TOTAL) AS DIFF
+	from
+	inbound_stations i,
+	outbound_stations o
+	where i.STATION_ID = o.STATION_ID
+	AND i.TIME_INTERVAL = o.TIME_INTERVAL
+	AND i.STATION = o.STATION
+	) T1 
+        GROUP BY T1.time_interval)";
 	
 	$sql_query = mysql_query($sql);
 

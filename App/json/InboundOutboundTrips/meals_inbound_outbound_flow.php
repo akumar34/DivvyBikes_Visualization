@@ -68,6 +68,8 @@
 			then 'Post-Dinner'	
 		end	
 	) AS TIME_INTERVAL,
+	o.TOTAL AS OUTBOUND,
+	i.TOTAL AS INBOUND,
 	abs(o.TOTAL - i.TOTAL) AS DIFF
 	from
 	inbound_stations i,
