@@ -53,7 +53,7 @@ var MealsInboundOutboundFlowApp = Class.extend({
 			.tickFormat(d3.format(".2s"));
 				
 		var flowNames = d3.keys(data[0]).filter(function(key) { 
-			return key !== "INBOUND" || key === "OUTBOUND";
+			return key === "INBOUND" || key === "OUTBOUND";
 		});
 				
 		data.forEach(function(d) {
