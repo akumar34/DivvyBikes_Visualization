@@ -2,8 +2,8 @@ var MaxInboundOutboundFlowApp = Class.extend({
 
 	construct: function() {
 		this.barMargin = {top: 100, right: 20, bottom: 200, left: 110};
-		this.barCanvasWidth = 1000;
-		this.barCanvasHeight = 500;
+		this.barCanvasWidth = 1200;
+		this.barCanvasHeight = 400;
 
 		this.barWidth = 0;
 		this.barHeight = 0;
@@ -172,7 +172,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "App/json/InboundOutboundTrips/max_inbound_outbound_flow.json";
+		var fileToLoad = "../App/json/InboundOutboundTrips/max_inbound_outbound_flow.json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
