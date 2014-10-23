@@ -1,4 +1,4 @@
-var MaxInboundOutboundFlowApp = Class.extend({
+var MealsInboundOutboundFlowApp = Class.extend({
 
 	construct: function() {
 		this.barMargin = {top: 100, right: 20, bottom: 200, left: 110};
@@ -53,7 +53,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 			.tickFormat(d3.format(".2s"));
 				
 		var flowNames = d3.keys(data[0]).filter(function(key) { 
-			return key === "INBOUND" || key === "OUTBOUND";
+			return key !== "INBOUND" || key === "OUTBOUND";
 		});
 				
 		data.forEach(function(d) {
@@ -65,7 +65,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 		});
 				
 		x0.domain(data.map(function(d) { 
-			return d.STATION; 
+			return d.TIME_INTERVAL; 
 		}));
 		x1.domain(flowNames).rangeRoundBands([0, x0.rangeBand()]);
 		y.domain([0, d3.max(data, function(d) { 
@@ -88,12 +88,12 @@ var MaxInboundOutboundFlowApp = Class.extend({
 			.style("text-anchor", "end")
 			.text("Number of Trips");
 				
-		var age_interval = svg.selectAll(".station")
+		var age_interval = svg.selectAll(".time_interval")
 			.data(data)
 			.enter().append("g")
 			.attr("class", "g")
 			.attr("transform", function(d) { 
-				return "translate(" + x0(d.STATION) + ",0)"; 
+				return "translate(" + x0(d.TIME_INTERVAL) + ",0)"; 
 			})
 			
 		age_interval.selectAll("rect")
@@ -145,7 +145,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 		   .attr("text-anchor","middle")
 		   .attr("font-family", "sans-serif")
 		   .attr("font-size","20pt")
-		   .text("Inbound Outbound Imbalance Bar Chart");
+		   .text("Inbound Outbound Meals Bar Chart");
 	},
 
 	/////////////////////////////////////////////////////////////
@@ -172,7 +172,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "../App/json/InboundOutboundTrips/max_inbound_outbound_flow.json";
+		var fileToLoad = "../App/json/InboundOutboundTrips/meals_inbound_outbound_flow.json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},

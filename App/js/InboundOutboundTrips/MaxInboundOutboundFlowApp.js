@@ -145,7 +145,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 		   .attr("text-anchor","middle")
 		   .attr("font-family", "sans-serif")
 		   .attr("font-size","20pt")
-		   .text("Inbound Outbound Imbalance Bar Chart");
+		   .text("Inbound Outbound Inbalance Bar Chart");
 	},
 
 	/////////////////////////////////////////////////////////////
