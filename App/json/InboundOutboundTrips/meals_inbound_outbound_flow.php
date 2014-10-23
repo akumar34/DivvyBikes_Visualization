@@ -8,7 +8,11 @@
     $connection = mysql_select_db($database, $server);
 
     $sql = 
-	"select
+	"
+	select TBL.TIME_INTERVAL, SUM(TBL.INBOUND) AS INBOUND, SUM(TBL.OUTBOUND) AS OUTBOUND
+	FROM
+	(
+	select
 	i.STATION_ID AS STATION_ID,
 	i.STATION AS STATION,
 	(
@@ -76,7 +80,7 @@
 	outbound_stations o
 	where i.STATION_ID = o.STATION_ID
 	AND i.TIME_INTERVAL = o.TIME_INTERVAL
-	AND i.STATION = o.STATION";
+	AND i.STATION = o.STATION) TBL GROUP BY TIME_INTERVAL";
 	
 	$sql_query = mysql_query($sql);
 
