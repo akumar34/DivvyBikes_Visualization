@@ -96,6 +96,20 @@ var BikeDistApp = Class.extend({
 			.attr("width", x.rangeBand())
 			.attr("y", function(d) { return y(d.TOTAL_BIKES); })
 			.attr("height", function(d) { return height - y(d.TOTAL_BIKES); });
+
+		svg.selectAll("text.label")
+			.data(data)
+			.enter().append("text")
+			.text(function(d) {
+		        return d.TOTAL_BIKES;
+		    })
+			.attr("x", function(d, index) {
+		        return (x(d.DIST_METERS) + (x.rangeBand()/2)) - 20;
+		    })
+		    .attr("y", function(d) {
+		    	return y(d.TOTAL_BIKES);
+		    })
+		    .style("font-size","120%");
 		
 		svg.selectAll(".chart-title")
 			.data(data)

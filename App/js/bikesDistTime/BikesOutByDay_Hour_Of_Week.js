@@ -87,6 +87,20 @@ var Bikes_DayOfWeek = Class.extend({
 			.attr("width", x.rangeBand())
 			.attr("y", function(d) { return y(d.No_Of_Bikes); })
 			.attr("height", function(d) { return height - y(d.No_Of_Bikes); });
+
+		svg.selectAll("text.label")
+			.data(data)
+			.enter().append("text")
+			.text(function(d) {
+		        return d.No_Of_Bikes;
+		    })
+			.attr("x", function(d, index) {
+		        return (x(d.Day) + (x.rangeBand()/2)) - 30;
+		    })
+		    .attr("y", function(d) {
+		    	return y(d.No_Of_Bikes);
+		    })
+		    .style("font-size","120%");
 		
 		svg.selectAll(".chart-title")
 			.data(data)
@@ -162,6 +176,20 @@ var Bikes_DayOfWeek = Class.extend({
 			.attr("width", x.rangeBand())
 			.attr("y", function(d) { return y(d.No_Of_Bikes); })
 			.attr("height", function(d) { return height - y(d.No_Of_Bikes); });
+
+		svg.selectAll("text.label")
+			.data(data)
+			.enter().append("text")
+			.text(function(d) {
+		        return d.No_Of_Bikes;
+		    })
+			.attr("x", function(d, index) {
+		        return (x(d.Hour) + (x.rangeBand()/2)) - 25;
+		    })
+		    .attr("y", function(d) {
+		    	return y(d.No_Of_Bikes);
+		    })
+		    .style("font-size","85%");
 		
 		svg.selectAll(".chart-title")
 			.data(data)

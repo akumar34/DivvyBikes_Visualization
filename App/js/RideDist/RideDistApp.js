@@ -88,6 +88,20 @@ var RideDistApp = Class.extend({
 			.attr("width", x.rangeBand())
 			.attr("y", function(d) { return y(d.TOTAL_TRIPS); })
 			.attr("height", function(d) { return height - y(d.TOTAL_TRIPS); });
+
+		svg.selectAll("text.label")
+			.data(data)
+			.enter().append("text")
+			.text(function(d) {
+		        return d.TOTAL_TRIPS;
+		    })
+			.attr("x", function(d, index) {
+		        return (x(d.DIST_METERS) + (x.rangeBand()/2)) - 25;
+		    })
+		    .attr("y", function(d) {
+		    	return y(d.TOTAL_TRIPS);
+		    })
+		    .style("font-size","120%");
 		
 		svg.selectAll(".chart-title")
 			.data(data)
@@ -167,6 +181,20 @@ var RideDistApp = Class.extend({
 			.attr("width", x.rangeBand())
 			.attr("y", function(d) { return y(d.TOTAL_TRIPS); })
 			.attr("height", function(d) { return height - y(d.TOTAL_TRIPS); });
+
+		svg.selectAll("text.label")
+			.data(data)
+			.enter().append("text")
+			.text(function(d) {
+		        return d.TOTAL_TRIPS;
+		    })
+			.attr("x", function(d, index) {
+		        return (x(d.TRIP_DURATION) + (x.rangeBand()/2)) - 25;
+		    })
+		    .attr("y", function(d) {
+		    	return y(d.TOTAL_TRIPS);
+		    })
+		    .style("font-size","120%");
 		
 		svg.selectAll(".chart-title")
 			.data(data)
