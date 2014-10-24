@@ -21,22 +21,18 @@
 			     . (date_format($lower,"G:i")) .
 				"' AS TIME_INTERVAL, FROM_STATION_ID AS STATION_ID, FROM_STATION_NAME AS STATION, COUNT(*) AS TOTAL 
 				FROM trips_data 
-				WHERE 
-				TIME(STR_TO_DATE('". (date_format($lower,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE('". (date_format($higher,"G:i")) . "', '%H:%i')) > TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE('". (date_format($lower,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE('". (date_format($higher,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) GROUP BY STATION UNION ");		
+				WHERE '" . (date_format($lower,"G:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "' 
+				GROUP BY STATION UNION ");
 		} else {
 
 			$sql .= ("SELECT '" 
 			     . (date_format($lower,"G:i")) .
 				"' AS TIME_INTERVAL, FROM_STATION_ID AS STATION_ID, FROM_STATION_NAME AS STATION, COUNT(*) AS TOTAL
 				FROM trips_data 
-				WHERE 
-				TIME(STR_TO_DATE('". (date_format($lower,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE('". (date_format($higher,"G:i")) . "', '%H:%i')) > TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE('". (date_format($lower,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) AND 
-				TIME(STR_TO_DATE('". (date_format($higher,"G:i")) . "', '%H:%i')) <= TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) GROUP BY STATION ");		
+				WHERE '" . (date_format($lower,"G:i")) . "'<= TIME(STR_TO_DATE(STARTTIME,'%m/%d/%Y %H:%i')) AND 
+				TIME(STR_TO_DATE(STOPTIME,'%m/%d/%Y %H:%i')) < '" .(date_format($higher,"G:i")) . "' 
+				GROUP BY STATION ");
 		}
     
   		date_add($lower, date_interval_create_from_date_string( $intervals . " hours"));
