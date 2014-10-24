@@ -1,0 +1,247 @@
+<!--
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<style>
+
+		/*thead td {
+		  cursor: s-resize;
+		}
+		tbody td {
+		  padding: 0;
+		  border-left: solid 1px #000;
+		}
+
+		.stationName {
+		  fill: steelblue;
+		}
+
+		tbody tr:hover rect {
+		  fill: brown;
+		}*/
+		.stationName {
+		  background: rgb(255, 187, 120);
+		}
+		.stationName:hover  {
+		  fill: brown;
+		}
+		#table1{
+			border-collapse: collapse;
+		  	font: 60% sans-serif;
+		  	width: 30%;
+		  	float: left;
+		  	height: 100%;
+		}
+		#table3{
+			border-collapse: collapse;
+		  	font: 60% sans-serif;
+		  	width: 20%;
+		  	float: left;
+		  	height: 100%;
+		}
+		#table2{
+			border-collapse: collapse;
+		  	font: 60% sans-serif;
+		  	float: right;
+		  	width: 30%;
+		  	height: 100%;
+		  	
+		}
+		#table4{
+			border-collapse: collapse;
+		  	font: 60% sans-serif;
+		  	width: 20%;
+		  	height: 100%;
+		  	
+		}
+		.firstHeader{
+			 font-weight: bold;
+			 text-align: left;
+			 border: 1px solid;
+			 width: 70%;
+			 height: 100%;
+			 font-size: medium;
+		}
+		.secondHeader{
+			  font-weight: bold;
+			  text-align: center;
+			  border: 1px solid;
+		}
+		#showTable1{
+			
+		}
+		#showTable2{
+			
+		}
+		#stationsList1{
+		}
+		#stationsList2{
+		}
+		</style>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="App/js/ClassExtension.js"></script>
+		<script src="App/js/compareStations/compareStations.js"></script>
+		<script>
+			var compareStations;
+			function init(){	
+				compareStations = new Compare_Stations;
+				//compareStations.initAppWithCommunity("Near North Side");
+				//compareStations.showCommunityList1();
+				//compareStations.showStationsList1();
+				//compareStations.showCommunityList2();
+				//compareStations.showStationsList2();
+				compareStations.initializeStations();
+				rideDistByCommAndStatApp.startup("#grouprdChart1");
+				}
+		</script>
+    </head>
+		<!--
+		<div id="all" style="width:100%; height:100%; position:fixed; left:0;top:0; background: #fff">
+		 <table id="table1">
+  			<thead>
+				<tr>
+			      <th class="firstHeader">Stations</th>
+				</tr>
+			</thead>
+  			<tbody id="stationsList1">
+  				<!--<tr id="showTable1" width="50%"></tr>-->
+  			<!--</tbody>
+		</table>
+		<table id="table3">
+  			<thead>
+				<tr>
+			      <th class="secondHeader">
+					<div id="communitymenu" style="width:100%; height:100%; background: #fff" align="center">
+						<select name = "communitySelection" id="communitySelection1" onchange="compareStations.setCommunityArea1(this);"> </select>				
+					</div>
+			      </th>
+				</tr>
+			</thead>
+  			<tbody id="showTable1">
+  				<tr>
+  					<table>
+  					<thead>
+  						<tr>
+  							<td>Metric</td>
+  							<td>Value</td>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td>Metric 1</td>
+  							<td>Value 1</td>
+  						</tr>
+  						<tr>
+  							<td>Metric 2</td>
+  							<td>Value 2</td>
+  						</tr>
+  						<tr>
+  							<td>Metric 2</td>
+  							<td>Value 2</td>
+  						</tr>
+  					</tbody>
+  				</table>
+  				</tr>
+  			</tbody>
+		</table>
+		<table id="table4">
+  			<thead>
+				<tr>
+			      <th class="secondHeader">
+					<div id="communitymenu" style="width:100%; height:100%; background: #fff" align="center">
+						<select name = "communitySelection" id="communitySelection2" onchange="compareStations.setCommunityArea2(this);"> </select>				
+					</div>
+			      </th>
+				</tr>
+			</thead>
+  			<tbody id="showTable2">
+  				<!--<tr id="showTable1" width="50%"></tr>-->
+  			<!--</tbody>
+		</table>
+		<table id="table2">
+  			<thead>
+				<tr>
+			      <th class="firstHeader">Stations</th>
+				</tr>
+			</thead>
+  			<tbody id="stationsList2">
+  				<table>
+  					<thead>
+  						<tr>
+  							<td>Metric</td>
+  							<td>Value</td>
+  						</tr>
+  					</thead>
+  					<tbody>
+  						<tr>
+  							<td>Metric 1</td>
+  							<td>Value 1</td>
+  						</tr>
+  						<tr>
+  							<td>Metric 2</td>
+  							<td>Value 2</td>
+  						</tr>
+  						<tr>
+  							<td>Metric 2</td>
+  							<td>Value 2</td>
+  						</tr>
+  					</tbody>
+  				</table>
+  			</tbody>
+		</table>
+		</div>-->
+	<!--	<body onload="init();">	
+		<div id="all" style="width:100%; height:100%; position:fixed; left:0;background: #fff">
+		   <div id="grouprdChart1" style="width:100%; height:48%;  background: #fff"></div>
+		</div>
+    </body>
+</html>
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<style>
+		.axis {
+			font: 10px sans-serif;
+		}
+		.axis path,
+		.axis line {
+			fill: none;
+			stroke: #000;
+			shape-rendering: crispEdges;
+		}
+		</style>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="App/js/ClassExtension.js"></script>
+		<script src="App/js/compareStations/compareStations.js"></script>	
+		<script>
+			//An instance of OriginApp class is created here. Three groups of the visualizations are generated with "Chicago" the default area.;
+			var rideDistByCommAndStatApp;
+			function init(){	
+					rideDistByCommAndStatApp = new Compare;
+					rideDistByCommAndStatApp.showCommunityList();
+					rideDistByCommAndStatApp.showStationsList();
+					rideDistByCommAndStatApp.initAppWithCommunityAndStation("Near North Side","Dayton St & North Ave");
+					rideDistByCommAndStatApp.startup("#barchart1");
+					rideDistByCommAndStatApp.startup("#barchart2");
+				}
+		</script>
+    </head>
+	<body onload="init();">	
+		<div id="all" style="width:100%; height:100%; position:fixed; left:0;background: #fff">
+			<div id="communitymenu" style="width:100%; height:2%; background: #fff" align="center">
+				<select name = "communitySelection" id="communitySelection" 
+                onchange="rideDistByCommAndStatApp.setCommunity(this);">
+                </select>				
+			</div>
+			<div id="stationmenu" style="width:100%; height:2%; background: #fff" align="center">
+				<select name="stationSelection" id="stationSelection" 
+				onchange="rideDistByCommAndStatApp.setStation(this);">
+				</select>
+			</div><hr/>
+		   <div id="barchart1" style="width:100%; height:48%;  background: #fff"></div>
+		   <div id="barchart2" style="width:100%; height:48%;  background: #fff"></div>
+		</div>
+    </body>
+</html>
