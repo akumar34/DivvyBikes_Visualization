@@ -8,10 +8,10 @@
     $connection = mysql_select_db($database, $server);
 
 	$sql = "SELECT TBL1.COMMUNITY, TBL1.AGE_INTERVAL, TBL1.MALE, TBL2.FEMALE FROM
-			(select COMMUNITY,AGE_INTERVAL, SUM(POPULATION) AS MALE from population_by_gender
+			(select COMMUNITY,AGE_INTERVAL, SUM(POPULATION) AS MALE from population_by_gender_age
 			where gender = 'Male' group by COMMUNITY, AGE_INTERVAL
 			ORDER BY AGE_INTERVAL) AS TBL1,
-			(select COMMUNITY, AGE_INTERVAL, SUM(POPULATION) AS FEMALE from population_by_gender
+			(select COMMUNITY, AGE_INTERVAL, SUM(POPULATION) AS FEMALE from population_by_gender_age
 			where gender = 'Female' group by COMMUNITY, AGE_INTERVAL
 			ORDER BY AGE_INTERVAL) AS TBL2
 			WHERE 
