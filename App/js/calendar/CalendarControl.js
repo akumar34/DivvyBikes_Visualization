@@ -2,9 +2,10 @@ var CalendarControl = Class.extend({
 
     construct: function() {
         this.dateAsString = "07/26/2013 00";
-        //this.station = "Dayton St & North Ave";
+        this.station = null;
 
-        this.barMargin = {top: 20, right: 20, bottom: 20, left: 20};
+        //this.barMargin = {top: 20, right: 20, bottom: 20, left: 20};
+        this.areaMargin = {top: 100, right: 20, bottom: 200, left: 110};
         this.barCanvasWidth = 1000;
         this.barCanvasHeight = 500;
 
@@ -74,7 +75,7 @@ var graph = this.svgBar1;
                 case 20 : dataCount[20] +=1; break;
                 case 21 : dataCount[21] += 1; break;
                 case 22 : dataCount[22] += 1; break;
-                case 23 : dataCount[23] += 1; break;
+               case 23 : dataCount[23] += 1; break;
                 default : console.log("default case reached... something wrong");break;
             }
             d.stoptime = new Date(d.stoptime);
@@ -98,7 +99,7 @@ var graph = this.svgBar1;
             .scale(y)
             .orient("left")
             .tickFormat(d3.format(".2s"));
-
+        xAxis.tickSize(-height).tickSubdivide(true);
         var line = d3.svg.line()
                     .x(function(d,i){
                 // verbose logging to show what's actually being done
@@ -107,8 +108,7 @@ var graph = this.svgBar1;
                 return x(i);
             })
                     .y(function(d){
-                //console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
-                // return the Y coordinate where we want to plot this datapoint
+
                 return y(d);
             });
 
@@ -117,18 +117,32 @@ var graph = this.svgBar1;
           .attr("height", height )
           .append("svg:g")
           .attr("transform","translate("+right +"," +top + ")");
+        xAxis.ticks(23);
 
-       xAxis.tickSize(-height).tickSubdivide(true);
-        xAxis.ticks(23)
+
         graph.append("svg:g")
             .attr("class","x axis")
             .attr("transform", "translate(0,"+ height +")")
-        .call(xAxis);
+        .call(xAxis)
+            .append("text")
+            .attr("y", 50)
+            .attr("x", width/2)
+            .attr("dx", ".71em")
+            .style("text-anchor", "middle")
+            .text("Time Interval")
+        ;
 
         graph.append("svg:g")
             .attr("class", "y axis")
-            .attr("transform", "translate(-25,0)")
-            .call(yAxis);
+            //.attr("transform", "translate(-25,0)")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -50)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("#Active Bikes")
+        ;
 
         graph.append("svg:path").attr("d", line(dataCount));
 
@@ -147,9 +161,39 @@ var graph = this.svgBar1;
         var svg = this.svgBar2;
 
         svg.selectAll("*").remove();
-
-        var x = d3.scale.ordinal()
-            .rangeRoundBands([0, width], .1);
+        var dataCount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        data.forEach(function(d) {
+            d.starttime = new Date(d.starttime);
+            switch(d.starttime.getHours()){
+                case 0 : dataCount[0] += 1; break;
+                case 1 : dataCount[1] += 1; break;
+                case 2 : dataCount[2] += 1; break;
+                case 3 : dataCount[3] += 1; break;
+                case 4 : dataCount[4] += 1; break;
+                case 5 : dataCount[5] += 1; break;
+                case 6 : dataCount[6] += 1; break;
+                case 7 : dataCount[7] += 1; break;
+                case 8 : dataCount[8] += 1; break;
+                case 9 : dataCount[9] += 1; break;
+                case 10 : dataCount[10] += 1; break;
+                case 11 : dataCount[11] += 1; break;
+                case 12 : dataCount[12] += 1; break;
+                case 13 : dataCount[13] += 1; break;
+                case 14 : dataCount[14] += 1; break;
+                case 15 : dataCount[15] += 1; break;
+                case 16 : dataCount[16] += 1; break;
+                case 17 : dataCount[17] += 1; break;
+                case 18 : dataCount[18] += 1; break;
+                case 19 : dataCount[19] += 1; break;
+                case 20 : dataCount[20] +=1; break;
+                case 21 : dataCount[21] += 1; break;
+                case 22 : dataCount[22] += 1; break;
+                case 23 : dataCount[23] += 1; break;
+                default : console.log("default case reached... something wrong");break;
+            }
+            d.stoptime = new Date(d.stoptime);
+        });
+        var x = d3.time.scale().range([0, width]);
         var y = d3.scale.linear()
             .rangeRound([height, 0]);
         var color = d3.scale.ordinal()
@@ -291,5 +335,8 @@ var graph = this.svgBar1;
 
         this.myTag = "#Vis2";
         this.updateData();
+    },
+    updateStation: function(stationArray){
+        this.station = stationArray;
     }
 });
