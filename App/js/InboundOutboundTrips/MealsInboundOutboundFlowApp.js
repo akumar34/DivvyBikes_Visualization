@@ -1,13 +1,9 @@
-var GenderDistByCommApp = Class.extend({
+var MealsInboundOutboundFlowApp = Class.extend({
 
 	construct: function() {
-		//this.community = "Near North Side";
-		
-		this.community = null;
-		
 		this.barMargin = {top: 100, right: 20, bottom: 200, left: 110};
-		this.barCanvasWidth = 1900;
-		this.barCanvasHeight = 150;
+		this.barCanvasWidth = 1200;
+		this.barCanvasHeight = 400;
 
 		this.barWidth = 0;
 		this.barHeight = 0;
@@ -18,38 +14,12 @@ var GenderDistByCommApp = Class.extend({
 	},
 
 	/////////////////////////////////////////////////////////////
-	//Begin the application with a specific community instead of the default Chicago.
-	initAppWithCommunity: function(community)
-	{
-		this.community = community;
-	},
-
-	/////////////////////////////////////////////////////////////
 
 	startup: function (whereToRender)
 	{
 		this.myTag = whereToRender;
 		this.updateScreen();
 	},
-	//Code Added by Theja to get Drop down values
-	showCommunityList: function(){
-        
-        d3.json("json/bikesDistTime/Communities.json",function(json){
-            //populate dropdown
-            var community = d3.select("#communitySelection");
-            community.selectAll("option")
-                .data(json)
-                .enter()
-                .append("option")
-                .attr("value",function(data){
-                        return data.name;
-                })
-                .text(function(data,index){ 
-                    return data.name;
-                   
-                });
-        });
-    },
 
 	/////////////////////////////////////////////////////////////
 
@@ -58,7 +28,6 @@ var GenderDistByCommApp = Class.extend({
 	{
 		var width = this.barCanvasWidth;
 		var height = this.barCanvasHeight;
-		var community = this.community;
 		var svg = this.svgBar;
 		
 		svg.selectAll("*").remove();
@@ -72,8 +41,8 @@ var GenderDistByCommApp = Class.extend({
 				.range([height, 0]);
 				
 		var color = d3.scale.ordinal()
-			.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);		
-			
+			.range(["#98abc5", "#8a89a6"]);
+
 		var xAxis = d3.svg.axis()
 			.scale(x0)
 			.orient("bottom");
@@ -83,12 +52,12 @@ var GenderDistByCommApp = Class.extend({
 			.orient("left")
 			.tickFormat(d3.format(".2s"));
 				
-		var genderNames = d3.keys(data[0]).filter(function(key) { 
-			return key === "MALE" || key === "FEMALE";
+		var flowNames = d3.keys(data[0]).filter(function(key) { 
+			return key === "INBOUND" || key === "OUTBOUND";
 		});
 				
 		data.forEach(function(d) {
-			d.genders = genderNames.map(function(name) { 
+			d.flows = flowNames.map(function(name) { 
 				return {
 					name: name, value: +d[name]
 				}; 
@@ -96,19 +65,12 @@ var GenderDistByCommApp = Class.extend({
 		});
 				
 		x0.domain(data.map(function(d) { 
-			return d.AGE_INTERVAL; 
+			return d.TIME_INTERVAL; 
 		}));
-		x1.domain(genderNames).rangeRoundBands([0, x0.rangeBand()]);
-		//y.domain([0, d3.max(Map, function(d) {
-		//	return d3.max(d.genders, function(d) { 
-		//		return d.value; 
-		//}); })]);
-		
-		y.domain([0, d3.max(
-			data.filter(function(d){return d.COMMUNITY === community;}), 
-			function(d) { 
-				return d3.max(d.genders, function(d) { 
-					return d.value; 
+		x1.domain(flowNames).rangeRoundBands([0, x0.rangeBand()]);
+		y.domain([0, d3.max(data, function(d) { 
+			return d3.max(d.flows, function(d) { 
+				return d.value; 
 		}); })]);
 		
 		svg.append("g")
@@ -124,37 +86,35 @@ var GenderDistByCommApp = Class.extend({
 			.attr("y", 6)
 			.attr("dy", ".71em")
 			.style("text-anchor", "end")
-			.text("Population");
+			.text("Number of Trips");
 				
-		var age_interval = svg.selectAll(".age_interval")
-			.data(data.filter(function(d){
-				return d.COMMUNITY === community;
-			}))
+		var age_interval = svg.selectAll(".time_interval")
+			.data(data)
 			.enter().append("g")
 			.attr("class", "g")
 			.attr("transform", function(d) { 
-				return "translate(" + x0(d.AGE_INTERVAL) + ",0)"; 
+				return "translate(" + x0(d.TIME_INTERVAL) + ",0)"; 
 			})
 			
 		age_interval.selectAll("rect")
-			.data(function(d) { return d.genders; })
+			.data(function(d) { return d.flows; })
 			.enter().append("rect")
 			.attr("width", x1.rangeBand())
 			.attr("x", function(d) { 
 				return x1(d.name); 
 			})
 			.attr("y", function(d) {
-				return y(d.value); 
+				return y(+d.value);
 			})
 			.attr("height", function(d) { 
-				return height - y(d.value); 
+				return height - y(+d.value);
 			})
 			.style("fill", function(d) { 
 				return color(d.name); 
 			});				
 
 		var legend = svg.selectAll(".legend")
-			.data(genderNames.slice().reverse())
+			.data(flowNames.slice().reverse())
 			.enter().append("g")
 			.attr("class", "legend")
 			.attr("transform", function(d, i) { 
@@ -177,17 +137,15 @@ var GenderDistByCommApp = Class.extend({
 		});
 						
 		svg.selectAll(".chart-title")
-			.data(data.filter(function(d){
-				return d.COMMUNITY === community;
-			}))
+			.data(data)
 		   .enter()
 		   .append("text")
 		   .attr("x", width/2)
-		   .attr("y", height-200)
+		   .attr("y", height-600)
 		   .attr("text-anchor","middle")
 		   .attr("font-family", "sans-serif")
 		   .attr("font-size","20pt")
-		   .text("Population By Gender Bar Chart");
+		   .text("Inbound Outbound Meals Bar Chart");
 	},
 
 	/////////////////////////////////////////////////////////////
@@ -214,7 +172,7 @@ var GenderDistByCommApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "json/RiderDemographics/population_by_gender__age_community_2.php";
+		var fileToLoad = "../App/json/InboundOutboundTrips/meals_inbound_outbound_flow.json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
@@ -222,15 +180,7 @@ var GenderDistByCommApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateScreen: function (){
-		this.updateWindow();
-		this.updateData();
-	},
-
-	/////////////////////////////////////////////////////////////
-	
-	setCommunity: function(community){
-		this.community = community.value;
-		this.myTag = "#barchart";
-		this.updateData();
-	},
+	  this.updateWindow();
+	  this.updateData();
+	}
 });

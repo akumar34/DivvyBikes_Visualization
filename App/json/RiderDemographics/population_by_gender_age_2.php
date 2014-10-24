@@ -8,9 +8,9 @@
     $connection = mysql_select_db($database, $server);
 
 	$sql = "SELECT TBL1.AGE_INTERVAL, TBL1.MALE, TBL2.FEMALE FROM
-			(select AGE_INTERVAL, SUM(POPULATION) AS MALE from population_by_gender
+			(select AGE_INTERVAL, SUM(POPULATION) AS MALE from population_by_gender_age
 			where gender = 'Male' group by AGE_INTERVAL) AS TBL1,
-			(select AGE_INTERVAL, SUM(POPULATION) AS FEMALE from population_by_gender
+			(select AGE_INTERVAL, SUM(POPULATION) AS FEMALE from population_by_gender_age
 			where gender = 'Female' group by AGE_INTERVAL) AS TBL2
 			WHERE TBL1.AGE_INTERVAL = TBL2.AGE_INTERVAL
 			GROUP BY TBL1.AGE_INTERVAL";
