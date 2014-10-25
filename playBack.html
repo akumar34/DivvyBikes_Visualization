@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <style>
@@ -40,12 +41,12 @@
     <script src="App/Map/jquery-timpicker-ui.js"></script>
     <script src="App/js/ClassExtension.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-
-<script src="App/js/calendar/CalendarControl.js"></script>
+    <script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js"></script>
+    <script src="App/js/calendar/CalendarControl.js"></script>
     <script>
-        var CalendarApp;
-        function init(){
-            CalendarApp = new CalendarControl();
+
+        function init() {
+
             CalendarApp.startup('#Vis1');
             CalendarApp.startup('#Vis2');
 
@@ -55,7 +56,8 @@
 <body onload="init()">
 <div id="container" style="position: relative;float: left;width: 100%;height:100%;">
 
-    <div id="leftContainer" style="position: relative;float: left;width:34%;height: 100%;border-right: thin solid #d3d3d3;">
+    <div id="leftContainer"
+         style="position: relative;float: left;width:34%;height: 100%;border-right: thin solid #d3d3d3;">
         <div id="calView" style="position: relative;float: left;width: 100%;height: 45%;">
             <div id="datetimepicker"></div>
             <script>
@@ -69,22 +71,24 @@
                     timeFormat: 'HH',
                     showButtonPanel: false,
                     defaultDate: new Date(2013, 6, 1),
-                    minDate: new Date(2013,6,1),
-                    maxDate:new Date(2013,11,31),
+                    minDate: new Date(2013, 6, 1),
+                    maxDate: new Date(2013, 11, 31),
                     inline: true,
-                    onSelect: function(dateText, inst) {
+                    onSelect: function (dateText, inst) {
                         var dateAsString;
                         var dateAsObject;
                         dateAsString = dateText; //the first parameter of this function
-                        dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
+                        dateAsObject = $(this).datepicker('getDate'); //the getDate method
                         dateAsObject = $.datepicker.formatDate('mm/dd/yy', new Date(dateAsObject));
                         var div = document.getElementById("DateAndTimePickerValue");
 //                        div.value = '';
-                        div.innerHTML =  dateAsString;
-                       //$("#DateAndTimePickerValue").innerHTML = dateAsString;
+                        div.innerHTML = dateAsString;
+                        //$("#DateAndTimePickerValue").innerHTML = dateAsString;
+                        usWeatherApp.drawTrips(dateAsString + ":00");
                         CalendarApp.setDateAndTime(dateAsString);
-                        console.log("This is it : " + dateAsString)
-                      }
+                       // localStorage.setItem("DateUpdate", dateAsString+":00");
+                        console.log("This is it : " + dateAsString);
+                    }
 
                 });
 
@@ -103,6 +107,7 @@
         </div>
         <div id="activeBikes" style="position: relative;float: left;width: 100%;height: 10%;">
             <label id="activeBikesLabel">Active Bikes: </label><label id="activeBikesData">Active Bikes: </label>
+
             <div id="noOfBikes"></div>
         </div>
         <div id="Vis2" style="position: relative;float: left;width: 100%;height: 45%;">

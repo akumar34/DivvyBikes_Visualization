@@ -2,15 +2,31 @@
 <head>
     <title>Bicycle Race!</title>
     <script>
-        function disableResize()
-        {
-            parent.document.getElementById("leftframe").noResize=true;
-            parent.document.getElementById("rightframe").noResize=true;
+        function disableResize() {
+            parent.document.getElementById("leftframe").noResize = true;
+            parent.document.getElementById("rightframe").noResize = true;
+        }
+
+    </script>
+    <script type="text/javascript">
+        var CalControlFromOtherPage = localStorage.getItem("CalControl");
+        var usWeatherApp;
+        var CalendarApp;
+       // console.log('Inside Init1');
+        function init() {
+           // console.log('Inside Init2');
+            CalendarApp = new CalendarControl();
+            usWeatherApp = new USweatherApp;
+
+           // console.log('Inside Init3');
+            //localStorage.setItem("DateTakingObject", usWeatherApp);
+
+            //store.set("DateTakingObject", usWeatherApp);
         }
 
     </script>
 </head>
-<frameset id="mainContainer" cols="25%,75%">
+<frameset id="mainContainer" cols="25%,75%" onload="init()">
     <frame id="leftframe" frameborder="No" border="0" scrolling="No" src="map.html">
     <frame id="rightframe" frameborder="No" border="0" scrolling="Yes" src="graphs.html" name="TargetPage">
 </frameset>
