@@ -11,6 +11,7 @@
     <script src="App/js/ClassExtension.js"></script>
     <script src="App/js/calendar/CalendarControl.js"></script>
     <script src="./App/js/CalendarPlayBack.js"></script>
+    <script src="App/js/USWeatherApp.js"></script>
     <script type="text/javascript">
         var CalControlFromOtherPage = localStorage.getItem("CalControl");
         var usWeatherApp;
@@ -19,7 +20,7 @@
         function init() {
            // console.log('Inside Init2');
             CalendarApp = new CalendarControl();
-            usWeatherApp = new USweatherApp;
+            usWeatherApp = new USweatherApp();
 
            // console.log('Inside Init3');
             //localStorage.setItem("DateTakingObject", usWeatherApp);
