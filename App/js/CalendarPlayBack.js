@@ -804,13 +804,14 @@ var svg = null;
     var mapURL1 = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
     var mapCopyright1 = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
 
-    var Grayscale = L.tileLayer(mapURL1, {attribution: mapCopyright1}),
-        Aerial   =  L.tileLayer(mapURL2, {attribution: mapCopyright2}),
+    var Aerial = L.tileLayer(mapURL1, {attribution: mapCopyright1}),
+        Grayscale   =  L.tileLayer(mapURL2, {attribution: mapCopyright2}),
         map3 = L.tileLayer(mapURL3, {attribution: mapCopyright3});
 
     var baseLayers = {
+        "Aerial": Aerial,
         "Grayscale": Grayscale,
-        "Aerial": Aerial
+
     };
 
     var Communities = new L.LayerGroup();

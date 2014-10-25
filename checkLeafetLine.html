@@ -84,61 +84,7 @@
                 
                 text-align: center;
             }
-            ul.tabs {
-    margin:0 !important;
-    padding:0;
-    height:30px;
-    border-bottom:1px solid #666;
-}
 
-/* single tab */
-ul.tabs li {
-    float:left;
-    padding:0;
-    margin:0;
-    list-style-type:none;
-}
-
-/* link inside the tab. uses a background image */
-ul.tabs a {
-    float:left;
-    font-size:13px;
-    display:block;
-    padding:5px 30px;
-    text-decoration:none;
-    border:1px solid #666;
-    border-bottom:0px;
-    height:18px;
-    background-color:#efefef;
-    color:#777;
-    margin-right:2px;
-    position:relative;
-    top:1px;
-    outline:0;
-    -moz-border-radius:4px 4px 0 0;
-}
-
-ul.tabs a:hover {
-    background-color:#F7F7F7;
-    color:#333;
-}
-
-/* selected tab */
-ul.tabs a.current {
-    background-color:#ddd;
-    border-bottom:1px solid #ddd;
-    color:#000;
-    cursor:default;
-} 
-
-/* tab pane */
-.panes {
-    border:1px solid #666;
-    border-width:0 1px 1px 1px;
-    min-height:150px;
-    padding:15px 20px;
-    background-color:#ddd;
-}
         </style>
 
         <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -149,9 +95,8 @@ ul.tabs a.current {
             <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
             <script type="text/javascript">
-                $(document).ready(function(e) {
-                    $('.tabs').tabs();
-                });
+                
+                console.log('Run this sss');
 
                 var usWeatherApp;
                    console.log('Inside Init1');
@@ -165,161 +110,475 @@ ul.tabs a.current {
             </script>
             <script src="./App/js/suncalc.js"></script>
 
-
     </head>
     <body>
         <script type="text/javascript">
         </script>
         <div id="map" style="width: 1100px; height: 600px"></div>
-        <!-- the tabs -->
 
+        <div id="buttons" style="width:100%; height:10%; text-align: center; background: #fff">
+            <input name="updateButton1" 
+                     type="button" 
+                    value="Zoom In" 
+                    onclick="map.zoomIn()" />
+            <input name="updateButton2" 
+                     type="button" 
+                    value="Zoom Out" 
+                    onclick="map.zoomOut()" />
+            <input name="updateButton3" 
+                    type="button"
+                    value="Compare Mode"
+                    onclick="setMap(1)"/>
+            <input name="updateButton3" 
+                    type="button"
+                    value="Pattern Mode"
+                    onclick="setMap(2)"/>
+            <input name = "calendarView" 
+                    type = "Button"
+                    value = "Calendar Mode"
+                    onclick = "setMap(3)"
+                    />
+            <input name="TimeControl" id = "TimeControl" type="text"/>            
+                <section class="container">
+                    <div>
+                        <select id="Chicago_Data" onchange="updateDropDownTarget()">
+                            <option id="Stations" class="Stations" size= "4" >Stations</option>
+                            <option id="Communities" class="Communities" size ="4">Communities</option>
+                        </select>
 
-            <div id="buttons" style="width:100%; height:10%; text-align: center; background: #fff">
-                <input name="updateButton1" 
-                         type="button" 
-                        value="Zoom In" 
-                        onclick="map.zoomIn()" />
-                <input name="updateButton2" 
-                         type="button" 
-                        value="Zoom Out" 
-                        onclick="map.zoomOut()" />
-                <input name="updateButton3" 
-                        type="button"
-                        value="Compare Mode"
-                        onclick="setMap(1)"/>
-                <input name="updateButton3" 
-                        type="button"
-                        value="Pattern Mode"
-                        onclick="setMap(2)"/>
-                <input name = "calendarView" 
-                        type = "Button"
-                        value = "Calendar Mode"
-                        onclick = "setMap(3)"
-                        />
-                <input name="TimeControl" id = "TimeControl" type="text"/>   
+                        <select id="leftValues1" name="Stations" size="5" multiple></select>
+                        <select id="leftValues2" name="Communities" size="5" multiple></select>
+                            <input type="button" id="btnLeft" value="&lt;&lt;" />
+                            <input type="button" id="btnRight" value="&gt;&gt;" />
+                        <select id="rightValues1" name="Stations" size="4" multiple>
+                            <option>Wilton Ave & Diversey Pkwy</option>
+                            <option>Morgan St & 18th St</option>
+                            <option>Racine Ave & 18th St</option>
+                            <option>Wood St & North Ave</option>
+                            <option>Wood St & Division St</option>
+                            <option>Loomis St & Taylor St</option>
+                            <option>Sheffield Ave & Kingsbury St</option>
+                            <option>Aberdeen St & Jackson Blvd</option>
+                            <option>May St & Taylor St</option>
+                            <option>Orleans St & Elm St</option>
+                            <option>Fairbanks Ct & Grand Ave</option>
+                            <option>Michigan Ave & Pearson St</option>
+                            <option>McClurg Ct & Illinois St</option>
+                            <option>Larrabee St & North Ave</option>
+                            <option>Larrabee St & Menomonee St</option>
+                            <option>Noble St & Milwaukee Ave</option>
+                            <option>Ashland Ave & Augusta Blvd</option>
+                            <option>Franklin St & Chicago Ave</option>
+                            <option>Racine Ave & Congress Pkwy</option>
+                            <option>State St & Van Buren St</option>
+                            <option>Cannon Dr & Fullerton Ave</option>
+                            <option>Streeter Dr & Illinois St</option>
+                            <option>Franklin St & Jackson Blvd</option>
+                            <option>Dearborn St & Adams St</option>
+                            <option>Wabash Ave & Cermak Rd</option>
+                            <option>Michigan Ave & Washington St</option>
+                            <option>State St & Randolph St</option>
+                            <option>Michigan Ave & Congress Pkwy</option>
+                            <option>Wells St & Walton St</option>
+                            <option>State St & Kinzie St</option>
+                            <option>Larrabee St & Kingsbury St</option>
+                            <option>Dearborn St & Monroe St</option>
+                            <option>Clark St & Congress Pkwy</option>
+                            <option>Clark St & Randolph St</option>
+                            <option>Michigan Ave & Lake St</option>
+                            <option>Wells St & Erie St</option>
+                            <option>Ogden Ave & Chicago Ave</option>
+                            <option>Halsted St & James M Rochford St</option>
+                            <option>Desplaines St & Kinzie St</option>
+                            <option>Clinton St & Roosevelt Rd</option>
+                            <option>Ashland Ave & Armitage Ave</option>
+                            <option>Wabash Ave & Roosevelt Rd</option>
+                            <option>Dayton St & North Ave</option>
+                            <option>Wood St & Milwaukee Ave</option>
+                            <option>McCormick Place</option>
+                            <option>Clinton St & Lake St</option>
+                            <option>Sheffield Ave & Fullerton Ave</option>
+                            <option>Clinton St & Tilden St</option>
+                            <option>Damen Ave & Pierce Ave</option>
+                            <option>Morgan St & Lake St</option>
+                            <option>State St & 16th St</option>
+                            <option>Jefferson St & Monroe St</option>
+                            <option>Kingsbury St & Erie St</option>
+                            <option>Canal St & Jackson Blvd</option>
+                            <option>Lake Shore Dr & Monroe St</option>
+                            <option>Clinton St & Madison St</option>
+                            <option>Aberdeen St & Madison St</option>
+                            <option>Daley Center Plaza</option>
+                            <option>Green St & Milwaukee Ave</option>
+                            <option>Michigan Ave & Oak St</option>
+                            <option>Eckhart Park</option>
+                            <option>Racine Ave & Fullerton Ave</option>
+                            <option>May St & Randolph St</option>
+                            <option>Millennium Park</option>
+                            <option>Clinton St & Washington Blvd</option>
+                            <option>Carpenter St & Huron St </option>
+                            <option>Sheffield Ave & Willow St</option>
+                            <option>Lincoln Ave & Armitage Ave</option>
+                            <option>Museum Campus</option>
+                            <option>LaSalle St & Washington St</option>
+                            <option>Lake Shore Dr & Ohio St</option>
+                            <option>Orleans St & Merchandise Mart Plaza</option>
+                            <option>State St & Pearson St</option>
+                            <option>Halsted St & Polk St</option>
+                            <option>900 W Harrison</option>
+                            <option>State St & Erie St</option>
+                            <option>Sedgwick St & Huron St</option>
+                            <option>Green St & Randolph St</option>
+                            <option>Bissell St & Armitage Ave</option>
+                            <option>Sheffield Ave & Addison St</option>
+                            <option>Sheffield Ave & Wellington Ave</option>
+                            <option>Western Ave & Winnebago Ave</option>
+                            <option>Wilton Ave & Belmont Ave</option>
+                            <option>Sedgwick St & North Ave</option>
+                            <option>Ashland Ave & Lake St</option>
+                            <option>Wentworth Ave & Archer Ave</option>
+                            <option>Blackstone Ave & Hyde Park Blvd</option>
+                            <option>Congress Pkwy & Ogden Ave</option>
+                            <option>California Ave & Milwaukee Ave</option>
+                            <option>Damen Ave & Cullerton St</option>
+                            <option>Clark St & North Ave</option>
+                            <option>Lincoln Ave & Fullerton Ave</option>
+                            <option>Damen Ave & Chicago Ave</option>
+                            <option>Blue Island Ave & 18th St</option>
+                            <option>Damen Ave & Division St</option>
+                            <option>Lincoln Ave & Belmont Ave</option>
+                            <option>Wentworth Ave & 24th St</option>
+                            <option>Peoria St & Jackson Blvd</option>
+                            <option>Halsted St & 21st St</option>
+                            <option>Racine Ave & 13th St</option>
+                            <option>Morgan Ave & 14th Pl</option>
+                            <option>Clybourn Ave & Division St</option>
+                            <option>Dearborn Pkwy & Delaware Pl</option>
+                            <option>Clark St & Lincoln Ave  </option>
+                            <option>Sedgwick St & Webster Ave</option>
+                            <option>Larrabee St & Webster Ave</option>
+                            <option>Loomis St & Jackson Blvd</option>
+                            <option>Indiana Ave & 26th St</option>
+                            <option>State St & 33rd St</option>
+                            <option>Calumet Ave & 33rd St</option>
+                            <option>Fort Dearborn Dr & 31st St</option>
+                            <option>Lincoln Ave & Diversey Pkwy</option>
+                            <option>Southport Ave & Wellington Ave</option>
+                            <option>Southport Ave & Belmont Ave</option>
+                            <option>Clark St & Wellington Ave</option>
+                            <option>Lake Shore Dr & Wellington Ave</option>
+                            <option>Milwaukee Ave & Wabansia Ave</option>
+                            <option>Claremont Ave & Hirsch St</option>
+                            <option>Campbell Ave & North Ave</option>
+                            <option>Damen Ave & Wellington Ave</option>
+                            <option>Paulina St & Diversey Pkwy</option>
+                            <option>Franklin St & Lake St</option>
+                            <option>Clark St & Waveland Ave</option>
+                            <option>Ashland Ave & Wrightwood Ave</option>
+                            <option>Damen Ave & Coulter St</option>
+                            <option>Michigan Ave & 14th St</option>
+                            <option>Canal St & Harrison St</option>
+                            <option>Clinton St & 18th St</option>
+                            <option>May St & Cullerton St</option>
+                            <option>Mies van der Rohe Way & Chicago Ave</option>
+                            <option>Canal St & Madison St</option>
+                            <option>Wells St & Polk St</option>
+                            <option>Clark St & Elm St</option>
+                            <option>Theater on the Lake</option>
+                            <option>State St & 19th St</option>
+                            <option>Martin Luther King Dr & Oakwood Blvd</option>
+                            <option>LaSalle St & Illinois St</option>
+                            <option>Damen Ave & Augusta Blvd</option>
+                            <option>State St & 35th St</option>
+                            <option>Stave St & Armitage Ave</option>
+                            <option>Ogden Ave & Race Ave</option>
+                            <option>Greenview Ave & Fullerton Ave</option>
+                            <option>Southport Ave & Wrightwood Ave</option>
+                            <option>Canal St & Monroe St</option>
+                            <option>Canal St & Adams St</option>
+                            <option>State St & 29th St</option>
+                            <option>State St & Wacker Dr</option>
+                            <option>Columbus Dr & Randolph St</option>
+                            <option>Cityfront Plaza & N Water St</option>
+                            <option>Michigan Ave & Madison St</option>
+                            <option>Halsted St & Madison St</option>
+                            <option>Wabash Ave & Grand Ave</option>
+                            <option>King Dr & 47th St</option>
+                            <option>Indiana Ave & 40th St</option>
+                            <option>Halsted St & 18th St</option>
+                            <option>Western Ave & 21st St</option>
+                            <option>Prairie Ave & Garfield Blvd</option>
+                            <option>Paulina St & 18th St</option>
+                            <option>Halsted St & Archer Ave</option>
+                            <option>Emerald Ave & 28th St</option>
+                            <option>Ashland Ave & 21st St</option>
+                            <option>Normal Ave & Archer Ave</option>
+                            <option>Ashland Ave & Division St</option>
+                            <option>St Clair St & Erie St</option>
+                            <option>Wells St & Ohio St</option>
+                            <option>Leavitt St & North Ave</option>
+                            <option>Damen Ave & Grand Ave</option>
+                            <option>Damen Ave & Madison St</option>
+                            <option>California Ave & Division St</option>
+                            <option>May St & Fulton St</option>
+                            <option>Wells St & 19th St</option>
+                            <option>Damen Ave & Cortland Ave</option>
+                            <option>Hampden Ct & Diversey Pkwy</option>
+                            <option>Milwaukee Ave & Rockwell St</option>
+                            <option>Clifton Ave & Armitage Ave</option>
+                            <option>Halsted St & Willow St</option>
+                            <option>Halsted St & Dickens Ave</option>
+                            <option>Racine Ave & Belmont Ave</option>
+                            <option>Southport Ave & Waveland Ave</option>
+                            <option>Damen Ave & Melrose Ave</option>
+                            <option>Southport Ave & Roscoe St</option>
+                            <option>Lincoln Ave & Roscoe St</option>
+                            <option>Sheridan Rd & Montrose Ave</option>
+                            <option>Pine Grove Ave & Addison St</option>
+                            <option>Sangamon St & Washington Blvd</option>
+                            <option>Clark St & Montrose Ave</option>
+                            <option>Sedgwick St & Schiller St</option>
+                            <option>Martin Luther King Dr & 29th St</option>
+                            <option>Ravenswood Ave & Montrose Ave</option>
+                            <option>Western Ave & Leland Ave</option>
+                            <option>Sheridan Rd & Irving Park Rd</option>
+                            <option>Morgan St & Polk St</option>
+                            <option>Damen Ave & Leland Ave</option>
+                            <option>Lincoln Ave & Leavitt St</option>
+                            <option>Ravenswood Ave & Irving Park Rd</option>
+                            <option>Clarendon Ave & Junior Ter</option>
+                            <option>Ashland Ave & Belle Plaine Ave</option>
+                            <option>Shore Drive & 55th St</option>
+                            <option>Woodlawn Ave & 55th St</option>
+                            <option>Montrose Harbor</option>
+                            <option>Ashland Ave & Wellington Ave</option>
+                            <option>Clarendon Ave & Leland Ave</option>
+                            <option>Greenwood Ave & 47th St</option>
+                            <option>Clifton Ave & Lawrence Ave</option>
+                            <option>Pine Grove Ave & Irving Park Rd</option>
+                            <option>Indiana Ave & Roosevelt Rd</option>
+                            <option>Broadway & Sheridan Rd</option>
+                            <option>Lincoln Ave & Waveland Ave</option>
+                            <option>Logan Blvd & Elston Ave</option>
+                            <option>California Ave & Francis Pl</option>
+                            <option>Kedzie Ave & Milwaukee Ave</option>
+                            <option>Hermitage Ave & Polk St</option>
+                            <option>Halsted St & 37th St</option>
+                            <option>Rhodes Ave & 32nd St</option>
+                            <option>Stetson Ave & South Water St</option>
+                            <option>Cottage Grove Ave & Oakwood Blvd</option>
+                            <option>Lake Park Ave & 47th St</option>
+                            <option>Lake Shore Dr & North Blvd</option>
+                            <option>Cottage Grove Ave & 43rd St</option>
+                            <option>Indiana Ave & 31st St</option>
+                            <option>Michigan Ave & 18th St</option>
+                            <option>Racine Ave & 15th St</option>
+                            <option>Ashland Ave & 13th St</option>
+                            <option>California Ave & North Ave</option>
+                            <option>Ashland Ave & Grand Ave</option>
+                            <option>Wallace Ave & 35th St</option>
+                            <option>Halsted St & 35th St</option>
+                            <option>Morgan St & 31st St</option>
+                            <option>Western Ave & 24th St</option>
+                            <option>Halsted St & Maxwell St</option>
+                            <option>LaSalle St & Jackson Blvd</option>
+                            <option>Michigan Ave & Jackson Blvd</option>
+                            <option>Wood St & Grand Ave</option>
+                            <option>Franklin St & Quincy St</option>
+                            <option>Franklin St & Arcade Pl</option>
+                            <option>Larrabee St & Armitage Ave</option>
+                            <option>Wells St & Concord Ln</option>
+                            <option>Kedzie Ave & Palmer Ct</option>
+                            <option>Wells St & Evergreen Ave</option>
+                            <option>Southport Ave & Clark St</option>
+                            <option>Broadway & Wilson Ave</option>
+                            <option>Broadway & Berwyn Ave</option>
+                            <option>Broadway & Argyle St</option>
+                            <option>Broadway & Belmont Ave</option>
+                            <option>Paulina St & Montrose Ave</option>
+                            <option>Lincoln Ave & Belle Plaine Ave</option>
+                            <option>Halsted St & Roscoe St</option>
+                            <option>Broadway & Barry Ave</option>
+                            <option>Clark St & Schiller St</option>
+                            <option>Sheffield Ave & Wrightwood Ave</option>
+                            <option>Broadway & Cornelia Ave</option>
+                            <option>Halsted St & Waveland Ave</option>
+                            <option>Western Ave & Division St</option>
+                            <option>Sheridan Rd & Buena Ave</option>
+                            <option>Southport Ave & Clybourn Ave</option>
+                            <option>Seeley Ave & Roscoe St</option>
+                            <option>Leavitt St & Armitage Ave</option>
+                            <option>Damen Ave & Charleston St</option>
+                            <option>Lincoln Ave & Eastwood Ave</option>
+                            <option>Clarendon Ave & Gordon Ter</option>
+                            <option>Lakeview Ave & Fullerton Pkwy</option>
+                            <option>Ravenswood Ave & Berteau Ave</option>
+                            <option>Leavitt St & Hirsch St</option>
+                            <option>Damen Ave & Sunnyside Ave</option>
+                            <option>Wood St & Taylor St </option>
+                            <option>Southport Ave & Irving Park Rd</option>
+                            <option>Greenview Ave & Diversey Pkwy</option>
+                            <option>Loomis St & Lexington St</option>
+                            <option>Wabash Ave & 8th St</option>
+                            <option>Kimbark Ave & 53rd St</option>
+                            <option>Sheridan Rd & Lawrence Ave</option>
+                            <option>Stockton Dr & Wrightwood Ave</option>
+                            <option>Clark St & Winnemac Ave</option>
+                            <option>Clark St & Leland Ave</option>
+                            <option>Sheffield Ave & Webster Ave</option>
+                            <option>Ellis Ave & 58th St</option>
+                            <option>Lake Shore Dr & Diversey Pkwy</option>
+                            <option>Lincoln Ave & Addison St</option>
+                            <option>Halsted St & Blackhawk St</option>
+                            <option>Halsted St & Diversey Pkwy</option>
+                            <option>Ashland Ave & Blackhawk St</option>
+                            <option>Lake Shore Dr & Belmont Ave</option>
+                            <option>Calumet Ave & 35th St</option>
+                            <option>Cottage Grove Ave & 47th St</option>
+                            <option>Clark St & Chicago Ave</option>
+                            <option>Calumet Ave & 18th St</option>
+                            <option>Emerald Ave & 31st St</option>
+                            <option>Clark St & Wrightwood Ave</option>
+                            <option>Adler Planetarium</option>
+                            <option>Wolcott Ave & Polk St</option>
+                            <option>Racine Ave & Wrightwood Ave</option>
+                            <option>Wolcott Ave & Lawrence Ave</option>
+                            <option>Lake Park Ave & 56th St</option>
+                            <option>Ada St & Washington Blvd</option>
+                            <option>Ashland Ave & Grace St</option>
+                            <option>California Ave & 21st St</option>
+                            <option>Halsted St & Wrightwood Ave</option>
+                            <option>Ashland Ave & Chicago Ave</option>
+                            <option>Cottage Grove Ave & 51st St</option>
+                        </select>
 
-            </div>
+                        <select id="rightValues2" name ="Communities" size ="4" multiple>
+                            <option>The Loop</option>
+                            <option>Lincoln Park</option>
+                            <option>Lower West Side</option>
+                            <option>West Town</option>
+                            <option>Near West Side</option>
+                            <option>Near North Side</option>
+                            <option>Near South Side</option>
+                            <option>Logan Square</option>
+                            <option>Lake View</option>
+                            <option>Armour Square</option>
+                            <option>Hyde Park</option>
+                            <option>Douglas</option>
+                            <option>North Center</option>
+                            <option>Grand Boulevard</option>
+                            <option>Chicago Loop</option>
+                            <option>Washington Park</option>
+                            <option>Bridgeport</option>
+                            <option>Uptown</option>
+                            <option>Lincoln Square</option>
+                            <option>Kenwood</option>
+                            <option>O'Hare</option>
+                            <option>Oakland</option>
+                            <option>Edge Water</option>
+                            <option>South Lawndale</option>
+                        </select>
+                    </div>
+                </section>
+            <script>
+                function initDropDownChangeHandler (){
+                    init();
+                    //divvyBikeLayer();
+                    var element = document.getElementById("Chicago_Data");
+                    element.onchange = updateDropDownTarget;
+                    element.onchange();
+                }
 
-            <ul class="tabs">
-                <li><a href="#first">Tab 1</a></li>
-                <li><a href="#second">Tab 2</a></li>
-                <li><a href="#third">Tab 3</a></li>
+                function updateDropDownTarget(){
+                    var id = this.options[this.selectedIndex].value;   
 
-                <div id="first">    
-                    This is first
-                    <script>
-                        function initDropDownChangeHandler (){
-                            init();
-                            //divvyBikeLayer();
-                            var element = document.getElementById("Chicago_Data");
-                            element.onchange = updateDropDownTarget;
-                            element.onchange();
-                        }
+                    var getTag = this.parentNode.getElementsByTagName("select");
+                    var length = getTag.length;
 
-                        function updateDropDownTarget(){
-                            var id = this.options[this.selectedIndex].value;   
+                    console.log("length" + length);
 
-                            var getTag = this.parentNode.getElementsByTagName("select");
-                            var length = getTag.length;
+                    for (var indx = length - 1; indx > 0; --indx) {
+                        if (getTag[indx].name == id)  {
+                            getTag[indx].style.display = "inline";
+                        }   
+                        else {
+                            getTag[indx].style.display = "none";
+                        }    
+                    }
+                    var e1 = document.getElementById("Chicago_Data");
+                    var e2 = e1.options[e1.selectedIndex].text;
 
-                            console.log("length" + length);
+                    if (e2 == "Stations"){
 
-                            for (var indx = length - 1; indx > 0; --indx) {
-                                if (getTag[indx].name == id)  {
-                                    getTag[indx].style.display = "inline";
-                                }   
-                                else {
-                                    getTag[indx].style.display = "none";
-                                }    
-                            }
-                            var e1 = document.getElementById("Chicago_Data");
-                            var e2 = e1.options[e1.selectedIndex].text;
+                        $("#btnLeft").click(function () {
 
-                            if (e2 == "Stations"){
+                            var selectedItem = $("#rightValues1 option:selected");
+                            $("#leftValues1").append(selectedItem);
+                        });
 
-                                $("#btnLeft").click(function () {
-
-                                    var selectedItem = $("#rightValues1 option:selected");
-                                    $("#leftValues1").append(selectedItem);
-                                });
-
-                                $("#btnRight").click(function () {
-                                    var selectedItem = $("#leftValues1 option:selected");
-                                    $("#rightValues1").append(selectedItem);
-                                    
-                                });
-
-                                //sorting the list alphabetically
-                                $("#btnRight").click(function(){
-                                    $("#rightValues1").html($("#rightValues1 option").sort(function (first, second) {
-                                        return first.text == second.text ? 0 : first.text < second.text ? -1 : 1
-                                    }));
-                                });
-
-                                
-                                $("#rightValues1").change(function () {
-                                    var selectedItem = $("#rightValues1 option:selected");
-                                    $("#txtRight").val(selectedItem.text());
-                                });
+                        $("#btnRight").click(function () {
+                            var selectedItem = $("#leftValues1 option:selected");
+                            $("#rightValues1").append(selectedItem);
                             
+                        });
 
-                            }
-                            else if (e2 == "Communities"){
-                                //$('#rightValues2').html(backup2);
-                                //$('#rightValues1 option').remove();
-                                $("#btnLeft").click(function () {
+                        //sorting the list alphabetically
+                        $("#btnRight").click(function(){
+                            $("#rightValues1").html($("#rightValues1 option").sort(function (first, second) {
+                                return first.text == second.text ? 0 : first.text < second.text ? -1 : 1
+                            }));
+                        });
 
-                                    var selectedItem = $("#rightValues2 option:selected");
+                        
+                        $("#rightValues1").change(function () {
+                            var selectedItem = $("#rightValues1 option:selected");
+                            $("#txtRight").val(selectedItem.text());
+                        });
+                    
 
-                                    $("#leftValues2").append(selectedItem);
-                                });
+                    }
+                    else if (e2 == "Communities"){
+                        //$('#rightValues2').html(backup2);
+                        //$('#rightValues1 option').remove();
+                        $("#btnLeft").click(function () {
 
-                                $("#btnRight").click(function () {
-                                    var selectedItem = $("#leftValues2 option:selected");
-                                    $("#rightValues2").append(selectedItem);
-                                    
-                                });
+                            var selectedItem = $("#rightValues2 option:selected");
 
-                                //sorting the list alphabetically
-                                $("#btnRight").click(function(){
-                                    $("#rightValues2").html($("#rightValues2 option").sort(function (first, second) {
-                                        return first.text == second.text ? 0 : first.text < second.text ? -1 : 1
-                                    }));
-                                });
+                            $("#leftValues2").append(selectedItem);
+                        });
 
-                                $("#rightValues2").change(function () {
-                                    var selectedItem = $("#rightValues2 option:selected");
-                                    $("#txtRight").val(selectedItem.text());
-                                });
-                                
-                            }
+                        $("#btnRight").click(function () {
+                            var selectedItem = $("#leftValues2 option:selected");
+                            $("#rightValues2").append(selectedItem);
+                            
+                        });
 
-                        }
+                        //sorting the list alphabetically
+                        $("#btnRight").click(function(){
+                            $("#rightValues2").html($("#rightValues2 option").sort(function (first, second) {
+                                return first.text == second.text ? 0 : first.text < second.text ? -1 : 1
+                            }));
+                        });
 
-                        window.onload = initDropDownChangeHandler;
-                    </script>
-                </div>
+                        $("#rightValues2").change(function () {
+                            var selectedItem = $("#rightValues2 option:selected");
+                            $("#txtRight").val(selectedItem.text());
+                        });
+                        
+                    }
 
-                <div id="second">
-                    <a href="#second">
-                        Second pane. You can open other tabs with normal
-                    </a>
-                </div>
-                <div id="third">
-                    <a href="#third">
-                        Third tab content</a>
-                </div>
+                }
 
-            </ul>
-
-
-        </div>
+                window.onload = initDropDownChangeHandler;
+            </script>
             <script src="./App/js/WorldMap.js"></script>
 
             <script src="./App/js/getCommunityArea.js"></script>
             <script src="./App/js/MapGeoJson.js"></script>
             <script src="./App/js/fi_markers.js"></script>
             <script src="./App/js/CalendarPlayBack.js"></script>
-            <script src="./App/js/Station_Community.js">
+            <script src="./App/js/Station_Community.js"></script>
+
+        </div>
     </body>
 </html>
