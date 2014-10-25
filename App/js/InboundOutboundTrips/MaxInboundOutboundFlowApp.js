@@ -65,7 +65,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 		});
 				
 		x0.domain(data.map(function(d) { 
-			return d.STATION; 
+			return d.TIME_INTERVAL; 
 		}));
 		x1.domain(flowNames).rangeRoundBands([0, x0.rangeBand()]);
 		y.domain([0, d3.max(data, function(d) { 
@@ -88,12 +88,12 @@ var MaxInboundOutboundFlowApp = Class.extend({
 			.style("text-anchor", "end")
 			.text("Number of Trips");
 				
-		var age_interval = svg.selectAll(".station")
+		var age_interval = svg.selectAll(".time_interval")
 			.data(data)
 			.enter().append("g")
 			.attr("class", "g")
 			.attr("transform", function(d) { 
-				return "translate(" + x0(d.STATION) + ",0)"; 
+				return "translate(" + x0(d.TIME_INTERVAL) + ",0)"; 
 			})
 			
 		age_interval.selectAll("rect")
@@ -111,7 +111,22 @@ var MaxInboundOutboundFlowApp = Class.extend({
 			})
 			.style("fill", function(d) { 
 				return color(d.name); 
-			});				
+			});	
+
+		svg.selectAll("text.label")
+			.data(data)
+			.enter()
+			.append("text")
+			.text(function(d) {
+				return d.STATION;
+		    })
+			.attr("x", function(d, index) {
+			return (x0(d.TIME_INTERVAL) + (x0.rangeBand()/2)) - 25;
+		    })
+		    .attr("y", function(d) {
+		    	return y(Math.max(d.INBOUND, d.OUTBOUND) + 10);
+		    })
+		    .style("font-size","60%");
 
 		var legend = svg.selectAll(".legend")
 			.data(flowNames.slice().reverse())
