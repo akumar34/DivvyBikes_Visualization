@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 33996,7/7/2013 0:03,7/7/2013 0:22,459,1108,24,Fairbanks Ct & Grand Ave,72,State St & 16th St,Customer,null,null,Near North Side,41.8919,-87.6206,Near South Side,41.8601,-87.6277,3574.29169490638
 33997,7/7/2013 0:05,7/7/2013 0:28,749,1344,52,Michigan Ave & Lake St,14,Morgan St & 18th St,Customer,null,null,The Loop,41.886,-87.6241,Lower West Side,41.8581,-87.6511,3825.82323351489
 33999,7/7/2013 0:13,7/7/2013 1:32,392,4744,45,Michigan Ave & Congress Pkwy,45,Michigan Ave & Congress Pkwy,Customer,null,null,The Loop,41.8761,-87.6244,The Loop,41.8761,-87.6244,0

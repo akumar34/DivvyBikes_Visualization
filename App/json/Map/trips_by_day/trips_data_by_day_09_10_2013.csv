@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 458626,9/10/2013 0:00,9/10/2013 0:18,952,1107,129,Blue Island Ave & 18th St,59,Wabash Ave & Roosevelt Rd,Customer,null,null,Lower West Side,41.8576,-87.6615,The Loop,41.8682,-87.6263,3156.27688649844
 458629,9/10/2013 0:04,9/10/2013 0:23,264,1151,350,Ashland Ave & Chicago Ave,106,State St & Pearson St,Customer,null,null,West Town,41.896,-87.6677,Near North Side,41.8974,-87.6287,3242.65527623766
 458633,9/10/2013 0:14,9/10/2013 0:33,1136,1137,141,Clark St & Lincoln Ave,141,Clark St & Lincoln Ave,Customer,null,null,Lincoln Park,41.9157,-87.6346,Lincoln Park,41.9157,-87.6346,0

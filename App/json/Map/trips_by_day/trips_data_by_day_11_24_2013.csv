@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1018389,11/24/2013 7:18,11/24/2013 7:28,1444,612,15,Racine Ave & 18th St,320,Loomis St & Lexington St,Customer,null,null,Lower West Side,41.8582,-87.6565,Near West Side,41.8722,-87.6615,1610.44113998933
 1018413,11/24/2013 7:38,11/24/2013 7:47,1037,527,15,Racine Ave & 18th St,146,Loomis St & Jackson Blvd,Customer,null,null,Lower West Side,41.8582,-87.6565,Near West Side,41.8779,-87.662,2242.57616308521
 1018420,11/24/2013 7:45,11/24/2013 7:49,664,297,331,Halsted St & Blackhawk St,138,Clybourn Ave & Division St,Customer,null,null,Near North Side,41.9085,-87.6486,Near North Side,41.9045,-87.6405,805.345201956985

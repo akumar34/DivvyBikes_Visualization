@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 988465,11/17/2013 0:00,11/17/2013 0:06,2423,376,130,Damen Ave & Division St,158,Milwaukee Ave & Wabansia Ave,Customer,null,null,West Town,41.9033,-87.6769,West Town,41.9126,-87.6814,1097.34400832783
 988470,11/17/2013 0:04,11/17/2013 0:22,345,1058,194,State St & Wacker Dr,47,State St & Kinzie St,Customer,null,null,The Loop,41.8869,-87.626,Near North Side,41.8892,-87.6277,291.129682809385
 988472,11/17/2013 0:06,11/17/2013 0:51,1454,2719,255,Indiana Ave & Roosevelt Rd,76,Lake Shore Dr & Monroe St,Customer,null,null,The Loop,41.8679,-87.623,The Loop,41.881,-87.6167,1542.97134854821

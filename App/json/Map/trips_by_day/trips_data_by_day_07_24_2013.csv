@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 99281,7/24/2013 0:15,7/24/2013 0:27,971,716,26,McClurg Ct & Illinois St,44,State St & Randolph St,Customer,null,null,Near North Side,41.891,-87.6173,The Loop,41.8847,-87.6277,1112.62026140056
 99282,7/24/2013 0:15,7/24/2013 0:27,507,702,26,McClurg Ct & Illinois St,44,State St & Randolph St,Customer,null,null,Near North Side,41.891,-87.6173,The Loop,41.8847,-87.6277,1112.62026140056
 99285,7/24/2013 0:21,7/24/2013 0:35,885,794,56,Desplaines St & Kinzie St,46,Wells St & Walton St,Customer,null,null,Near West Side,41.8887,-87.6444,Near North Side,41.8999,-87.6344,1497.51143268553

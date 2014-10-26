@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 112314,7/27/2013 0:08,7/27/2013 0:31,303,1420,31,Franklin St & Chicago Ave,60,Dayton St & North Ave,Customer,null,null,Near North Side,41.8968,-87.6356,Near North Side,41.9106,-87.6494,1910.31576985858
 112315,7/27/2013 0:08,7/27/2013 0:31,832,1403,31,Franklin St & Chicago Ave,60,Dayton St & North Ave,Customer,null,null,Near North Side,41.8968,-87.6356,Near North Side,41.9106,-87.6494,1910.31576985858
 112316,7/27/2013 0:10,7/27/2013 0:27,636,1013,59,Wabash Ave & Roosevelt Rd,15,Racine Ave & 18th St,Customer,null,null,The Loop,41.8682,-87.6263,Lower West Side,41.8582,-87.6565,2743.04662372848

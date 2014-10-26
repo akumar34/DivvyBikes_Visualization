@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 55281,7/13/2013 0:02,7/13/2013 0:24,421,1327,97,Museum Campus,76,Lake Shore Dr & Monroe St,Customer,null,null,Near South Side,41.8652,-87.6178,The Loop,41.881,-87.6167,1750.95371912534
 55282,7/13/2013 0:06,7/13/2013 1:30,716,5041,97,Museum Campus,13,Wilton Ave & Diversey Pkwy,Customer,null,null,Near South Side,41.8652,-87.6178,Lincoln Park,41.9325,-87.6527,8015.92235734225
 55283,7/13/2013 0:07,7/13/2013 1:30,707,4994,97,Museum Campus,13,Wilton Ave & Diversey Pkwy,Customer,null,null,Near South Side,41.8652,-87.6178,Lincoln Park,41.9325,-87.6527,8015.92235734225

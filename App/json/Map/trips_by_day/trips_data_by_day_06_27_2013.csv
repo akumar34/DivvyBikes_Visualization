@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 4118,6/27/2013 12:11,6/27/2013 12:16,480,316,85,Michigan Ave & Oak St,28,Larrabee St & Menomonee St,Customer,null,null,Near North Side,41.901,-87.6238,Lincoln Park,41.9147,-87.6433,2225.18747356355
 4275,6/27/2013 14:44,6/27/2013 14:45,77,64,32,Racine Ave & Congress Pkwy,32,Racine Ave & Congress Pkwy,Customer,null,null,Near West Side,41.8746,-87.657,Near West Side,41.8746,-87.657,0
 4291,6/27/2013 14:58,6/27/2013 15:05,77,433,32,Racine Ave & Congress Pkwy,19,Loomis St & Taylor St,Customer,null,null,Near West Side,41.8746,-87.657,Near West Side,41.8694,-87.661,667.041100914419

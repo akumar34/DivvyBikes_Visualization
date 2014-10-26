@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1064689,12/9/2013 7:29,12/9/2013 7:41,1899,759,192,Canal St & Adams St,331,Halsted St & Blackhawk St,Customer,null,null,Near West Side,41.8793,-87.6399,Near North Side,41.9085,-87.6486,3331.24123517073
 1064733,12/9/2013 7:43,12/9/2013 8:06,2169,1366,72,State St & 16th St,265,Cottage Grove Ave & Oakwood Blvd,Customer,null,null,Near South Side,41.8601,-87.6277,Oakland,41.823,-87.6071,4466.45128659019
 1064778,12/9/2013 7:56,12/9/2013 8:06,2283,594,191,Canal St & Monroe St,49,Dearborn St & Monroe St,Customer,null,null,Near West Side,41.8807,-87.6395,The Loop,41.8813,-87.6295,828.687307268145

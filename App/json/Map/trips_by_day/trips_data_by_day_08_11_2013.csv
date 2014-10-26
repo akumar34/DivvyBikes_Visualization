@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 200759,8/11/2013 0:01,8/11/2013 0:25,688,1445,22,May St & Taylor St,192,Canal St & Adams St,Customer,null,null,Near West Side,41.8695,-87.6555,Near West Side,41.8793,-87.6399,1688.65260278819
 200760,8/11/2013 0:01,8/11/2013 0:27,250,1585,22,May St & Taylor St,192,Canal St & Adams St,Customer,null,null,Near West Side,41.8695,-87.6555,Near West Side,41.8793,-87.6399,1688.65260278819
 200763,8/11/2013 0:01,8/11/2013 0:27,426,1548,22,May St & Taylor St,192,Canal St & Adams St,Customer,null,null,Near West Side,41.8695,-87.6555,Near West Side,41.8793,-87.6399,1688.65260278819

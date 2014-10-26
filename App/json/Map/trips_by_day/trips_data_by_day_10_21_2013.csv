@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 831058,10/21/2013 0:04,10/21/2013 0:47,2652,2535,35,Streeter Dr & Illinois St,24,Fairbanks Ct & Grand Ave,Customer,null,null,Near North Side,41.8911,-87.6122,Near North Side,41.8919,-87.6206,704.261325578475
 831060,10/21/2013 0:04,10/21/2013 0:47,248,2540,35,Streeter Dr & Illinois St,24,Fairbanks Ct & Grand Ave,Customer,null,null,Near North Side,41.8911,-87.6122,Near North Side,41.8919,-87.6206,704.261325578475
 831061,10/21/2013 0:04,10/21/2013 0:24,1210,1187,94,Lincoln Ave & Armitage Ave,227,Southport Ave & Waveland Ave,Customer,null,null,Lincoln Park,41.9183,-87.6363,Lake View,41.9482,-87.6639,4031.12894154798

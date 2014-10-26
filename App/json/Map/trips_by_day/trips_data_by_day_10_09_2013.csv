@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 719451,10/9/2013 0:06,10/9/2013 0:16,158,603,303,Broadway & Cornelia Ave,246,Ashland Ave & Belle Plaine Ave,Customer,null,null,Lake View,41.9455,-87.646,Lake View,41.9561,-87.6689,2230.39238366093
 719454,10/9/2013 0:12,10/9/2013 0:30,2356,1048,289,Wells St & Concord Ln,165,Clark St & Waveland Ave,Customer,null,null,Lincoln Park,41.9122,-87.6347,Lake View,41.9508,-87.6592,4742.62136298792
 719458,10/9/2013 0:16,10/9/2013 0:25,543,559,251,Clarendon Ave & Leland Ave,232,Pine Grove Ave & Addison St,Customer,null,null,Uptown,41.968,-87.65,Lake View,41.9493,-87.6463,2098.79046523237

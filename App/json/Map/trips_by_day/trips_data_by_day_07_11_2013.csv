@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 47479,7/11/2013 0:06,7/11/2013 0:25,594,1159,87,Racine Ave & Fullerton Ave,93,Sheffield Ave & Willow St,Customer,null,null,Lincoln Park,41.9256,-87.6584,Lincoln Park,41.9137,-87.6529,1396.95671566886
 47480,7/11/2013 0:06,7/11/2013 0:32,256,1559,87,Racine Ave & Fullerton Ave,60,Dayton St & North Ave,Customer,null,null,Lincoln Park,41.9256,-87.6584,Near North Side,41.9106,-87.6494,1823.55028444275
 47484,7/11/2013 0:10,7/11/2013 0:26,549,1003,53,Wells St & Erie St,54,Ogden Ave & Chicago Ave,Customer,null,null,Near North Side,41.8938,-87.6342,West Town,41.8964,-87.6541,1672.42239904887

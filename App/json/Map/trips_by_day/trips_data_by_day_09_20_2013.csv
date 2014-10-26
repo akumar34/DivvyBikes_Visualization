@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 534408,9/20/2013 0:01,9/20/2013 0:31,689,1759,99,Lake Shore Dr & Ohio St,99,Lake Shore Dr & Ohio St,Customer,null,null,Near North Side,41.8926,-87.6145,Near North Side,41.8926,-87.6145,0
 534409,9/20/2013 0:03,9/20/2013 0:41,2172,2315,56,Desplaines St & Kinzie St,56,Desplaines St & Kinzie St,Customer,null,null,Near West Side,41.8887,-87.6444,Near West Side,41.8887,-87.6444,0
 534410,9/20/2013 0:03,9/20/2013 0:41,1595,2306,56,Desplaines St & Kinzie St,56,Desplaines St & Kinzie St,Customer,null,null,Near West Side,41.8887,-87.6444,Near West Side,41.8887,-87.6444,0

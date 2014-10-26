@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 817263,10/19/2013 0:02,10/19/2013 0:08,69,365,69,Damen Ave & Pierce Ave,310,Damen Ave & Charleston St,Customer,null,null,West Town,41.9094,-87.6777,Logan Square,41.9201,-87.6779,1186.98740583333
 817265,10/19/2013 0:03,10/19/2013 0:14,1658,628,87,Racine Ave & Fullerton Ave,114,Sheffield Ave & Addison St,Customer,null,null,Lincoln Park,41.9256,-87.6584,Lake View,41.9469,-87.6544,2390.37173176382
 817266,10/19/2013 0:03,10/19/2013 0:20,2732,987,304,Halsted St & Waveland Ave,254,Pine Grove Ave & Irving Park Rd,Customer,null,null,Lake View,41.9494,-87.6496,Lake View,41.9544,-87.648,571.525490373305

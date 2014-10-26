@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 922537,11/5/2013 0:12,11/5/2013 0:27,909,920,229,Southport Ave & Roscoe St,239,Western Ave & Leland Ave,Customer,null,null,Lake View,41.9437,-87.664,Lincoln Square,41.9666,-87.6885,3246.11403075544
 922539,11/5/2013 0:15,11/5/2013 0:42,1833,1623,193,State St & 29th St,193,State St & 29th St,Customer,null,null,Douglas,41.8417,-87.6269,Douglas,41.8417,-87.6269,0
 922541,11/5/2013 0:16,11/5/2013 0:28,910,721,123,California Ave & Milwaukee Ave,216,California Ave & Division St,Customer,null,null,Logan Square,41.9227,-87.6972,West Town,41.903,-87.6975,2184.49626330116

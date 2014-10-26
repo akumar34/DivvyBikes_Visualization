@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 909632,11/3/2013 0:05,11/3/2013 0:26,1267,1282,321,Wabash Ave & 8th St,52,Michigan Ave & Lake St,Customer,null,null,The Loop,41.872,-87.6261,The Loop,41.886,-87.6241,1570.58147858782
 909633,11/3/2013 0:05,11/3/2013 0:26,1657,1293,321,Wabash Ave & 8th St,52,Michigan Ave & Lake St,Customer,null,null,The Loop,41.872,-87.6261,The Loop,41.886,-87.6241,1570.58147858782
 909634,11/3/2013 0:06,11/3/2013 0:15,136,550,113,Bissell St & Armitage Ave,48,Larrabee St & Kingsbury St,Customer,null,null,Lincoln Park,41.9184,-87.6522,Near North Side,41.8978,-87.6429,2423.63228306812

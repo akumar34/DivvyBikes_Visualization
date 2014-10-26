@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 334144,8/27/2013 0:00,8/27/2013 0:09,1060,559,112,Green St & Randolph St,175,Wells St & Polk St,Customer,null,null,Near West Side,41.8841,-87.6487,The Loop,41.8724,-87.6335,1809.4265481577
 334147,8/27/2013 0:01,8/27/2013 0:14,1478,757,210,Ashland Ave & Division St,225,Halsted St & Dickens Ave,Customer,null,null,West Town,41.9034,-87.6693,Lincoln Park,41.9199,-87.6488,2498.3426310126
 334148,8/27/2013 0:02,8/27/2013 0:16,417,800,56,Desplaines St & Kinzie St,225,Halsted St & Dickens Ave,Customer,null,null,Near West Side,41.8887,-87.6444,Lincoln Park,41.9199,-87.6488,3486.65682409969

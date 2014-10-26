@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1098880,12/25/2013 11:50,12/25/2013 12:27,648,2183,254,Pine Grove Ave & Irving Park Rd,296,Broadway & Belmont Ave,Customer,null,null,Lake View,41.9544,-87.648,Lake View,41.9401,-87.6455,1600.27725608508
 1098892,12/25/2013 12:30,12/25/2013 12:49,205,1139,126,Clark St & North Ave,143,Sedgwick St & Webster Ave,Customer,null,null,Near North Side,41.912,-87.6319,Lincoln Park,41.922,-87.6385,1237.86394141549
 1098894,12/25/2013 12:46,12/25/2013 13:20,147,2002,62,McCormick Place,90,Millennium Park,Customer,null,null,Near South Side,41.8514,-87.6188,The Loop,41.881,-87.6241,3322.68118632272

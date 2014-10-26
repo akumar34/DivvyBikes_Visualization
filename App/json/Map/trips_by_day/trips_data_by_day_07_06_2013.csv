@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 29952,7/6/2013 0:00,7/6/2013 0:27,311,1623,59,Wabash Ave & Roosevelt Rd,97,Museum Campus,Customer,null,null,The Loop,41.8682,-87.6263,Near South Side,41.8652,-87.6178,778.612203660045
 29953,7/6/2013 0:01,7/6/2013 0:27,179,1547,59,Wabash Ave & Roosevelt Rd,97,Museum Campus,Customer,null,null,The Loop,41.8682,-87.6263,Near South Side,41.8652,-87.6178,778.612203660045
 29957,7/6/2013 0:04,7/6/2013 0:13,467,572,47,State St & Kinzie St,90,Millennium Park,Customer,null,null,Near North Side,41.8892,-87.6277,The Loop,41.881,-87.6241,953.497745032176

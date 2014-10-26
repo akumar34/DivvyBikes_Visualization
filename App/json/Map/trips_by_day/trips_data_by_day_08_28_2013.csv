@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 341296,8/28/2013 0:02,8/28/2013 0:25,989,1408,85,Michigan Ave & Oak St,126,Clark St & North Ave,Customer,null,null,Near North Side,41.901,-87.6238,Near North Side,41.912,-87.6319,1398.37709619151
 341298,8/28/2013 0:02,8/28/2013 0:25,1301,1374,85,Michigan Ave & Oak St,126,Clark St & North Ave,Customer,null,null,Near North Side,41.901,-87.6238,Near North Side,41.912,-87.6319,1398.37709619151
 341299,8/28/2013 0:03,8/28/2013 0:25,1252,1309,85,Michigan Ave & Oak St,126,Clark St & North Ave,Customer,null,null,Near North Side,41.901,-87.6238,Near North Side,41.912,-87.6319,1398.37709619151

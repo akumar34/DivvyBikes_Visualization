@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 450545,9/9/2013 0:01,9/9/2013 0:37,817,2108,218,Wells St & 19th St,90,Millennium Park,Customer,null,null,Armour Square,41.8568,-87.6339,The Loop,41.881,-87.6241,2811.37762031991
 450546,9/9/2013 0:04,9/9/2013 2:26,885,8557,76,Lake Shore Dr & Monroe St,24,Fairbanks Ct & Grand Ave,Customer,null,null,The Loop,41.881,-87.6167,Near North Side,41.8919,-87.6206,1252.92282793922
 450547,9/9/2013 0:04,9/9/2013 2:26,1128,8559,76,Lake Shore Dr & Monroe St,24,Fairbanks Ct & Grand Ave,Customer,null,null,The Loop,41.881,-87.6167,Near North Side,41.8919,-87.6206,1252.92282793922

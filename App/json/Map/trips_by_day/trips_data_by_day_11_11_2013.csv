@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 959275,11/11/2013 0:10,11/11/2013 0:23,253,787,190,Southport Ave & Wrightwood Ave,292,Southport Ave & Clark St,Customer,null,null,Lincoln Park,41.9289,-87.6632,Uptown,41.9571,-87.6642,3133.50848158062
 959280,11/11/2013 0:21,11/11/2013 8:39,2115,29834,115,Sheffield Ave & Wellington Ave,118,Sedgwick St & North Ave,Customer,null,null,Lake View,41.9363,-87.6536,Lincoln Park,41.9106,-87.6386,3109.56479140878
 959285,11/11/2013 0:29,11/11/2013 0:59,1271,1811,47,State St & Kinzie St,91,Clinton St & Washington Blvd,Customer,null,null,Near North Side,41.8892,-87.6277,Near West Side,41.8834,-87.6412,1290.30961324136

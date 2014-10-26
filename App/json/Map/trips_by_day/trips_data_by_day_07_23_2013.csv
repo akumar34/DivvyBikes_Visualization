@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 95028,7/23/2013 0:00,7/23/2013 0:22,357,1300,25,Michigan Ave & Pearson St,36,Franklin St & Jackson Blvd,Customer,null,null,Near North Side,41.8977,-87.6235,The Loop,41.8777,-87.6353,2423.22677061899
 95029,7/23/2013 0:01,7/23/2013 0:24,215,1417,43,Michigan Ave & Washington St,43,Michigan Ave & Washington St,Customer,null,null,The Loop,41.8839,-87.6246,The Loop,41.8839,-87.6246,0
 95031,7/23/2013 0:02,7/23/2013 0:27,13,1499,71,Morgan St & Lake St,76,Lake Shore Dr & Monroe St,Customer,null,null,Near West Side,41.8855,-87.6523,The Loop,41.881,-87.6167,2994.19738019996

@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 243278,8/17/2013 0:00,8/17/2013 1:19,1147,4730,24,Fairbanks Ct & Grand Ave,24,Fairbanks Ct & Grand Ave,Customer,null,null,Near North Side,41.8919,-87.6206,Near North Side,41.8919,-87.6206,0
 243279,8/17/2013 0:00,8/17/2013 0:16,1431,974,29,Noble St & Milwaukee Ave,130,Damen Ave & Division St,Customer,null,null,West Town,41.9007,-87.6626,West Town,41.9033,-87.6769,1226.039578449
 243280,8/17/2013 0:00,8/17/2013 0:12,171,698,178,State St & 19th St,5,State St & Harrison St,Customer,null,null,Near West Side,41.8566,-87.6275,The Loop,41.874,-87.6277,1928.70744549024

@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1097969,12/24/2013 8:17,12/24/2013 8:26,606,566,91,Clinton St & Washington Blvd,48,Larrabee St & Kingsbury St,Customer,null,null,Near West Side,41.8834,-87.6412,Near North Side,41.8978,-87.6429,1603.96775274662
 1098026,12/24/2013 9:11,12/24/2013 9:18,1168,404,5,State St & Harrison St,52,Michigan Ave & Lake St,Customer,null,null,The Loop,41.874,-87.6277,The Loop,41.886,-87.6241,1373.49347946319
 1098027,12/24/2013 9:15,12/24/2013 9:25,2180,635,51,Clark St & Randolph St,36,Franklin St & Jackson Blvd,Customer,null,null,The Loop,41.8846,-87.6319,The Loop,41.8777,-87.6353,814.296960657244

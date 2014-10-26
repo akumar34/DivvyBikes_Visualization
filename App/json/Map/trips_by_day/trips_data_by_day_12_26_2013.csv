@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1099127,12/26/2013 1:13,12/26/2013 1:30,1516,996,348,California Ave & 21st St,129,Blue Island Ave & 18th St,Customer,null,null,South Lawndale,41.854,-87.6954,Lower West Side,41.8576,-87.6615,2843.12322464502
 1099128,12/26/2013 2:48,12/26/2013 2:58,1568,563,170,Clinton St & 18th St,171,May St & Cullerton St,Customer,null,null,Lower West Side,41.8579,-87.6408,Lower West Side,41.8551,-87.6541,1147.84242723152
 1099129,12/26/2013 2:50,12/26/2013 3:58,495,4101,170,Clinton St & 18th St,170,Clinton St & 18th St,Customer,null,null,Lower West Side,41.8579,-87.6408,Lower West Side,41.8579,-87.6408,0

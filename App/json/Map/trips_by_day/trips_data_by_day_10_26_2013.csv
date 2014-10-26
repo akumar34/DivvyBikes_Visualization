@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 863807,10/26/2013 0:02,10/26/2013 3:03,1202,10865,35,Streeter Dr & Illinois St,35,Streeter Dr & Illinois St,Customer,null,null,Near North Side,41.8911,-87.6122,Near North Side,41.8911,-87.6122,0
 863814,10/26/2013 0:16,10/26/2013 0:30,2680,846,224,Halsted St & Willow St,158,Milwaukee Ave & Wabansia Ave,Customer,null,null,Lincoln Park,41.9138,-87.6488,West Town,41.9126,-87.6814,2703.61961481385
 863817,10/26/2013 0:19,10/26/2013 0:30,126,614,69,Damen Ave & Pierce Ave,58,Ashland Ave & Armitage Ave,Customer,null,null,West Town,41.9094,-87.6777,Logan Square,41.916,-87.6689,1037.01810736472

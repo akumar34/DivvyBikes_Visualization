@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 709441,10/8/2013 0:01,10/8/2013 0:34,2151,1973,240,Sheridan Rd & Irving Park Rd,337,Clark St & Chicago Ave,Customer,null,null,Lake View,41.9542,-87.6544,Near North Side,41.8965,-87.6309,6698.22896214037
 709443,10/8/2013 0:06,10/8/2013 0:28,2096,1349,286,Franklin St & Quincy St,206,Halsted St & Archer Ave,Customer,null,null,The Loop,41.8787,-87.6348,Bridgeport,41.8472,-87.6468,3640.11318239035
 709445,10/8/2013 0:06,10/8/2013 0:42,261,2146,150,Fort Dearborn Dr & 31st St,322,Kimbark Ave & 53rd St,Customer,null,null,Douglas,41.8386,-87.6082,Hyde Park,41.7996,-87.5947,4472.69019808339

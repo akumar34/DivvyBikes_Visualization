@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1102877,12/28/2013 0:04,12/28/2013 0:21,1883,1002,130,Damen Ave & Division St,93,Sheffield Ave & Willow St,Customer,null,null,West Town,41.9033,-87.6769,Lincoln Park,41.9137,-87.6529,2307.66200799713
 1102879,12/28/2013 0:17,12/28/2013 0:25,2488,478,115,Sheffield Ave & Wellington Ave,152,Lincoln Ave & Diversey Pkwy,Customer,null,null,Lake View,41.9363,-87.6536,Lincoln Park,41.9322,-87.6586,612.903270173573
 1102885,12/28/2013 0:23,12/28/2013 0:37,2224,858,255,Indiana Ave & Roosevelt Rd,195,Columbus Dr & Randolph St,Customer,null,null,The Loop,41.8679,-87.623,The Loop,41.8847,-87.6195,1893.11969923751

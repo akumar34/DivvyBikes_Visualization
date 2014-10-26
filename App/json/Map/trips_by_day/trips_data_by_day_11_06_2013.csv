@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 929445,11/6/2013 0:30,11/6/2013 0:34,674,280,114,Sheffield Ave & Addison St,254,Pine Grove Ave & Irving Park Rd,Customer,null,null,Lake View,41.9469,-87.6544,Lake View,41.9544,-87.648,988.294254651379
 929456,11/6/2013 0:50,11/6/2013 1:05,308,915,129,Blue Island Ave & 18th St,129,Blue Island Ave & 18th St,Customer,null,null,Lower West Side,41.8576,-87.6615,Lower West Side,41.8576,-87.6615,0
 929468,11/6/2013 4:06,11/6/2013 4:14,2860,507,117,Wilton Ave & Belmont Ave,230,Lincoln Ave & Roscoe St,Customer,null,null,Lake View,41.9402,-87.653,Lake View,41.9433,-87.671,1527.73324292653

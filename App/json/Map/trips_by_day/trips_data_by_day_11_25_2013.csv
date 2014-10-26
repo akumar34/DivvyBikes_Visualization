@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1019909,11/25/2013 4:52,11/25/2013 4:57,2744,305,299,Halsted St & Roscoe St,156,Clark St & Wellington Ave,Customer,null,null,Lake View,41.9437,-87.6489,Lake View,41.9365,-87.6475,805.290964604225
 1019913,11/25/2013 5:11,11/25/2013 5:21,2344,642,277,Ashland Ave & Grand Ave,56,Desplaines St & Kinzie St,Customer,null,null,West Town,41.8911,-87.6666,Near West Side,41.8887,-87.6444,1857.91640378168
 1019928,11/25/2013 5:52,11/25/2013 8:16,825,8609,231,Sheridan Rd & Montrose Ave,251,Clarendon Ave & Leland Ave,Customer,null,null,Uptown,41.9617,-87.6546,Uptown,41.968,-87.65,798.268819228984

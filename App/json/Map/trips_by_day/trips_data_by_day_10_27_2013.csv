@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 869700,10/27/2013 0:08,10/27/2013 0:14,2591,335,194,State St & Wacker Dr,110,State St & Erie St,Customer,null,null,The Loop,41.8869,-87.626,Near North Side,41.894,-87.6286,817.440701079106
 869701,10/27/2013 0:08,10/27/2013 0:14,1034,312,194,State St & Wacker Dr,110,State St & Erie St,Customer,null,null,The Loop,41.8869,-87.626,Near North Side,41.894,-87.6286,817.440701079106
 869703,10/27/2013 0:16,10/27/2013 0:22,134,363,67,Sheffield Ave & Fullerton Ave,188,Greenview Ave & Fullerton Ave,Customer,null,null,Lincoln Park,41.9256,-87.6537,Lincoln Park,41.9253,-87.6658,1003.45083640505

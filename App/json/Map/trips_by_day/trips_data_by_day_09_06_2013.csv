@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 420924,9/6/2013 0:01,9/6/2013 1:34,1423,5600,132,Wentworth Ave & 24th St,15,Racine Ave & 18th St,Customer,null,null,Armour Square,41.8492,-87.6317,Lower West Side,41.8582,-87.6565,2284.34145931077
 420927,9/6/2013 0:01,9/6/2013 0:20,705,1162,118,Sedgwick St & North Ave,160,Campbell Ave & North Ave,Customer,null,null,Lincoln Park,41.9106,-87.6386,West Town,41.9105,-87.6896,4226.15966704519
 420928,9/6/2013 0:01,9/6/2013 0:22,1424,1226,36,Franklin St & Jackson Blvd,178,State St & 19th St,Customer,null,null,The Loop,41.8777,-87.6353,Near West Side,41.8566,-87.6275,2432.44951071268

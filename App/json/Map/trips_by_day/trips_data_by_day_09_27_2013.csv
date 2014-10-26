@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 600909,9/27/2013 0:00,9/27/2013 0:17,280,1020,13,Wilton Ave & Diversey Pkwy,260,Kedzie Ave & Milwaukee Ave,Customer,null,null,Lincoln Park,41.9325,-87.6527,Logan Square,41.9296,-87.7079,4587.90265808658
 600910,9/27/2013 0:00,9/27/2013 0:15,284,883,165,Clark St & Waveland Ave,156,Clark St & Wellington Ave,Customer,null,null,Lake View,41.9508,-87.6592,Lake View,41.9365,-87.6475,1856.73851722821
 600911,9/27/2013 0:00,9/27/2013 0:15,1966,888,165,Clark St & Waveland Ave,156,Clark St & Wellington Ave,Customer,null,null,Lake View,41.9508,-87.6592,Lake View,41.9365,-87.6475,1856.73851722821

@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1042893,12/3/2013 4:26,12/3/2013 5:10,2242,2620,251,Clarendon Ave & Leland Ave,251,Clarendon Ave & Leland Ave,Customer,null,null,Uptown,41.968,-87.65,Uptown,41.968,-87.65,0
 1042913,12/3/2013 5:41,12/3/2013 6:00,2350,1103,147,Indiana Ave & 26th St,255,Indiana Ave & Roosevelt Rd,Customer,null,null,Douglas,41.8457,-87.6225,The Loop,41.8679,-87.623,2464.87255990219
 1042955,12/3/2013 6:20,12/3/2013 6:29,1831,547,174,Canal St & Madison St,57,Clinton St & Roosevelt Rd,Customer,null,null,Near West Side,41.8821,-87.6398,Near West Side,41.8671,-87.6411,1666.34800626966

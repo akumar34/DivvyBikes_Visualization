@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 294146,8/23/2013 0:00,8/23/2013 0:26,827,1554,99,Lake Shore Dr & Ohio St,47,State St & Kinzie St,Customer,null,null,Near North Side,41.8926,-87.6145,Near North Side,41.8892,-87.6277,1159.02702181329
 294147,8/23/2013 0:01,8/23/2013 0:44,282,2623,5,State St & Harrison St,5,State St & Harrison St,Customer,null,null,The Loop,41.874,-87.6277,The Loop,41.874,-87.6277,0
 294150,8/23/2013 0:03,8/23/2013 0:17,889,817,194,State St & Wacker Dr,36,Franklin St & Jackson Blvd,Customer,null,null,The Loop,41.8869,-87.626,The Loop,41.8777,-87.6353,1277.28513437815

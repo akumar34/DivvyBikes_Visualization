@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 234973,8/16/2013 0:01,8/16/2013 0:23,1114,1300,207,Emerald Ave & 28th St,207,Emerald Ave & 28th St,Customer,null,null,Bridgeport,41.8436,-87.6454,Bridgeport,41.8436,-87.6454,0
 234976,8/16/2013 0:03,8/16/2013 0:43,224,2380,52,Michigan Ave & Lake St,52,Michigan Ave & Lake St,Customer,null,null,The Loop,41.886,-87.6241,The Loop,41.886,-87.6241,0
 234979,8/16/2013 0:05,8/16/2013 0:43,1516,2283,52,Michigan Ave & Lake St,52,Michigan Ave & Lake St,Customer,null,null,The Loop,41.886,-87.6241,The Loop,41.886,-87.6241,0

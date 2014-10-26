@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1066916,12/10/2013 7:25,12/10/2013 7:37,1368,751,192,Canal St & Adams St,331,Halsted St & Blackhawk St,Customer,null,null,Near West Side,41.8793,-87.6399,Near North Side,41.9085,-87.6486,3331.24123517073
 1066991,12/10/2013 7:57,12/10/2013 8:14,345,1070,222,Milwaukee Ave & Rockwell St,20,Sheffield Ave & Kingsbury St,Customer,null,null,Logan Square,41.9202,-87.693,Near North Side,41.9096,-87.6535,3484.95572442206
 1067054,12/10/2013 8:18,12/10/2013 8:34,2455,942,15,Racine Ave & 18th St,36,Franklin St & Jackson Blvd,Customer,null,null,Lower West Side,41.8582,-87.6565,The Loop,41.8777,-87.6353,2791.40652760579

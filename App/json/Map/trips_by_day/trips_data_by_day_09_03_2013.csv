@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 395597,9/3/2013 0:00,9/3/2013 0:26,1645,1558,59,Wabash Ave & Roosevelt Rd,168,Michigan Ave & 14th St,Customer,null,null,The Loop,41.8682,-87.6263,Near South Side,41.8641,-87.6237,502.049054871739
 395599,9/3/2013 0:02,9/3/2013 0:04,1533,67,90,Millennium Park,90,Millennium Park,Customer,null,null,The Loop,41.881,-87.6241,The Loop,41.881,-87.6241,0
 395600,9/3/2013 0:03,9/3/2013 0:44,49,2478,90,Millennium Park,118,Sedgwick St & North Ave,Customer,null,null,The Loop,41.881,-87.6241,Lincoln Park,41.9106,-87.6386,3496.45935113247

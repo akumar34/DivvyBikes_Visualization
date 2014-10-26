@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 412249,9/5/2013 0:08,9/5/2013 0:23,1609,893,240,Sheridan Rd & Irving Park Rd,245,Clarendon Ave & Junior Ter,Customer,null,null,Lake View,41.9542,-87.6544,Uptown,41.961,-87.6496,849.805173068522
 412251,9/5/2013 0:11,9/5/2013 0:24,285,787,220,Hampden Ct & Diversey Pkwy,232,Pine Grove Ave & Addison St,Customer,null,null,Lake View,41.9326,-87.6424,Lake View,41.9493,-87.6463,1878.22252505318
 412252,9/5/2013 0:12,9/5/2013 0:24,832,730,220,Hampden Ct & Diversey Pkwy,232,Pine Grove Ave & Addison St,Customer,null,null,Lake View,41.9326,-87.6424,Lake View,41.9493,-87.6463,1878.22252505318

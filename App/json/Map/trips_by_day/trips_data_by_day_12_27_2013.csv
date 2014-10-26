@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1100543,12/27/2013 0:10,12/27/2013 0:17,198,439,345,Lake Park Ave & 56th St,121,Blackstone Ave & Hyde Park Blvd,Customer,null,null,Hyde Park,41.7932,-87.5878,Hyde Park,41.8026,-87.5904,1057.24353620291
 1100544,12/27/2013 0:20,12/27/2013 0:39,912,1136,127,Lincoln Ave & Fullerton Ave,16,Wood St & North Ave,Customer,null,null,Lincoln Park,41.9259,-87.6493,West Town,41.9103,-87.6725,2591.34529916358
 1100549,12/27/2013 0:34,12/27/2013 1:12,2774,2280,13,Wilton Ave & Diversey Pkwy,220,Hampden Ct & Diversey Pkwy,Customer,null,null,Lincoln Park,41.9325,-87.6527,Lake View,41.9326,-87.6424,854.020502251146

@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 121965,7/29/2013 0:00,7/29/2013 0:19,13,1151,17,Wood St & Division St,123,California Ave & Milwaukee Ave,Customer,null,null,West Town,41.9033,-87.6727,Logan Square,41.9227,-87.6972,2955.79341211435
 121966,7/29/2013 0:01,7/29/2013 0:05,844,255,72,State St & 16th St,72,State St & 16th St,Customer,null,null,Near South Side,41.8601,-87.6277,Near South Side,41.8601,-87.6277,0
 121967,7/29/2013 0:02,7/29/2013 0:14,40,728,17,Wood St & Division St,58,Ashland Ave & Armitage Ave,Customer,null,null,West Town,41.9033,-87.6727,Logan Square,41.916,-87.6689,1446.01599619948

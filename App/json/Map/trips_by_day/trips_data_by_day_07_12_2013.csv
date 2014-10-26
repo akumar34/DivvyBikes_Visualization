@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 51111,7/12/2013 0:16,7/12/2013 0:20,594,264,25,Michigan Ave & Pearson St,24,Fairbanks Ct & Grand Ave,Customer,null,null,Near North Side,41.8977,-87.6235,Near North Side,41.8919,-87.6206,687.408482863148
 51114,7/12/2013 0:18,7/12/2013 7:08,265,24634,56,Desplaines St & Kinzie St,54,Ogden Ave & Chicago Ave,Customer,null,null,Near West Side,41.8887,-87.6444,West Town,41.8964,-87.6541,1165.25478437752
 51116,7/12/2013 0:23,7/12/2013 0:25,490,178,22,May St & Taylor St,19,Loomis St & Taylor St,Customer,null,null,Near West Side,41.8695,-87.6555,Near West Side,41.8694,-87.661,457.463543622622

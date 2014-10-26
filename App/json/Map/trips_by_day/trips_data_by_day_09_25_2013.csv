@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 581855,9/25/2013 0:00,9/25/2013 0:24,1285,1453,69,Damen Ave & Pierce Ave,300,Broadway & Barry Ave,Customer,null,null,West Town,41.9094,-87.6777,Lake View,41.9377,-87.6441,4203.2579252128
 581857,9/25/2013 0:01,9/25/2013 0:45,752,2609,114,Sheffield Ave & Addison St,85,Michigan Ave & Oak St,Customer,null,null,Lake View,41.9469,-87.6544,Near North Side,41.901,-87.6238,5699.77720836584
 581864,9/25/2013 0:06,9/25/2013 0:22,2239,998,303,Broadway & Cornelia Ave,141,Clark St & Lincoln Ave,Customer,null,null,Lake View,41.9455,-87.646,Lincoln Park,41.9157,-87.6346,3444.34714047255

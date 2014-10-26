@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 383793,9/2/2013 0:00,9/2/2013 0:07,1620,416,216,California Ave & Division St,130,Damen Ave & Division St,Customer,null,null,West Town,41.903,-87.6975,West Town,41.9033,-87.6769,1703.29049942035
 383797,9/2/2013 0:02,9/2/2013 0:36,1460,2010,196,Cityfront Plaza & N Water St,199,Wabash Ave & Grand Ave,Customer,null,null,Near North Side,41.8899,-87.622,Near North Side,41.8917,-87.6269,459.464283455799
 383798,9/2/2013 0:03,9/2/2013 0:18,1390,934,35,Streeter Dr & Illinois St,194,State St & Wacker Dr,Customer,null,null,Near North Side,41.8911,-87.6122,The Loop,41.8869,-87.626,1238.82508428734

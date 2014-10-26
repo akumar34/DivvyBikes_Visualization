@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1083871,12/18/2013 0:24,12/18/2013 1:17,1053,3171,44,State St & Randolph St,44,State St & Randolph St,Customer,null,null,The Loop,41.8847,-87.6277,The Loop,41.8847,-87.6277,0
 1083875,12/18/2013 0:30,12/18/2013 1:17,1271,2799,44,State St & Randolph St,44,State St & Randolph St,Customer,null,null,The Loop,41.8847,-87.6277,The Loop,41.8847,-87.6277,0
 1083881,12/18/2013 2:22,12/18/2013 14:49,1822,44806,348,California Ave & 21st St,348,California Ave & 21st St,Customer,null,null,South Lawndale,41.854,-87.6954,South Lawndale,41.854,-87.6954,0

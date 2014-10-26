@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1069151,12/11/2013 0:17,12/11/2013 0:30,156,752,141,Clark St & Lincoln Ave,303,Broadway & Cornelia Ave,Customer,null,null,Lincoln Park,41.9157,-87.6346,Lake View,41.9455,-87.646,3444.34714047271
 1069183,12/11/2013 5:30,12/11/2013 5:41,2632,650,240,Sheridan Rd & Irving Park Rd,227,Southport Ave & Waveland Ave,Customer,null,null,Lake View,41.9542,-87.6544,Lake View,41.9482,-87.6639,1040.77085594297
 1069387,12/11/2013 8:04,12/11/2013 8:21,321,1018,214,Damen Ave & Grand Ave,164,Franklin St & Lake St,Customer,null,null,West Town,41.8912,-87.6769,The Loop,41.8858,-87.6355,3484.36245796333

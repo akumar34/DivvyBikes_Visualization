@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1108059,12/31/2013 4:02,12/31/2013 5:02,2724,3615,115,Sheffield Ave & Wellington Ave,228,Damen Ave & Melrose Ave,Customer,null,null,Lake View,41.9363,-87.6536,North Center,41.9406,-87.6785,2123.41366541873
 1108110,12/31/2013 6:54,12/31/2013 7:07,1869,793,37,Dearborn St & Adams St,26,McClurg Ct & Illinois St,Customer,null,null,The Loop,41.8794,-87.6298,Near North Side,41.891,-87.6173,1659.26276888207
 1108168,12/31/2013 7:32,12/31/2013 7:48,701,962,214,Damen Ave & Grand Ave,66,Clinton St & Lake St,Customer,null,null,West Town,41.8912,-87.6769,Near West Side,41.8858,-87.6414,3004.66250986117

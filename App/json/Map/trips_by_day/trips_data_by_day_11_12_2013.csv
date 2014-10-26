@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 963112,11/12/2013 0:14,11/12/2013 0:18,1719,252,130,Damen Ave & Division St,128,Damen Ave & Chicago Ave,Customer,null,null,West Town,41.9033,-87.6769,West Town,41.8958,-87.6772,837.88852659407
 963113,11/12/2013 0:14,11/12/2013 0:18,783,252,130,Damen Ave & Division St,128,Damen Ave & Chicago Ave,Customer,null,null,West Town,41.9033,-87.6769,West Town,41.8958,-87.6772,837.88852659407
 963125,11/12/2013 2:09,11/12/2013 2:21,2366,711,267,Lake Park Ave & 47th St,351,Cottage Grove Ave & 51st St,Customer,null,null,Kenwood,41.8094,-87.5919,Kenwood,41.803,-87.6066,1416.51485605027

@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1027390,11/27/2013 1:54,11/27/2013 2:51,898,3374,306,Sheridan Rd & Buena Ave,231,Sheridan Rd & Montrose Ave,Customer,null,null,Uptown,41.9584,-87.6542,Uptown,41.9617,-87.6546,364.79408096824
 1027402,11/27/2013 5:38,11/27/2013 5:50,2428,697,277,Ashland Ave & Grand Ave,56,Desplaines St & Kinzie St,Customer,null,null,West Town,41.8911,-87.6666,Near West Side,41.8887,-87.6444,1857.91640378168
 1027411,11/27/2013 5:53,11/27/2013 5:58,1206,312,325,Clark St & Winnemac Ave,344,Wolcott Ave & Lawrence Ave,Customer,null,null,Uptown,41.9734,-87.6684,Lincoln Square,41.9686,-87.6763,845.028496688689

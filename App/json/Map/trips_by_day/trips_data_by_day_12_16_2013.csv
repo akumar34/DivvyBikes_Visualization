@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1079012,12/16/2013 6:59,12/16/2013 7:14,665,888,236,Sedgwick St & Schiller St,98,LaSalle St & Washington St,Customer,null,null,Near North Side,41.9076,-87.6385,The Loop,41.8827,-87.6325,2811.25922507413
 1079285,12/16/2013 8:29,12/16/2013 8:51,1759,1351,156,Clark St & Wellington Ave,51,Clark St & Randolph St,Customer,null,null,Lake View,41.9365,-87.6475,The Loop,41.8846,-87.6319,5911.24238369838
 1079320,12/16/2013 8:38,12/16/2013 8:58,307,1193,143,Sedgwick St & Webster Ave,24,Fairbanks Ct & Grand Ave,Customer,null,null,Lincoln Park,41.922,-87.6385,Near North Side,41.8919,-87.6206,3659.9827095052

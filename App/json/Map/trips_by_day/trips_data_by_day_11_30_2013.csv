@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1033290,11/30/2013 0:03,11/30/2013 0:12,1179,531,326,Clark St & Leland Ave,165,Clark St & Waveland Ave,Customer,null,null,Uptown,41.9671,-87.6674,Lake View,41.9508,-87.6592,1937.2336750546
 1033291,11/30/2013 0:03,11/30/2013 0:22,2551,1138,336,Cottage Grove Ave & 47th St,121,Blackstone Ave & Hyde Park Blvd,Customer,null,null,Kenwood,41.8099,-87.6068,Hyde Park,41.8026,-87.5904,1584.49122812186
 1033297,11/30/2013 0:24,11/30/2013 0:43,615,1137,306,Sheridan Rd & Buena Ave,13,Wilton Ave & Diversey Pkwy,Customer,null,null,Uptown,41.9584,-87.6542,Lincoln Park,41.9325,-87.6527,2879.628463171

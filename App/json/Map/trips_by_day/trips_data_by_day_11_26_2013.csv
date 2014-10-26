@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1023304,11/26/2013 1:47,11/26/2013 1:52,84,310,198,Halsted St & Madison St,80,Aberdeen St & Madison St,Customer,null,null,Near West Side,41.8817,-87.6478,Near West Side,41.8815,-87.6548,577.783732012432
 1023305,11/26/2013 2:14,11/26/2013 2:19,694,280,17,Wood St & Division St,69,Damen Ave & Pierce Ave,Customer,null,null,West Town,41.9033,-87.6727,West Town,41.9094,-87.6777,790.53762344405
 1023388,11/26/2013 6:27,11/26/2013 6:44,1316,990,175,Wells St & Polk St,52,Michigan Ave & Lake St,Customer,null,null,The Loop,41.8724,-87.6335,The Loop,41.886,-87.6241,1705.44650046288

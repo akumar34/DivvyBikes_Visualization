@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 636327,9/30/2013 0:05,9/30/2013 0:20,2250,902,183,Damen Ave & Augusta Blvd,215,Damen Ave & Madison St,Customer,null,null,West Town,41.8997,-87.6772,Near West Side,41.8814,-87.6749,2046.44226282635
 636328,9/30/2013 0:05,9/30/2013 0:20,474,906,183,Damen Ave & Augusta Blvd,215,Damen Ave & Madison St,Customer,null,null,West Town,41.8997,-87.6772,Near West Side,41.8814,-87.6749,2046.44226282635
 636329,9/30/2013 0:11,9/30/2013 0:37,208,1539,330,Lincoln Ave & Addison St,242,Damen Ave & Leland Ave,Customer,null,null,Lake View,41.9462,-87.6733,Lincoln Square,41.9671,-87.679,2371.3164459021

@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 673723,10/4/2013 0:02,10/4/2013 0:37,1212,2104,176,Clark St & Elm St,176,Clark St & Elm St,Customer,null,null,Near North Side,41.9032,-87.6313,Near North Side,41.9032,-87.6313,0
 673725,10/4/2013 0:03,10/4/2013 0:18,2154,886,291,Wells St & Evergreen Ave,53,Wells St & Erie St,Customer,null,null,Near North Side,41.9067,-87.6348,Near North Side,41.8938,-87.6342,1432.90097161533
 673726,10/4/2013 0:03,10/4/2013 0:17,1437,858,291,Wells St & Evergreen Ave,53,Wells St & Erie St,Customer,null,null,Near North Side,41.9067,-87.6348,Near North Side,41.8938,-87.6342,1432.90097161533

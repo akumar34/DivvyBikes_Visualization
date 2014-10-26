@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1096041,12/23/2013 0:51,12/23/2013 0:54,1967,213,69,Damen Ave & Pierce Ave,183,Damen Ave & Augusta Blvd,Customer,null,null,West Town,41.9094,-87.6777,West Town,41.8997,-87.6772,1076.06574970055
 1096066,12/23/2013 6:10,12/23/2013 6:23,98,777,153,Southport Ave & Wellington Ave,310,Damen Ave & Charleston St,Customer,null,null,Lake View,41.9357,-87.6636,Logan Square,41.9201,-87.6779,2103.4960445264
 1096074,12/23/2013 6:28,12/23/2013 6:40,207,695,91,Clinton St & Washington Blvd,26,McClurg Ct & Illinois St,Customer,null,null,Near West Side,41.8834,-87.6412,Near North Side,41.891,-87.6173,2155.22509129616

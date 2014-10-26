@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 889263,10/30/2013 0:04,10/30/2013 0:19,2350,900,244,Ravenswood Ave & Irving Park Rd,231,Sheridan Rd & Montrose Ave,Customer,null,null,North Center,41.9547,-87.6739,Uptown,41.9617,-87.6546,1777.25286887165
 889266,10/30/2013 0:09,10/30/2013 1:30,2990,4874,176,Clark St & Elm St,176,Clark St & Elm St,Customer,null,null,Near North Side,41.9032,-87.6313,Near North Side,41.9032,-87.6313,0
 889268,10/30/2013 0:11,10/30/2013 0:31,1712,1238,321,Wabash Ave & 8th St,97,Museum Campus,Customer,null,null,The Loop,41.872,-87.6261,Near South Side,41.8652,-87.6178,1020.93460238655

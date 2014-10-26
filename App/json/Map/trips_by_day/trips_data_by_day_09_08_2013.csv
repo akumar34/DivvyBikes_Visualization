@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 442213,9/8/2013 0:00,9/8/2013 0:42,699,2564,178,State St & 19th St,44,State St & Randolph St,Customer,null,null,Near West Side,41.8566,-87.6275,The Loop,41.8847,-87.6277,3125.14994356814
 442218,9/8/2013 0:00,9/8/2013 4:19,893,15490,199,Wabash Ave & Grand Ave,199,Wabash Ave & Grand Ave,Customer,null,null,Near North Side,41.8917,-87.6269,Near North Side,41.8917,-87.6269,0
 442219,9/8/2013 0:01,9/8/2013 0:41,1695,2404,128,Damen Ave & Chicago Ave,123,California Ave & Milwaukee Ave,Customer,null,null,West Town,41.8958,-87.6772,Logan Square,41.9227,-87.6972,3417.51976014186

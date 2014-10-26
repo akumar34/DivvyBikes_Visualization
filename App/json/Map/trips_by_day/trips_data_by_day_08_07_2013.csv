@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 172300,8/7/2013 0:05,8/7/2013 0:21,771,996,35,Streeter Dr & Illinois St,350,Ashland Ave & Chicago Ave,Customer,null,null,Near North Side,41.8911,-87.6122,West Town,41.896,-87.6677,4641.72746010986
 172301,8/7/2013 0:05,8/7/2013 0:22,418,1014,35,Streeter Dr & Illinois St,26,McClurg Ct & Illinois St,Customer,null,null,Near North Side,41.8911,-87.6122,Near North Side,41.891,-87.6173,423.296817220541
 172302,8/7/2013 0:06,8/7/2013 0:39,1149,1969,144,Larrabee St & Webster Ave,69,Damen Ave & Pierce Ave,Customer,null,null,Lincoln Park,41.9217,-87.644,West Town,41.9094,-87.6777,3112.99805004241

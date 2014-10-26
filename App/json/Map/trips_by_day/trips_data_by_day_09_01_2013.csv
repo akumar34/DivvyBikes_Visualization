@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 371125,9/1/2013 0:00,9/1/2013 0:23,904,1435,106,State St & Pearson St,23,Orleans St & Elm St,Customer,null,null,Near North Side,41.8974,-87.6287,Near North Side,41.9029,-87.6377,962.711820762463
 371126,9/1/2013 0:00,9/1/2013 0:23,393,1406,106,State St & Pearson St,23,Orleans St & Elm St,Customer,null,null,Near North Side,41.8974,-87.6287,Near North Side,41.9029,-87.6377,962.711820762463
 371128,9/1/2013 0:00,9/1/2013 0:36,929,2134,160,Campbell Ave & North Ave,34,Cannon Dr & Fullerton Ave,Customer,null,null,West Town,41.9105,-87.6896,Lincoln Park,41.9268,-87.6344,4915.25717233492

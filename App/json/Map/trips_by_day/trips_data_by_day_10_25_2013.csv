@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 856972,10/25/2013 0:00,10/25/2013 0:10,41,564,196,Cityfront Plaza & N Water St,5,State St & Harrison St,Customer,null,null,Near North Side,41.8899,-87.622,The Loop,41.874,-87.6277,1831.10290180693
 856975,10/25/2013 0:04,10/25/2013 0:08,2689,234,227,Southport Ave & Waveland Ave,347,Ashland Ave & Grace St,Customer,null,null,Lake View,41.9482,-87.6639,Lake View,41.9507,-87.6687,484.953152045646
 856976,10/25/2013 0:04,10/25/2013 0:08,1646,234,227,Southport Ave & Waveland Ave,347,Ashland Ave & Grace St,Customer,null,null,Lake View,41.9482,-87.6639,Lake View,41.9507,-87.6687,484.953152045646

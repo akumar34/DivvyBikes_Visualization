@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 741581,10/11/2013 0:00,10/11/2013 0:10,2066,567,257,Lincoln Ave & Waveland Ave,114,Sheffield Ave & Addison St,Customer,null,null,North Center,41.9491,-87.6751,Lake View,41.9469,-87.6544,1731.06775266019
 741582,10/11/2013 0:00,10/11/2013 0:17,1180,991,75,Canal St & Jackson Blvd,217,May St & Fulton St,Customer,null,null,Near West Side,41.8781,-87.64,Near West Side,41.8868,-87.656,1637.44949180444
 741583,10/11/2013 0:01,10/11/2013 0:15,490,816,337,Clark St & Chicago Ave,197,Michigan Ave & Madison St,Customer,null,null,Near North Side,41.8965,-87.6309,The Loop,41.8821,-87.6251,1671.49796080235

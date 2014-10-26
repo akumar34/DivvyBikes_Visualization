@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 161040,8/5/2013 0:00,8/5/2013 0:13,266,803,22,May St & Taylor St,137,Morgan Ave & 14th Pl,Customer,null,null,Near West Side,41.8695,-87.6555,Near West Side,41.8624,-87.6511,870.370666348544
 161041,8/5/2013 0:03,8/5/2013 1:20,935,4624,33,State St & Van Buren St,44,State St & Randolph St,Customer,null,null,The Loop,41.8772,-87.6278,The Loop,41.8847,-87.6277,838.547085850028
 161042,8/5/2013 0:04,8/5/2013 0:21,1053,1037,45,Michigan Ave & Congress Pkwy,90,Millennium Park,Customer,null,null,The Loop,41.8761,-87.6244,The Loop,41.881,-87.6241,552.349732237273

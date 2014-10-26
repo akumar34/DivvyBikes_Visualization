@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 221519,8/14/2013 0:01,8/14/2013 0:17,554,909,45,Michigan Ave & Congress Pkwy,77,Clinton St & Madison St,Customer,null,null,The Loop,41.8761,-87.6244,Near West Side,41.8816,-87.6413,1526.56517950247
 221523,8/14/2013 0:03,8/14/2013 0:20,680,969,21,Aberdeen St & Jackson Blvd,92,Carpenter St & Huron St,Customer,null,null,Near West Side,41.8777,-87.6548,West Town,41.8946,-87.6535,1872.60960315986
 221524,8/14/2013 0:04,8/14/2013 0:19,1360,944,33,State St & Van Buren St,92,Carpenter St & Huron St,Customer,null,null,The Loop,41.8772,-87.6278,West Town,41.8946,-87.6535,2870.67065206802

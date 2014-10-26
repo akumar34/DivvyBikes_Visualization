@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 978692,11/15/2013 0:04,11/15/2013 0:21,2178,1031,162,Damen Ave & Wellington Ave,130,Damen Ave & Division St,Customer,null,null,North Center,41.9359,-87.6784,West Town,41.9033,-87.6769,3619.66068652337
 978703,11/15/2013 0:28,11/15/2013 1:01,1934,1947,156,Clark St & Wellington Ave,126,Clark St & North Ave,Customer,null,null,Lake View,41.9365,-87.6475,Near North Side,41.912,-87.6319,3015.42421851376
 978708,11/15/2013 0:37,11/15/2013 0:45,1890,499,347,Ashland Ave & Grace St,114,Sheffield Ave & Addison St,Customer,null,null,Lake View,41.9507,-87.6687,Lake View,41.9469,-87.6544,1254.95446266728

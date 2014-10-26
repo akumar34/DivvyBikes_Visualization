@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1036310,12/1/2013 0:05,12/1/2013 0:27,769,1322,199,Wabash Ave & Grand Ave,350,Ashland Ave & Chicago Ave,Customer,null,null,Near North Side,41.8917,-87.6269,West Town,41.896,-87.6677,3419.15606002575
 1036329,12/1/2013 1:11,12/1/2013 1:18,1376,425,126,Clark St & North Ave,340,Clark St & Wrightwood Ave,Customer,null,null,Near North Side,41.912,-87.6319,Lincoln Park,41.9295,-87.6431,2160.7477227678
 1036331,12/1/2013 1:14,12/1/2013 1:17,2813,177,188,Greenview Ave & Fullerton Ave,188,Greenview Ave & Fullerton Ave,Customer,null,null,Lincoln Park,41.9253,-87.6658,Lincoln Park,41.9253,-87.6658,0

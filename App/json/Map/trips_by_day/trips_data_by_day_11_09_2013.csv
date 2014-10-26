@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 946784,11/9/2013 0:00,11/9/2013 0:09,2370,537,97,Museum Campus,252,Greenwood Ave & 47th St,Customer,null,null,Near South Side,41.8652,-87.6178,Kenwood,41.8098,-87.5994,6337.28462331586
 946790,11/9/2013 0:07,11/9/2013 0:10,830,197,128,Damen Ave & Chicago Ave,214,Damen Ave & Grand Ave,Customer,null,null,West Town,41.8958,-87.6772,West Town,41.8912,-87.6769,506.145466018199
 946791,11/9/2013 0:07,11/9/2013 0:17,1916,566,226,Racine Ave & Belmont Ave,234,Clark St & Montrose Ave,Customer,null,null,Lake View,41.9397,-87.6589,Uptown,41.9616,-87.666,2498.16383937049

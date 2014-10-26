@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 272292,8/20/2013 0:02,8/20/2013 0:28,388,1590,199,Wabash Ave & Grand Ave,51,Clark St & Randolph St,Customer,null,null,Near North Side,41.8917,-87.6269,The Loop,41.8846,-87.6319,895.401830866737
 272293,8/20/2013 0:03,8/20/2013 0:29,551,1510,199,Wabash Ave & Grand Ave,51,Clark St & Randolph St,Customer,null,null,Near North Side,41.8917,-87.6269,The Loop,41.8846,-87.6319,895.401830866737
 272295,8/20/2013 0:06,8/20/2013 0:19,141,782,43,Michigan Ave & Washington St,59,Wabash Ave & Roosevelt Rd,Customer,null,null,The Loop,41.8839,-87.6246,The Loop,41.8682,-87.6263,1752.49507283351

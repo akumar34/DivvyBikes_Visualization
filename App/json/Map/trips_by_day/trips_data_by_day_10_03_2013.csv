@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 666500,10/3/2013 0:00,10/3/2013 0:21,1834,1265,51,Clark St & Randolph St,333,Ashland Ave & Blackhawk St,Customer,null,null,The Loop,41.8846,-87.6319,West Town,41.9071,-87.6673,3853.75437593817
 666503,10/3/2013 0:01,10/3/2013 0:09,442,508,15,Racine Ave & 18th St,124,Damen Ave & Cullerton St,Customer,null,null,Lower West Side,41.8582,-87.6565,Lower West Side,41.855,-87.6757,1635.01891187367
 666505,10/3/2013 0:02,10/3/2013 0:27,682,1504,286,Franklin St & Quincy St,279,Halsted St & 35th St,Customer,null,null,The Loop,41.8787,-87.6348,Bridgeport,41.8307,-87.6472,5436.44708186347

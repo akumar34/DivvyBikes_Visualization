@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 134677,8/1/2013 0:13,8/1/2013 0:28,135,864,85,Michigan Ave & Oak St,54,Ogden Ave & Chicago Ave,Customer,null,null,Near North Side,41.901,-87.6238,West Town,41.8964,-87.6541,2564.44776333476
 134679,8/1/2013 0:28,8/1/2013 0:41,135,767,54,Ogden Ave & Chicago Ave,122,Congress Pkwy & Ogden Ave,Customer,null,null,West Town,41.8964,-87.6541,Near West Side,41.875,-87.6733,2858.16862273035
 134682,8/1/2013 0:57,8/1/2013 3:42,183,9920,99,Lake Shore Dr & Ohio St,52,Michigan Ave & Lake St,Customer,null,null,Near North Side,41.8926,-87.6145,The Loop,41.886,-87.6241,1080.15987558532

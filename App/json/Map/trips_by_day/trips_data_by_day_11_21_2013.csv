@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1006641,11/21/2013 0:08,11/21/2013 0:21,1209,773,291,Wells St & Evergreen Ave,86,Eckhart Park,Customer,null,null,Near North Side,41.9067,-87.6348,West Town,41.8964,-87.661,2455.91137790977
 1006646,11/21/2013 0:14,11/21/2013 0:34,2126,1232,130,Damen Ave & Division St,264,Stetson Ave & South Water St,Customer,null,null,West Town,41.9033,-87.6769,The Loop,41.8868,-87.6223,4888.94068460437
 1006647,11/21/2013 0:16,11/21/2013 0:27,1342,624,58,Ashland Ave & Armitage Ave,210,Ashland Ave & Division St,Customer,null,null,Logan Square,41.916,-87.6689,West Town,41.9034,-87.6693,1396.52236746973

@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1105499,12/29/2013 0:03,12/29/2013 0:30,2416,1650,35,Streeter Dr & Illinois St,304,Halsted St & Waveland Ave,Customer,null,null,Near North Side,41.8911,-87.6122,Lake View,41.9494,-87.6496,7181.67290070582
 1105501,12/29/2013 0:04,12/29/2013 0:38,2911,1985,195,Columbus Dr & Randolph St,222,Milwaukee Ave & Rockwell St,Customer,null,null,The Loop,41.8847,-87.6195,Logan Square,41.9202,-87.693,7261.29420624947
 1105512,12/29/2013 0:21,12/29/2013 0:34,2110,760,67,Sheffield Ave & Fullerton Ave,309,Leavitt St & Armitage Ave,Customer,null,null,Lincoln Park,41.9256,-87.6537,Logan Square,41.9178,-87.6824,2535.60565549636

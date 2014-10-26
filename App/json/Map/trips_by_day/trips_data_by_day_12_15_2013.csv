@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1077916,12/15/2013 0:46,12/15/2013 1:20,2673,2081,259,California Ave & Francis Pl,293,Broadway & Wilson Ave,Customer,null,null,Logan Square,41.9185,-87.6972,Uptown,41.9655,-87.6572,6178.63195854512
 1077922,12/15/2013 0:56,12/15/2013 1:19,389,1398,176,Clark St & Elm St,108,Halsted St & Polk St,Customer,null,null,Near North Side,41.9032,-87.6313,Near West Side,41.8718,-87.6466,3713.36207890331
 1077927,12/15/2013 1:20,12/15/2013 1:39,389,1138,108,Halsted St & Polk St,205,Paulina St & 18th St,Customer,null,null,Near West Side,41.8718,-87.6466,Lower West Side,41.8579,-87.6687,2401.09137374104

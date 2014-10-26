@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 788120,10/15/2013 0:01,10/15/2013 0:16,1939,892,54,Ogden Ave & Chicago Ave,216,California Ave & Division St,Customer,null,null,West Town,41.8964,-87.6541,West Town,41.903,-87.6975,3677.73271586647
 788126,10/15/2013 0:05,10/15/2013 0:15,428,587,44,State St & Randolph St,59,Wabash Ave & Roosevelt Rd,Customer,null,null,The Loop,41.8847,-87.6277,The Loop,41.8682,-87.6263,1844.37795792352
 788128,10/15/2013 0:11,10/15/2013 0:27,2381,985,109,900 W Harrison,43,Michigan Ave & Washington St,Customer,null,null,Near West Side,41.8747,-87.65,The Loop,41.8839,-87.6246,2341.57036096989

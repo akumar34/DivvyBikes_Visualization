@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 844297,10/23/2013 0:06,10/23/2013 0:26,2424,1164,228,Damen Ave & Melrose Ave,290,Kedzie Ave & Palmer Ct,Customer,null,null,North Center,41.9406,-87.6785,Logan Square,41.9215,-87.7073,3194.27141332175
 844303,10/23/2013 0:20,10/23/2013 0:25,2298,306,114,Sheffield Ave & Addison St,254,Pine Grove Ave & Irving Park Rd,Customer,null,null,Lake View,41.9469,-87.6544,Lake View,41.9544,-87.648,988.294254651379
 844314,10/23/2013 1:06,10/23/2013 1:13,1593,437,88,May St & Randolph St,73,Jefferson St & Monroe St,Customer,null,null,Near West Side,41.884,-87.6557,Near West Side,41.8804,-87.6427,1144.23292774072

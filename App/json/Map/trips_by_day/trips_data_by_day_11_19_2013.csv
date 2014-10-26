@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 996062,11/19/2013 2:19,11/19/2013 2:28,2865,577,304,Halsted St & Waveland Ave,306,Sheridan Rd & Buena Ave,Customer,null,null,Lake View,41.9494,-87.6496,Uptown,41.9584,-87.6542,1072.64756336416
 996063,11/19/2013 2:22,11/19/2013 3:29,1405,4023,90,Millennium Park,90,Millennium Park,Customer,null,null,The Loop,41.881,-87.6241,The Loop,41.881,-87.6241,0
 996064,11/19/2013 2:27,11/19/2013 3:29,1718,3755,90,Millennium Park,90,Millennium Park,Customer,null,null,The Loop,41.881,-87.6241,The Loop,41.881,-87.6241,0

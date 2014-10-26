@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 625873,9/29/2013 0:00,9/29/2013 0:13,1741,804,117,Wilton Ave & Belmont Ave,312,Clarendon Ave & Gordon Ter,Customer,null,null,Lake View,41.9402,-87.653,Uptown,41.9579,-87.6495,1987.42899370137
 625878,9/29/2013 0:00,9/29/2013 0:17,1996,1042,140,Dearborn Pkwy & Delaware Pl,313,Lakeview Ave & Fullerton Pkwy,Customer,null,null,Near North Side,41.899,-87.6299,Lincoln Park,41.9259,-87.639,3075.34169521446
 625879,9/29/2013 0:01,9/29/2013 1:01,1629,3608,52,Michigan Ave & Lake St,52,Michigan Ave & Lake St,Customer,null,null,The Loop,41.886,-87.6241,The Loop,41.886,-87.6241,0

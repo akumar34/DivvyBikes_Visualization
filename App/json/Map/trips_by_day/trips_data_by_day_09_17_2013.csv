@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 512504,9/17/2013 0:05,9/17/2013 0:18,849,794,114,Sheffield Ave & Addison St,257,Lincoln Ave & Waveland Ave,Customer,null,null,Lake View,41.9469,-87.6544,North Center,41.9491,-87.6751,1731.0677526602
 512506,9/17/2013 0:08,9/17/2013 0:26,1871,1038,257,Lincoln Ave & Waveland Ave,232,Pine Grove Ave & Addison St,Customer,null,null,North Center,41.9491,-87.6751,Lake View,41.9493,-87.6463,2388.81562774814
 512508,9/17/2013 0:09,9/17/2013 7:44,1375,27263,257,Lincoln Ave & Waveland Ave,165,Clark St & Waveland Ave,Customer,null,null,North Center,41.9491,-87.6751,Lake View,41.9508,-87.6592,1334.62850759602

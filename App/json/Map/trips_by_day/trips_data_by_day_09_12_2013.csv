@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 473822,9/12/2013 0:03,9/12/2013 0:14,1442,687,238,Ravenswood Ave & Montrose Ave,311,Lincoln Ave & Eastwood Ave,Customer,null,null,Lake View,41.9616,-87.6744,Lincoln Square,41.9658,-87.6865,1110.32328673079
 473824,9/12/2013 0:05,9/12/2013 0:16,1722,700,80,Aberdeen St & Madison St,21,Aberdeen St & Jackson Blvd,Customer,null,null,Near West Side,41.8815,-87.6548,Near West Side,41.8777,-87.6548,417.733742467336
 473825,9/12/2013 0:05,9/12/2013 0:26,105,1263,43,Michigan Ave & Washington St,147,Indiana Ave & 26th St,Customer,null,null,The Loop,41.8839,-87.6246,Douglas,41.8457,-87.6225,4245.91729955693

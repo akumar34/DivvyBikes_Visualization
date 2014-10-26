@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1081150,12/17/2013 3:15,12/17/2013 7:52,1487,16628,66,Clinton St & Lake St,24,Fairbanks Ct & Grand Ave,Customer,null,null,Near West Side,41.8858,-87.6414,Near North Side,41.8919,-87.6206,1848.6378880347
 1081159,12/17/2013 5:42,12/17/2013 5:48,2973,367,305,Western Ave & Division St,17,Wood St & Division St,Customer,null,null,West Town,41.9029,-87.6873,West Town,41.9033,-87.6727,1207.82224470885
 1081191,12/17/2013 6:32,12/17/2013 6:44,2809,685,20,Sheffield Ave & Kingsbury St,58,Ashland Ave & Armitage Ave,Customer,null,null,Near North Side,41.9096,-87.6535,Logan Square,41.916,-87.6689,1462.11931648612

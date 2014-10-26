@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 824300,10/20/2013 0:00,10/20/2013 0:10,1950,584,131,Lincoln Ave & Belmont Ave,347,Ashland Ave & Grace St,Customer,null,null,Lake View,41.9394,-87.6684,Lake View,41.9507,-87.6687,1257.83087316037
 824309,10/20/2013 0:08,10/20/2013 0:31,1091,1374,199,Wabash Ave & Grand Ave,128,Damen Ave & Chicago Ave,Customer,null,null,Near North Side,41.8917,-87.6269,West Town,41.8958,-87.6772,4196.85812932855
 824310,10/20/2013 0:09,10/20/2013 0:29,1338,1213,128,Damen Ave & Chicago Ave,128,Damen Ave & Chicago Ave,Customer,null,null,West Town,41.8958,-87.6772,West Town,41.8958,-87.6772,0

@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 280365,8/21/2013 0:02,8/21/2013 0:24,341,1337,177,Theater on the Lake,110,State St & Erie St,Customer,null,null,Lincoln Park,41.9263,-87.6308,Near North Side,41.894,-87.6286,3592.51930481701
 280366,8/21/2013 0:02,8/21/2013 0:13,1485,648,168,Michigan Ave & 14th St,49,Dearborn St & Monroe St,Customer,null,null,Near South Side,41.8641,-87.6237,The Loop,41.8813,-87.6295,1976.58829271708
 280367,8/21/2013 0:02,8/21/2013 0:43,675,2434,153,Southport Ave & Wellington Ave,176,Clark St & Elm St,Customer,null,null,Lake View,41.9357,-87.6636,Near North Side,41.9032,-87.6313,4496.72788693043

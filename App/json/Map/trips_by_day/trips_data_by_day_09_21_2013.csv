@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 543319,9/21/2013 0:00,9/21/2013 0:03,1919,135,44,State St & Randolph St,194,State St & Wacker Dr,Customer,null,null,The Loop,41.8847,-87.6277,The Loop,41.8869,-87.626,277.026283495312
 543322,9/21/2013 0:02,9/21/2013 0:28,1827,1596,280,Morgan St & 31st St,214,Damen Ave & Grand Ave,Customer,null,null,Bridgeport,41.8378,-87.6511,West Town,41.8912,-87.6769,6305.96968247031
 543326,9/21/2013 0:05,9/21/2013 0:27,192,1334,219,Damen Ave & Cortland Ave,220,Hampden Ct & Diversey Pkwy,Customer,null,null,Logan Square,41.916,-87.6774,Lake View,41.9326,-87.6424,3440.6187649039

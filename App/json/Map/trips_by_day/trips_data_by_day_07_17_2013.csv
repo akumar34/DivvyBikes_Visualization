@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 71102,7/17/2013 0:01,7/17/2013 0:13,625,745,59,Wabash Ave & Roosevelt Rd,62,McCormick Place,Customer,null,null,The Loop,41.8682,-87.6263,Near South Side,41.8514,-87.6188,1963.89280192687
 71105,7/17/2013 0:11,7/17/2013 0:18,587,421,5,State St & Harrison St,72,State St & 16th St,Customer,null,null,The Loop,41.874,-87.6277,Near South Side,41.8601,-87.6277,1536.85000500398
 71108,7/17/2013 0:22,7/17/2013 0:47,659,1482,52,Michigan Ave & Lake St,42,Wabash Ave & Cermak Rd,Customer,null,null,The Loop,41.886,-87.6241,Near South Side,41.8532,-87.6253,3642.88977486571

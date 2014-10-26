@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 502363,9/15/2013 0:01,9/15/2013 0:29,1815,1648,210,Ashland Ave & Division St,93,Sheffield Ave & Willow St,Customer,null,null,West Town,41.9034,-87.6693,Lincoln Park,41.9137,-87.6529,1777.14036076137
 502367,9/15/2013 0:02,9/15/2013 0:26,664,1447,160,Campbell Ave & North Ave,60,Dayton St & North Ave,Customer,null,null,West Town,41.9105,-87.6896,Near North Side,41.9106,-87.6494,3329.79409180357
 502369,9/15/2013 0:03,9/15/2013 0:10,445,439,81,Daley Center Plaza,81,Daley Center Plaza,Customer,null,null,The Loop,41.8842,-87.6296,The Loop,41.8842,-87.6296,0

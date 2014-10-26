@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 692458,10/6/2013 0:00,10/6/2013 0:28,2281,1688,59,Wabash Ave & Roosevelt Rd,17,Wood St & Division St,Customer,null,null,The Loop,41.8682,-87.6263,West Town,41.9033,-87.6727,5488.33253245413
 692462,10/6/2013 0:03,10/6/2013 0:10,2280,396,240,Sheridan Rd & Irving Park Rd,234,Clark St & Montrose Ave,Customer,null,null,Lake View,41.9542,-87.6544,Uptown,41.9616,-87.666,1262.88245027019
 692465,10/6/2013 0:03,10/6/2013 0:18,2064,854,67,Sheffield Ave & Fullerton Ave,224,Halsted St & Willow St,Customer,null,null,Lincoln Park,41.9256,-87.6537,Lincoln Park,41.9138,-87.6488,1373.98336033302

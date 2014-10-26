@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 898090,11/1/2013 0:00,11/1/2013 0:29,999,1766,44,State St & Randolph St,210,Ashland Ave & Division St,Customer,null,null,The Loop,41.8847,-87.6277,West Town,41.9034,-87.6693,4028.50793581818
 898093,11/1/2013 0:01,11/1/2013 0:13,1938,687,72,State St & 16th St,209,Normal Ave & Archer Ave,Customer,null,null,Near South Side,41.8601,-87.6277,Armour Square,41.8495,-87.6406,1589.1391352659
 898094,11/1/2013 0:04,11/1/2013 0:34,475,1794,329,Lake Shore Dr & Diversey Pkwy,329,Lake Shore Dr & Diversey Pkwy,Customer,null,null,Lincoln Park,41.9327,-87.6363,Lincoln Park,41.9327,-87.6363,0

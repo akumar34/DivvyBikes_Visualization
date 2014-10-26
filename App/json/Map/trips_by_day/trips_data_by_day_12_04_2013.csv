@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1047983,12/4/2013 0:00,12/4/2013 0:05,2544,325,114,Sheffield Ave & Addison St,254,Pine Grove Ave & Irving Park Rd,Customer,null,null,Lake View,41.9469,-87.6544,Lake View,41.9544,-87.648,988.294254651379
 1047984,12/4/2013 0:00,12/4/2013 0:10,89,594,123,California Ave & Milwaukee Ave,160,Campbell Ave & North Ave,Customer,null,null,Logan Square,41.9227,-87.6972,West Town,41.9105,-87.6896,1490.43805450407
 1047985,12/4/2013 0:00,12/4/2013 0:10,1918,597,123,California Ave & Milwaukee Ave,160,Campbell Ave & North Ave,Customer,null,null,Logan Square,41.9227,-87.6972,West Town,41.9105,-87.6896,1490.43805450407

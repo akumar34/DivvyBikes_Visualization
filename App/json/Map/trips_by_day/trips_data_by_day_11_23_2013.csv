@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 1016070,11/23/2013 0:02,11/23/2013 2:01,1022,7159,205,Paulina St & 18th St,260,Kedzie Ave & Milwaukee Ave,Customer,null,null,Lower West Side,41.8579,-87.6687,Logan Square,41.9296,-87.7079,8596.37031535431
 1016106,11/23/2013 1:03,11/23/2013 1:32,2395,1734,97,Museum Campus,321,Wabash Ave & 8th St,Customer,null,null,Near South Side,41.8652,-87.6178,The Loop,41.872,-87.6261,1020.93460238662
 1016108,11/23/2013 1:17,11/23/2013 1:32,1764,883,127,Lincoln Ave & Fullerton Ave,177,Theater on the Lake,Customer,null,null,Lincoln Park,41.9259,-87.6493,Lincoln Park,41.9263,-87.6308,1528.9318165151

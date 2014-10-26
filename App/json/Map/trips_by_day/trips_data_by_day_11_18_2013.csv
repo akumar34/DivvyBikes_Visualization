@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 990811,11/18/2013 0:12,11/18/2013 0:21,2990,565,75,Canal St & Jackson Blvd,168,Michigan Ave & 14th St,Customer,null,null,Near West Side,41.8781,-87.64,Near South Side,41.8641,-87.6237,2067.47906446655
 990832,11/18/2013 1:38,11/18/2013 1:54,1801,933,240,Sheridan Rd & Irving Park Rd,242,Damen Ave & Leland Ave,Customer,null,null,Lake View,41.9542,-87.6544,Lincoln Square,41.9671,-87.679,2490.65112712509
 990847,11/18/2013 5:13,11/18/2013 5:21,2249,521,277,Ashland Ave & Grand Ave,56,Desplaines St & Kinzie St,Customer,null,null,West Town,41.8911,-87.6666,Near West Side,41.8887,-87.6444,1857.91640378168

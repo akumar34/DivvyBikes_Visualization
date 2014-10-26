@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 303442,8/24/2013 0:00,8/24/2013 0:22,288,1338,112,Green St & Randolph St,236,Sedgwick St & Schiller St,Customer,null,null,Near West Side,41.8841,-87.6487,Near North Side,41.9076,-87.6385,2742.93801529325
 303443,8/24/2013 0:01,8/24/2013 0:37,1171,2154,220,Hampden Ct & Diversey Pkwy,15,Racine Ave & 18th St,Customer,null,null,Lake View,41.9326,-87.6424,Lower West Side,41.8582,-87.6565,8350.48237673228
 303444,8/24/2013 0:01,8/24/2013 0:16,879,905,112,Green St & Randolph St,236,Sedgwick St & Schiller St,Customer,null,null,Near West Side,41.8841,-87.6487,Near North Side,41.9076,-87.6385,2742.93801529325

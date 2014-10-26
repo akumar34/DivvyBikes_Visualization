@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 564451,9/23/2013 0:01,9/23/2013 0:11,192,622,240,Sheridan Rd & Irving Park Rd,230,Lincoln Ave & Roscoe St,Customer,null,null,Lake View,41.9542,-87.6544,Lake View,41.9433,-87.671,1831.24193583141
 564452,9/23/2013 0:02,9/23/2013 0:34,1919,1931,35,Streeter Dr & Illinois St,135,Halsted St & 21st St,Customer,null,null,Near North Side,41.8911,-87.6122,Lower West Side,41.8538,-87.6467,5033.36080309574
 564453,9/23/2013 0:06,9/23/2013 0:26,468,1195,66,Clinton St & Lake St,29,Noble St & Milwaukee Ave,Customer,null,null,Near West Side,41.8858,-87.6414,West Town,41.9007,-87.6626,2412.48558772782
