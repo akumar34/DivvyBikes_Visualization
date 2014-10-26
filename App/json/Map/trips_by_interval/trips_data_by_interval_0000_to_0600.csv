@@ -1,3 +1,4 @@
+trip_id,starttime,stoptime,bikeid,tripduration,from_station_id,from_station_name,to_station_id,to_station_name,usertype,gender,birthday,from_community,from_station_latt,from_station_long,to_community,to_station_latt,to_station_long,dist_meters
 5032,6/28/2013 0:04,6/28/2013 0:37,228,1995,73,Jefferson St & Monroe St,73,Jefferson St & Monroe St,Customer,null,null,Near West Side,41.8804,-87.6427,Near West Side,41.8804,-87.6427,0
 5033,6/28/2013 0:04,6/28/2013 0:37,251,1977,73,Jefferson St & Monroe St,73,Jefferson St & Monroe St,Customer,null,null,Near West Side,41.8804,-87.6427,Near West Side,41.8804,-87.6427,0
 5035,6/28/2013 0:08,6/28/2013 0:24,141,944,90,Millennium Park,90,Millennium Park,Customer,null,null,The Loop,41.881,-87.6241,The Loop,41.881,-87.6241,0
