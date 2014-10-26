@@ -8,29 +8,35 @@
         }
 
     </script>
-    <script src="App/js/ClassExtension.js"></script>
-    <script src="App/js/calendar/CalendarControl.js"></script>
-    <script src="./App/js/CalendarPlayBack.js"></script>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <script src="App/js/ClassExtension.js"></script> 
     <script src="App/js/USWeatherApp.js"></script>
-    <script type="text/javascript">
-        var CalControlFromOtherPage = localStorage.getItem("CalControl");
-        var usWeatherApp;
-        var CalendarApp;
-       // console.log('Inside Init1');
-        function init() {
-           // console.log('Inside Init2');
-            CalendarApp = new CalendarControl();
-            usWeatherApp = new USweatherApp();
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
-           // console.log('Inside Init3');
-            //localStorage.setItem("DateTakingObject", usWeatherApp);
+    <script src="App/js/calendar/CalendarControl.js"></script>
+        <script type="text/javascript">
+            var CalControlFromOtherPage = localStorage.getItem("CalControl");
+            var usWeatherApp;
+            var CalendarApp;
+           // console.log('Inside Init1');
+            function init() {
+                console.log('Inside INIT');
+               // console.log('Inside Init2');
+                CalendarApp = new CalendarControl();
+                usWeatherApp = new USweatherApp();
 
-            //store.set("DateTakingObject", usWeatherApp);
-        }
+               // console.log('Inside Init3');
+                //localStorage.setItem("DateTakingObject", usWeatherApp);
 
-    </script>
+                //store.set("DateTakingObject", usWeatherApp);
+            }
+
+        </script>
+        
+    <script src="./App/js/CalendarPlayBack.js"></script>
 </head>
-<frameset id="mainContainer" cols="25%,75%" onload="init()">
+<frameset id="mainContainer" cols="25%,75%" onload="init();">
     <frame id="leftframe" frameborder="No" border="0" scrolling="No" src="map.html">
     <frame id="rightframe" frameborder="No" border="0" scrolling="Yes" src="graphs.html" name="TargetPage">
 </frameset>
