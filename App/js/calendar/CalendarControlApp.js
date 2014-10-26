@@ -13,7 +13,8 @@ var CalendarControlApp = Class.extend({
 
         this.myTag = "";
 
-	this.stationArray = [];
+	this.stationArray = ["Larrabee St & Menomonee St","Loomis St & Taylor St","Halsted St & James M Rochford St"];
+        this.dateAsString = "06/27/2013 00";
     },
 
 
@@ -199,172 +200,139 @@ var CalendarControlApp = Class.extend({
         var width = this.barCanvasWidth;
         var height = this.barCanvasHeight;
         var date = this.dateAsString;
-        var dataCount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
         var Stations = this.stationArray;
+	var dataCount = new Array(25);
+//	for(var i = 0; i < dataCount.length; i++){
+//		dataCount[i] = new Array(Stations.length+1);
+//		dataCount[i].intervals = i;
+//		dataCount[i].
+//	}
         var svg = this.svgBar2;
 
         svg.selectAll("*").remove();
  
-        for (var z=0;z<Stations.length;z++){
-            dataCount[0][z] = Stations[z];
-        }
+//        for (var z=1;z<Stations.length+1;z++){
+//            dataCount[0][z] = Stations[z-1];
+//        }
+//	dataCount[0][0] = "intervals";
 
-console.log("Station Length: "+Stations.length);
-        for(var j=0;j<Stations.length;j++){
-        	for(var i=1;i<=24;i++){
-            		dataCount[i][j] = 0;
-        }}
+//	for(var i=1;i<25;i++){
+//		dataCount[i][0] = i-1;
+//	}
+
+//        for(var j=1;j<Stations.length+1;j++){
+//        	for(var i=1;i<=24;i++){
+//            		dataCount[i][j] = 0;
+//        }}
+	for(var i = 0; i < 25; i++){
+		dataCount[i] = {};
+	}
+	for(var i = 0; i < 25; i++){
+		dataCount[i].intervals = i;
+		dataCount[i][Stations[0]] = 3;
+		dataCount[i][Stations[1]] = 2;
+		dataCount[i][Stations[2]] = 9;
+	}
         Stations.forEach(function(s,i){
         	data.forEach(function (d) {
            		d.starttime = new Date(d.starttime);
-
 			if(d.from_station_name === s){
-			    switch (d.starttime.getHours()) {
-				case 0 :
-				    dataCount[1][i] += 1;
-				    break;
-				case 1 :
-				    dataCount[2][i] += 1;
-				    break;
-				case 2 :
-				    dataCount[3][i] += 1;
-				    break;
-				case 3 :
-				    dataCount[4][i] += 1;
-				    break;
-				case 4 :
-				    dataCount[5][i] += 1;
-				    break;
-				case 5 :
-				    dataCount[6][i] += 1;
-				    break;
-				case 6 :
-				    dataCount[7][i] += 1;
-				    break;
-				case 7 :
-				    dataCount[8][i] += 1;
-				    break;
-				case 8 :
-				    dataCount[9][i] += 1;
-				    break;
-				case 9 :
-				    dataCount[10][i] += 1;
-				    break;
-				case 10 :
-				    dataCount[11][i] += 1;
-				    break;
-				case 11 :
-				    dataCount[12][i] += 1;
-				    break;
-				case 12 :
-				    dataCount[13][i] += 1;
-				    break;
-				case 13 :
-				    dataCount[14][i] += 1;
-				    break;
-				case 14 :
-				    dataCount[15][i] += 1;
-				    break;
-				case 15 :
-				    dataCount[16][i] += 1;
-				    break;
-				case 16 :
-				    dataCount[17][i] += 1;
-				    break;
-				case 17 :
-				    dataCount[18][i] += 1;
-				    break;
-				case 18 :
-				    dataCount[19][i] += 1;
-				    break;
-				case 19 :
-				    dataCount[20][i] += 1;
-				    break;
-				case 20 :
-				    dataCount[21][i] += 1;
-				    break;
-				case 21 :
-				    dataCount[22][i] += 1;
-				    break;
-				case 22 :
-				    dataCount[23][i] += 1;
-				    break;
-				case 23 :
-				    dataCount[24][i] += 1;
-				    break;
-				default :
-				    console.log("default case reached... something wrong");
-				    break;
-			    }
-
-			    d.stoptime = new Date(d.stoptime);
+				dataCount[ d.starttime.getHours() ].intervals = d.starttime.getHours();
+				dataCount[ d.starttime.getHours() ][Stations[i]] += 1;
+			        //d.stoptime = new Date(d.stoptime);
 			}
+
 		    });
 		});
-        var x = d3.time.scale().range([0, width]);
-        var y = d3.scale.linear()
-            .range([height, 0]);
-        var color = d3.scale.category10();
+        
 
-        var xAxis = d3.svg.axis()
-            .scale(x)
-            .orient("bottom");
-        var yAxis = d3.svg.axis()
-            .scale(y)
-            .orient("left").ticks(5)
-            //.tickFormat(d3.format(".2s"))
-            ;
+		var x = d3.scale.ordinal()
+    			.range([0, width]);
 
-        var line = d3.svg.line()
-            .interpolate("basis")
-            .x(function(d,i){return x(d[i])})
-            .y(function(d,i){d[i].forEach(function(s){return y(d[i][s])});})
-        ;
-        svg.append("svg")
-            .attr("width", width + left + right)
-            .attr("height", height + top + bottom)
-            .append("g")
-            .attr("transform",
-                "translate(" + left + "," + top + ")");
-        x.domain(d3.extent(dataCount, function(d, i) { return d[i]; }));
-        y.domain([0, d3.max(dataCount, function(d) { return d[0]; })]);
-        var color = d3.scale.category10();   // set the colour scale
-        var dataNest = d3.nest()
-            .key(function(d) {return d[0];})
-            .entries(dataCount);
-        legendSpace = width/dataNest.length; // spacing for legend
+		var y = d3.scale.ordinal()
+		    	.range([height, 0]);	
+		
+		var color = d3.scale.category10();
 
-        // Loop through each symbol / key
-        dataNest.forEach(function(d,i) {
+		var xAxis = d3.svg.axis()
+		    .scale(x)
+		    .orient("bottom");
 
-            svg.append("path")
-                .attr("class", "line")
-                .style("stroke", function() { // Add the colours dynamically
-                    return d.color = color(d.key); })
-                .attr("d", line(d.values));
+		var yAxis = d3.svg.axis()
+		    .scale(y)
+		    .orient("left");
 
-            // Add the Legend
-            svg.append("text")
-                .attr("x", (legendSpace/2)+i*legendSpace) // spacing
-                .attr("y", height + (bottom/2)+ 5)
-                .attr("class", "legend")    // style the legend
-                .style("fill", function() { // dynamic colours
-                    return d.color = color(d.key); })
-                .text(d.key);
 
-        });
+		var line = d3.svg.line()
+			    .interpolate("basis")
+			    .x(function(d) { return x(d.intervals); })
+			    .y(function(d) { return y(d.occurrences); });
 
-        // Add the X Axis
-        svg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+		data.forEach(function(d) {
+			d.intervals = +d.intervals;
+		});
 
-        // Add the Y Axis
-        svg.append("g")
-            .attr("class", "y axis")
-            .call(yAxis);
-    },
+		color.domain(d3.keys(dataCount[0]).filter(function(key) { 
+			return key !== "intervals";
+		}));
+
+		var stations = color.domain().map(function(name) {
+			return {
+					name: name,
+					values: dataCount.map(function(d) {
+						return {intervals: d.intervals, occurrences: +d[name]};
+					})
+				};
+		});
+
+		x.domain(d3.extent(data, function(d) { return d.intervals; }));
+
+		y.domain([
+		d3.min(stations, function(c) { return d3.min(c.values, function(v) { return v.occurrences; }); }),
+		d3.max(stations, function(c) { return d3.max(c.values, function(v) { return v.occurrences; }); })
+		]);
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis);
+
+		svg.append("g")
+			.attr("class", "y axis")
+			.call(yAxis)
+			.append("text")
+			.attr("transform", "rotate(-90)")
+			.attr("y", 6)
+			.attr("dy", ".71em")
+			.style("text-anchor", "end")
+			.text("Active Bikes");
+
+		var station = svg.selectAll(".station")
+			.data(stations)
+			.enter().append("g")
+			.attr("class", "station");
+
+		station.append("path")
+			.attr("class", "line")
+			.attr("d", function(d) { 
+				return line(d.values); 
+			})
+			.style("stroke", function(d) { return color(d.name); });
+
+		station.append("text")
+			.datum(function(d) { return {
+				name: d.name, value: d.values[d.values.length - 1]}; 
+			})
+			.attr("transform", function(d) { 
+				return "translate(" + x(d.value.intervals) + "," + y(d.value.occurrences) + ")"; 
+			})
+			.attr("x", 3)
+			.attr("dy", ".35em")
+			.text(function(d) { 
+				return d.name; 
+			});
+
 
     /////////////////////////////////////////////////////////////
 
@@ -404,7 +372,7 @@ console.log("Station Length: "+Stations.length);
         month = date.substring(0, 2);
         day = date.substring(3, 5);
         year = date.substring(6, 10);
-        var fileToLoad = "App/json/Map/Trips_data/trips_data_by_" + month + "_" + day + "_" + year + ".csv";
+        var fileToLoad = "App/json/Map/trips_by_day/trips_data_by_day_" + month + "_" + day + "_" + year + ".csv";
         console.log("File to be loaded: " + fileToLoad);
         switch (this.myTag) {
 
