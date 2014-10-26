@@ -412,7 +412,7 @@ var CalendarControl = Class.extend({
         month = date.substring(0, 2);
         day = date.substring(3, 5);
         year = date.substring(6, 10);
-        var fileToLoad = "App/json/Map/Trips_data/trips_data_by_" + month + "_" + day + "_" + year + ".csv";
+        var fileToLoad = "App/json/Map/trips_by_day/trips_data_by_day_" + month + "_" + day + "_" + year + ".csv";
         console.log("File to be loaded: " + fileToLoad);
         switch (this.myTag) {
 

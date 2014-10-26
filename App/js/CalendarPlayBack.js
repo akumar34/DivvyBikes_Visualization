@@ -200,7 +200,7 @@ function drawTrips(DateStringThing) {
         + DayToRun.substring(DayToRun.length - 4, DayToRun.length);
 
 
-    var csvFile = "./App/json/Map/Trips_data/trips_data_by_" + parseDate + ".csv";
+    var csvFile = "./App/json/Map/trips_by_day/trips_data_by_" + parseDate + ".csv";
 
     console.log('parseDate' + parseDate);
 

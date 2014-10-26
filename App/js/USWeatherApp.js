@@ -1,4 +1,3 @@
-
 var USweatherApp = Class.extend({
 
     construct: function () {

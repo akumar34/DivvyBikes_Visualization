@@ -44,11 +44,11 @@
     <script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js"></script>
     <script src="App/js/calendar/CalendarControl.js"></script>
     <script>
-
+var CalendarApp = new CalendarControl();
         function init() {
 
-            top.CalendarApp.startup('#Vis1');
-            top.CalendarApp.startup('#Vis2');
+            CalendarApp.startup('#Vis1');
+            CalendarApp.startup('#Vis2');
 
         }
     </script>
@@ -84,7 +84,8 @@
 //                        div.value = '';
                         div.innerHTML = dateAsString;
                         //$("#DateAndTimePickerValue").innerHTML = dateAsString;
-                        usWeatherApp.drawTrips(dateAsString + ":00");
+                        //usWeatherApp.drawTrips(dateAsString + ":00");  Sharad
+                        CalendarApp = new CalendarControl();
                         CalendarApp.setDateAndTime(dateAsString);
                        // localStorage.setItem("DateUpdate", dateAsString+":00");
                         console.log("This is it : " + dateAsString);
