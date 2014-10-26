@@ -12,6 +12,8 @@ var CalendarControlApp = Class.extend({
         this.svgBar2 = null;
 
         this.myTag = "";
+
+	this.stationArray = [];
     },
 
 
@@ -197,109 +199,108 @@ var CalendarControlApp = Class.extend({
         var width = this.barCanvasWidth;
         var height = this.barCanvasHeight;
         var date = this.dateAsString;
-
+        var dataCount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var Stations = this.stationArray;
         var svg = this.svgBar2;
 
         svg.selectAll("*").remove();
-        var dataCount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        var Stations = this.station;
+ 
         for (var z=0;z<Stations.length;z++){
             dataCount[0][z] = Stations[z];
         }
 
 console.log("Station Length: "+Stations.length);
         for(var j=0;j<Stations.length;j++){
-        for(var i=1;i<=24;i++){
-            dataCount[i][j] = 0;
+        	for(var i=1;i<=24;i++){
+            		dataCount[i][j] = 0;
         }}
         Stations.forEach(function(s,i){
-        data.forEach(function (d) {
-            d.starttime = new Date(d.starttime);
+        	data.forEach(function (d) {
+           		d.starttime = new Date(d.starttime);
 
-if(d.from_station_name == s){
-            switch (d.starttime.getHours()) {
-                case 0 :
-                    dataCount[1][i] += 1;
-                    break;
-                case 1 :
-                    dataCount[2][i] += 1;
-                    break;
-                case 2 :
-                    dataCount[3][i] += 1;
-                    break;
-                case 3 :
-                    dataCount[4][i] += 1;
-                    break;
-                case 4 :
-                    dataCount[5][i] += 1;
-                    break;
-                case 5 :
-                    dataCount[6][i] += 1;
-                    break;
-                case 6 :
-                    dataCount[7][i] += 1;
-                    break;
-                case 7 :
-                    dataCount[8][i] += 1;
-                    break;
-                case 8 :
-                    dataCount[9][i] += 1;
-                    break;
-                case 9 :
-                    dataCount[10][i] += 1;
-                    break;
-                case 10 :
-                    dataCount[11][i] += 1;
-                    break;
-                case 11 :
-                    dataCount[12][i] += 1;
-                    break;
-                case 12 :
-                    dataCount[13][i] += 1;
-                    break;
-                case 13 :
-                    dataCount[14][i] += 1;
-                    break;
-                case 14 :
-                    dataCount[15][i] += 1;
-                    break;
-                case 15 :
-                    dataCount[16][i] += 1;
-                    break;
-                case 16 :
-                    dataCount[17][i] += 1;
-                    break;
-                case 17 :
-                    dataCount[18][i] += 1;
-                    break;
-                case 18 :
-                    dataCount[19][i] += 1;
-                    break;
-                case 19 :
-                    dataCount[20][i] += 1;
-                    break;
-                case 20 :
-                    dataCount[21][i] += 1;
-                    break;
-                case 21 :
-                    dataCount[22][i] += 1;
-                    break;
-                case 22 :
-                    dataCount[23][i] += 1;
-                    break;
-                case 23 :
-                    dataCount[24][i] += 1;
-                    break;
-                default :
-                    console.log("default case reached... something wrong");
-                    break;
-            }
+			if(d.from_station_name === s){
+			    switch (d.starttime.getHours()) {
+				case 0 :
+				    dataCount[1][i] += 1;
+				    break;
+				case 1 :
+				    dataCount[2][i] += 1;
+				    break;
+				case 2 :
+				    dataCount[3][i] += 1;
+				    break;
+				case 3 :
+				    dataCount[4][i] += 1;
+				    break;
+				case 4 :
+				    dataCount[5][i] += 1;
+				    break;
+				case 5 :
+				    dataCount[6][i] += 1;
+				    break;
+				case 6 :
+				    dataCount[7][i] += 1;
+				    break;
+				case 7 :
+				    dataCount[8][i] += 1;
+				    break;
+				case 8 :
+				    dataCount[9][i] += 1;
+				    break;
+				case 9 :
+				    dataCount[10][i] += 1;
+				    break;
+				case 10 :
+				    dataCount[11][i] += 1;
+				    break;
+				case 11 :
+				    dataCount[12][i] += 1;
+				    break;
+				case 12 :
+				    dataCount[13][i] += 1;
+				    break;
+				case 13 :
+				    dataCount[14][i] += 1;
+				    break;
+				case 14 :
+				    dataCount[15][i] += 1;
+				    break;
+				case 15 :
+				    dataCount[16][i] += 1;
+				    break;
+				case 16 :
+				    dataCount[17][i] += 1;
+				    break;
+				case 17 :
+				    dataCount[18][i] += 1;
+				    break;
+				case 18 :
+				    dataCount[19][i] += 1;
+				    break;
+				case 19 :
+				    dataCount[20][i] += 1;
+				    break;
+				case 20 :
+				    dataCount[21][i] += 1;
+				    break;
+				case 21 :
+				    dataCount[22][i] += 1;
+				    break;
+				case 22 :
+				    dataCount[23][i] += 1;
+				    break;
+				case 23 :
+				    dataCount[24][i] += 1;
+				    break;
+				default :
+				    console.log("default case reached... something wrong");
+				    break;
+			    }
 
-            d.stoptime = new Date(d.stoptime);
-}
-            });
-
-        });
+			    d.stoptime = new Date(d.stoptime);
+			}
+		    });
+		});
         var x = d3.time.scale().range([0, width]);
         var y = d3.scale.linear()
             .range([height, 0]);
