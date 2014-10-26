@@ -44,6 +44,7 @@
 	    <script src="http://d3js.org/d3.v3.min.js"></script>
 	    <script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js"></script>
 	    <script src="App/js/calendar/CalendarControlApp.js"></script>
+	    <script src="App/js/CalendarPlayBack.js"></script>
 	    <script>
 		var calendarControlApp = new CalendarControlApp();
 		function init() {
@@ -73,23 +74,14 @@
 				    onSelect: function (dateText, inst) {
 				        var dateAsString;
 				        var dateAsObject;
-				        dateAsString = dateText; //the first parameter of this function
-				        dateAsObject = $(this).datepicker('getDate'); //the getDate method
+				        dateAsString = dateText; 
+				        dateAsObject = $(this).datepicker('getDate');
 				        dateAsObject = $.datepicker.formatDate('mm/dd/yy', new Date(dateAsObject));
 				        var div = document.getElementById("DateAndTimePickerValue");
-		//                        div.value = '';
-				        //div.innerHTML = dateAsString;
-				        //$("#DateAndTimePickerValue").innerHTML = dateAsString;
-				        //usWeatherApp.drawTrips(dateAsString + ":00");  Sharad
-				        //CalendarApp = new CalendarControl();
 				        calendarControlApp.setDateAndTime(dateAsString);
-				       // localStorage.setItem("DateUpdate", dateAsString+":00");
-				       // console.log("This is it : " + dateAsString);
+					drawTrips(dateAsString);
 				    }
-
 				});
-
-				//console.log( dateAsObject + " " + "This is it : " + dateAsString)
 			    </script>
 
 			</div>
