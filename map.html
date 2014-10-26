@@ -154,15 +154,22 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="App/js/calendar/CalendarControl.js"></script>
     <script type="text/javascript">
-function init(){
-    usWeatherApp.init(1, '#viz');
-}
+            function init(){
+                top.usWeatherApp.init(1, '#viz');
+            }
     </script>
     <script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js">
 
     </script>
 
     <script src="App/js/suncalc.js"></script>
+    <script src="./App/js/WorldMap.js"></script>
+
+    <script src="./App/js/getCommunityArea.js"></script>
+    <script src="./App/js/MapGeoJson.js"></script>
+    <script src="./App/js/fi_markers.js"></script>
+    <script src="./App/js/CalendarPlayBack.js"></script>
+    <script src="./App/js/Station_Community.js"></script>
     <script>
         function showOverAllData() {
 
@@ -576,97 +583,8 @@ function init(){
         element.onchange = updateDropDownTarget;
         element.onchange();
     }
-
-    function updateDropDownTarget() {
-        var id = this.options[this.selectedIndex].value;
-
-        var getTag = this.parentNode.getElementsByTagName("select");
-        var length = getTag.length;
-
-        console.log("length" + length);
-
-        for (var indx = length - 1; indx > 0; --indx) {
-            if (getTag[indx].name == id) {
-                getTag[indx].style.display = "inline";
-            }
-            else {
-                getTag[indx].style.display = "none";
-            }
-        }
-        var e1 = document.getElementById("Chicago_Data");
-        var e2 = e1.options[e1.selectedIndex].text;
-
-        if (e2 == "Stations") {
-
-            $("#btnLeft").click(function () {
-
-                var selectedItem = $("#rightValues1 option:selected");
-                $("#leftValues1").append(selectedItem);
-            });
-
-            $("#btnRight").click(function () {
-                var selectedItem = $("#leftValues1 option:selected");
-                $("#rightValues1").append(selectedItem);
-
-            });
-
-            //sorting the list alphabetically
-            $("#btnRight").click(function () {
-                $("#rightValues1").html($("#rightValues1 option").sort(function (first, second) {
-                    return first.text == second.text ? 0 : first.text < second.text ? -1 : 1
-                }));
-            });
-
-
-            $("#rightValues1").change(function () {
-                var selectedItem = $("#rightValues1 option:selected");
-                $("#txtRight").val(selectedItem.text());
-            });
-
-
-        }
-        else if (e2 == "Communities") {
-            //$('#rightValues2').html(backup2);
-            //$('#rightValues1 option').remove();
-            $("#btnLeft").click(function () {
-
-                var selectedItem = $("#rightValues2 option:selected");
-
-                $("#leftValues2").append(selectedItem);
-            });
-
-            $("#btnRight").click(function () {
-                var selectedItem = $("#leftValues2 option:selected");
-                $("#rightValues2").append(selectedItem);
-
-            });
-
-            //sorting the list alphabetically
-            $("#btnRight").click(function () {
-                $("#rightValues2").html($("#rightValues2 option").sort(function (first, second) {
-                    return first.text == second.text ? 0 : first.text < second.text ? -1 : 1
-                }));
-            });
-
-            $("#rightValues2").change(function () {
-                var selectedItem = $("#rightValues2 option:selected");
-                $("#txtRight").val(selectedItem.text());
-            });
-
-        }
-
-    }
-
     //window.onload = initDropDownChangeHandler;
 </script>
-<script src="./App/js/WorldMap.js"></script>
-
-<script src="./App/js/getCommunityArea.js"></script>
-<script src="./App/js/MapGeoJson.js"></script>
-<script src="./App/js/fi_markers.js"></script>
-<script src="./App/js/CalendarPlayBack.js"></script>
-<script src="./App/js/Station_Community.js"></script>
-
 
 </div>
 </div>
