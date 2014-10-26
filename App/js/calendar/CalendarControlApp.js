@@ -332,7 +332,7 @@ var CalendarControlApp = Class.extend({
 			.text(function(d) { 
 				return d.name; 
 			});
-
+    },
 
     /////////////////////////////////////////////////////////////
 
