@@ -5,7 +5,7 @@ var CalendarControl = Class.extend({
         this.station = null;
 
         //this.barMargin = {top: 20, right: 20, bottom: 20, left: 20};
-        this.barMargin = {top: 100, right: 20, bottom: 20, left: 110};
+        this.barMargin = {top: 50, right: 20, bottom: 20, left: 20};
         this.barCanvasWidth = 1000;
         this.barCanvasHeight = 500;
 
@@ -199,6 +199,10 @@ var CalendarControl = Class.extend({
 
     //Drawing the bar chart for Origin distribution for the second visualization group.
     drawBarChart2: function (error, data) {
+        var top = this.barMargin.top,
+            bottom = this.barMargin.bottom,
+            left = this.barMargin.left,
+            right = this.barMargin.right;
         var width = this.barCanvasWidth;
         var height = this.barCanvasHeight;
         var date = this.dateAsString;
@@ -206,93 +210,106 @@ var CalendarControl = Class.extend({
         var svg = this.svgBar2;
 
         svg.selectAll("*").remove();
-        var dataCount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var dataCount = [];
+        // = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var Stations = this.station;
+        dataCount[0] = Stations;
+        Stations.forEach(function (s,j){
+        for(var i=1;i<=24;i++){
+            dataCount[i][j] = 0;
+        }});
+        dataCount[0].forEach(function(s,i){
         data.forEach(function (d) {
             d.starttime = new Date(d.starttime);
+
+if(d.from_station_name == s){
             switch (d.starttime.getHours()) {
                 case 0 :
-                    dataCount[0] += 1;
+                    dataCount[1][i] += 1;
                     break;
                 case 1 :
-                    dataCount[1] += 1;
+                    dataCount[2][i] += 1;
                     break;
                 case 2 :
-                    dataCount[2] += 1;
+                    dataCount[3][i] += 1;
                     break;
                 case 3 :
-                    dataCount[3] += 1;
+                    dataCount[4][i] += 1;
                     break;
                 case 4 :
-                    dataCount[4] += 1;
+                    dataCount[5][i] += 1;
                     break;
                 case 5 :
-                    dataCount[5] += 1;
+                    dataCount[6][i] += 1;
                     break;
                 case 6 :
-                    dataCount[6] += 1;
+                    dataCount[7][i] += 1;
                     break;
                 case 7 :
-                    dataCount[7] += 1;
+                    dataCount[8][i] += 1;
                     break;
                 case 8 :
-                    dataCount[8] += 1;
+                    dataCount[9][i] += 1;
                     break;
                 case 9 :
-                    dataCount[9] += 1;
+                    dataCount[10][i] += 1;
                     break;
                 case 10 :
-                    dataCount[10] += 1;
+                    dataCount[11][i] += 1;
                     break;
                 case 11 :
-                    dataCount[11] += 1;
+                    dataCount[12][i] += 1;
                     break;
                 case 12 :
-                    dataCount[12] += 1;
+                    dataCount[13][i] += 1;
                     break;
                 case 13 :
-                    dataCount[13] += 1;
+                    dataCount[14][i] += 1;
                     break;
                 case 14 :
-                    dataCount[14] += 1;
+                    dataCount[15][i] += 1;
                     break;
                 case 15 :
-                    dataCount[15] += 1;
+                    dataCount[16][i] += 1;
                     break;
                 case 16 :
-                    dataCount[16] += 1;
+                    dataCount[17][i] += 1;
                     break;
                 case 17 :
-                    dataCount[17] += 1;
+                    dataCount[18][i] += 1;
                     break;
                 case 18 :
-                    dataCount[18] += 1;
+                    dataCount[19][i] += 1;
                     break;
                 case 19 :
-                    dataCount[19] += 1;
+                    dataCount[20][i] += 1;
                     break;
                 case 20 :
-                    dataCount[20] += 1;
+                    dataCount[21][i] += 1;
                     break;
                 case 21 :
-                    dataCount[21] += 1;
+                    dataCount[22][i] += 1;
                     break;
                 case 22 :
-                    dataCount[22] += 1;
+                    dataCount[23][i] += 1;
                     break;
                 case 23 :
-                    dataCount[23] += 1;
+                    dataCount[24][i] += 1;
                     break;
                 default :
                     console.log("default case reached... something wrong");
                     break;
             }
+
             d.stoptime = new Date(d.stoptime);
+}
+            });
+
         });
         var x = d3.time.scale().range([0, width]);
         var y = d3.scale.linear()
-            .rangeRound([height, 0]);
-        var color = d3.scale.ordinal()
-            .range(["#98abc5"]);
+            .range([height, 0]);
+        var color = d3.scale.category10();
 
         var xAxis = d3.svg.axis()
             .scale(x)
@@ -300,78 +317,49 @@ var CalendarControl = Class.extend({
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("left")
-            .tickFormat(d3.format(".2s"));
+            //.tickFormat(d3.format(".2s"))
+            ;
 
-        color.domain(d3.keys(data[0])
-            .filter(function (key) {
-                return key == "TOTAL_TRIPS"
-            }));
-
-        data.forEach(function (d) {
-            d.TRIP_DURATION = +d.TRIP_DURATION;
-            d.TOTAL_TRIPS = +d.TOTAL_TRIPS;
+        var line = d3.svg.line()
+            .interpolate("basis")
+            .x(function(d,i){return x(d[i])})
+            .y(function(d,i){d[i].forEach(function(s){return y(d[i][s])});})
+        ;
+        var symbols = d3.nest()
+            .key(function(d) { return d.from_station_name; })
+            .entries(data);
+        symbols.forEach(function(s) {
+            s.maxPrice = d3.max(s.values, function(d,i) { return d[i]; });
         });
+        x.domain([
+            d3.min(symbols, function(s) { return s.values[0]; }),
+            d3.max(symbols, function(s) { return s.values[s.values.length - 1]; })
+        ]);
+        // Add an SVG element for each symbol, with the desired dimensions and margin.
+        svg
+            .data(symbols)
+            .enter().append("svg")
+            .attr("width", width + left + right)
+            .attr("height", height + top + bottom)
+            .append("g")
+            .attr("transform", "translate(" + left + "," + top + ")");
 
-        x.domain(data.map(function (d) {
-            return d.TRIP_DURATION;
-        }));
-        //Modified Map to filtered Map - Theja
-        y.domain([0, d3.max(data.filter(function (d) {
-            return d.COMMUNITY === community && d.STATION_NAME === station;
-        }), function (d) {
-            return d.TOTAL_TRIPS;
-        })]);
+        // Add the area path elements. Note: the y-domain is set per element.
+        svg.append("path")
+            .attr("class", "area")
+            .attr("d", function(d) { y.domain([0, d.maxPrice]); return area(d.values); });
 
-        svg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis)
-            .append("text")
-            .attr("y", 50)
-            .attr("x", width / 2)
-            .attr("dx", ".71em")
-            .style("text-anchor", "middle")
-            .text("Time Interval");
+        // Add the line path elements. Note: the y-domain is set per element.
+        svg.append("path")
+            .attr("class", "line")
+            .attr("d", function(d) { y.domain([0, d.maxPrice]); return line(d.values); });
 
-        svg.append("g")
-            .attr("class", "y axis")
-            .call(yAxis)
-            .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", -50)
-            .attr("dy", ".71em")
+        // Add a small label for the symbol name.
+        svg.append("text")
+            .attr("x", width - 6)
+            .attr("y", height - 6)
             .style("text-anchor", "end")
-            .text("Total Trips");
-
-        svg.selectAll("bar")
-            .data(data.filter(function (d) {
-                return d.COMMUNITY === community && d.STATION_NAME === station;
-            }))
-            .enter().append("rect")
-            .style("fill", "steelblue")
-            .attr("x", function (d) {
-                return x(d.TRIP_DURATION);
-            })
-            .attr("width", x.rangeBand())
-            .attr("y", function (d) {
-                return y(d.TOTAL_TRIPS);
-            })
-            .attr("height", function (d) {
-                return height - y(d.TOTAL_TRIPS);
-            });
-
-        svg.selectAll(".chart-title")
-            .data(data.filter(function (d) {
-                return d.COMMUNITY === community && d.STATION_NAME === station;
-            }))
-            .enter()
-            .append("text")
-            .attr("x", width / 2)
-            .attr("y", height - 200)
-            .attr("text-anchor", "middle")
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "20pt")
-            .text("Ride Dist. By Time Bar Chart");
+            .text(function(d) { return d.key; });
     },
 
     /////////////////////////////////////////////////////////////
@@ -445,5 +433,6 @@ var CalendarControl = Class.extend({
     },
     updateStation: function (stationArray) {
         this.station = stationArray;
+        this.updateData();
     }
 });
