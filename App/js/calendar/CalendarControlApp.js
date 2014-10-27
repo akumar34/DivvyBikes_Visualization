@@ -1,9 +1,9 @@
 var CalendarControlApp = Class.extend({
 
     construct: function () {
-        this.barMargin = {top: 20, right: 20, bottom: 20, left: 20};
-        this.barCanvasWidth = 700;
-        this.barCanvasHeight = 600;
+        this.barMargin = {top: 100, right: 20, bottom: 100, left: 20};
+        this.barCanvasWidth = 670;
+        this.barCanvasHeight = 585;
 
         this.barWidth = 0;
         this.barHeight = 0;
@@ -100,7 +100,7 @@ var CalendarControlApp = Class.extend({
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis)
             .append("text")
-            .attr("y", 50)
+            .attr("y", 35)
             .attr("x", width / 2)
             .attr("dx", ".71em")
             .style("text-anchor", "middle")
@@ -141,7 +141,7 @@ var CalendarControlApp = Class.extend({
 	   .enter()
 	   .append("text")
 	   .attr("x", width/2)
-	   .attr("y", height-500)
+	   .attr("y", height-355)
 	   .attr("text-anchor","middle")
 	   .attr("font-family", "sans-serif")
 	   .attr("font-size","20pt")
@@ -160,7 +160,7 @@ var CalendarControlApp = Class.extend({
         var width = this.barCanvasWidth - left - right;
         var height = this.barCanvasHeight - top - bottom;
         var date = this.dateAsString;
- 	var dataCount = new Array(25);    
+ 	var dataCount = new Array(24);    
 	var ticker = this.dateAsString.split(" ")[1];
 	var Stations = this.stationArray;
         var graph = this.svgBar2;
@@ -173,11 +173,11 @@ var CalendarControlApp = Class.extend({
         graph.selectAll("*").remove();
 	
 
-	for(var i = 0; i < 25; i++){
+	for(var i = 0; i < 24; i++){
 		dataCount[i] = {};
 	}
 
-	for(var i = 0; i < 25; i++){
+	for(var i = 0; i < 24; i++){
 		for(var j = 0; j < Stations.length; j++){
 			dataCount[i].intervals = i;
 			dataCount[i][Stations[j]] = 0;
@@ -282,7 +282,7 @@ var CalendarControlApp = Class.extend({
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis)
             .append("text")
-            .attr("y", 50)
+            .attr("y", 35)
             .attr("x", width / 2)
             .attr("dx", ".71em")
             .style("text-anchor", "middle")
@@ -349,11 +349,11 @@ var CalendarControlApp = Class.extend({
 	   .enter()
 	   .append("text")
 	   .attr("x", width/2)
-	   .attr("y", height-500)
+	   .attr("y", height-355)
 	   .attr("text-anchor","middle")
 	   .attr("font-family", "sans-serif")
 	   .attr("font-size","20pt")
-	   .text("Overall Active Rides Line Chart");
+	   .text("Stations Active Rides Line Chart");
     },
 
     /////////////////////////////////////////////////////////////
