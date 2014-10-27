@@ -13,8 +13,8 @@ var CalendarControlApp = Class.extend({
 
         this.myTag = "";
 
-	this.stationArray = ["Larrabee St & Menomonee St","Loomis St & Taylor St","Halsted St & James M Rochford St"];
-        this.dateAsString = "06/27/2013 00";
+    this.stationArray = ["Millennium Park", "Michigan Ave & Oak St", "Lake Shore Dr & Monroe St"];
+        this.dateAsString = "07/20/2013 11";
     },
 
 
@@ -38,7 +38,7 @@ var CalendarControlApp = Class.extend({
         var height = this.barCanvasHeight - top - bottom;
         var date = this.dateAsString;
         //var station = this.station;
-
+    
 
         var graph = this.svgBar1;
 
@@ -202,137 +202,142 @@ var CalendarControlApp = Class.extend({
         var date = this.dateAsString;
 
         var Stations = this.stationArray;
-	var dataCount = new Array(25);
-//	for(var i = 0; i < dataCount.length; i++){
-//		dataCount[i] = new Array(Stations.length+1);
-//		dataCount[i].intervals = i;
-//		dataCount[i].
-//	}
+    //var dataCount = new Array(25);
+
         var svg = this.svgBar2;
 
         svg.selectAll("*").remove();
- 
-//        for (var z=1;z<Stations.length+1;z++){
-//            dataCount[0][z] = Stations[z-1];
-//        }
-//	dataCount[0][0] = "intervals";
 
-//	for(var i=1;i<25;i++){
-//		dataCount[i][0] = i-1;
-//	}
-
-//        for(var j=1;j<Stations.length+1;j++){
-//        	for(var i=1;i<=24;i++){
-//            		dataCount[i][j] = 0;
-//        }}
-	for(var i = 0; i < 25; i++){
-		dataCount[i] = {};
-	}
-	for(var i = 0; i < 25; i++){
-		dataCount[i].intervals = i;
-		dataCount[i][Stations[0]] = 3;
-		dataCount[i][Stations[1]] = 2;
-		dataCount[i][Stations[2]] = 9;
-	}
+    /*for(var i = 0; i < 25; i++){
+        dataCount[i] = {};
+    }
+    for(var i = 0; i < 25; i++){
+        dataCount[i].intervals = i;
+        dataCount[i][Stations[0]] = 0;
+        dataCount[i][Stations[1]] = 0;
+        dataCount[i][Stations[2]] = 0;
+    }
         Stations.forEach(function(s,i){
-        	data.forEach(function (d) {
-           		d.starttime = new Date(d.starttime);
-			if(d.from_station_name === s){
-				dataCount[ d.starttime.getHours() ].intervals = d.starttime.getHours();
-				dataCount[ d.starttime.getHours() ][Stations[i]] += 1;
-			        //d.stoptime = new Date(d.stoptime);
-			}
+            data.forEach(function (d) {
+                d.starttime = new Date(d.starttime);
+            if(d.from_station_name === s){
+                dataCount[ d.starttime.getHours() ].intervals = d.starttime.getHours();
+                dataCount[ d.starttime.getHours() ][Stations[i]] += 1;
+            }
 
-		    });
-		});
+            });
+        });
         
+    dataCount.forEach(function(d) {
+        d.intervals = +d.intervals;
+        d[Stations[0]] = +d[Stations[0]];
+        d[Stations[1]] = +d[Stations[1]];
+        d[Stations[2]] = +d[Stations[2]];
+    });*/
 
-		var x = d3.scale.ordinal()
-    			.range([0, width]);
+    var x = d3.time.scale()
+        .range([0, width]);
 
-		var y = d3.scale.ordinal()
-		    	.range([height, 0]);	
-		
-		var color = d3.scale.category10();
+    var y = d3.scale.linear()
+            .range([height, 0]);    
+    
+    var color = d3.scale.category10();
 
-		var xAxis = d3.svg.axis()
-		    .scale(x)
-		    .orient("bottom");
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
 
-		var yAxis = d3.svg.axis()
-		    .scale(y)
-		    .orient("left");
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left");
 
 
-		var line = d3.svg.line()
-			    .interpolate("basis")
-			    .x(function(d) { return x(d.intervals); })
-			    .y(function(d) { return y(d.occurrences); });
+    var line = d3.svg.line()
+            .interpolate("basis")
+            .x(function(d) { 
+            return x(d.intervals); 
+             })
+            .y(function(d) { 
+                        return y(d.occurrences); 
+                    });
 
-		data.forEach(function(d) {
-			d.intervals = +d.intervals;
-		});
+    color.domain(d3.keys(data[0]).filter(function(key) { 
+        return key !== "intervals";
+    }));
 
-		color.domain(d3.keys(dataCount[0]).filter(function(key) { 
-			return key !== "intervals";
-		}));
+    data.forEach(function(d) {
+        d.intervals = parseDate(d.intervals);
+    });
 
-		var stations = color.domain().map(function(name) {
-			return {
-					name: name,
-					values: dataCount.map(function(d) {
-						return {intervals: d.intervals, occurrences: +d[name]};
-					})
-				};
-		});
+    var stations = color.domain().map(function(name) {
+        return {
+                name: name,
+                values: data.map(function(d) {
+                    return {intervals: d.intervals, occurrences: +d[name]};
+                })
+            };
+    });
 
-		x.domain(d3.extent(data, function(d) { return d.intervals; }));
+    x.domain(d3.extent(data, function(d) { return d.intervals; }));
 
-		y.domain([
-		d3.min(stations, function(c) { return d3.min(c.values, function(v) { return v.occurrences; }); }),
-		d3.max(stations, function(c) { return d3.max(c.values, function(v) { return v.occurrences; }); })
-		]);
+    y.domain([
+    d3.min(stations, function(c) { 
+        return d3.min(c.values, function(v) { 
+            return v.occurrences; 
+        }
+    ); }),
+    d3.max(stations, function(c) { 
+        return d3.max(c.values, function(v) { 
+            return v.occurrences; 
+        }
+    ); 
+    }) ]);
 
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + height + ")")
-			.call(xAxis);
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
 
-		svg.append("g")
-			.attr("class", "y axis")
-			.call(yAxis)
-			.append("text")
-			.attr("transform", "rotate(-90)")
-			.attr("y", 6)
-			.attr("dy", ".71em")
-			.style("text-anchor", "end")
-			.text("Active Bikes");
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Active Bikes");
 
-		var station = svg.selectAll(".station")
-			.data(stations)
-			.enter().append("g")
-			.attr("class", "station");
+    var station = svg.selectAll(".station")
+        .data(stations)
+        .enter().append("g")
+        .attr("class", "station");
 
-		station.append("path")
-			.attr("class", "line")
-			.attr("d", function(d) { 
-				return line(d.values); 
-			})
-			.style("stroke", function(d) { return color(d.name); });
+    station.append("path")
+        .attr("class", "line")
+        .attr("d", function(d) { 
+            return line(d.values); 
+        })
+        .style("stroke", function(d) { 
+            return color(d.name); 
+        });
 
-		station.append("text")
-			.datum(function(d) { return {
-				name: d.name, value: d.values[d.values.length - 1]}; 
-			})
-			.attr("transform", function(d) { 
-				return "translate(" + x(d.value.intervals) + "," + y(d.value.occurrences) + ")"; 
-			})
-			.attr("x", 3)
-			.attr("dy", ".35em")
-			.text(function(d) { 
-				return d.name; 
-			});
+    station.append("text")
+        .datum(function(d) { 
+            return {
+                name: d.name, value: d.values[d.values.length - 1]
+            }; 
+        })
+        .attr("transform", function(d) { 
+            return "translate(" + x(d.value.intervals) + "," + y(d.value.occurrences) + ")"; 
+        })
+        .attr("x", 3)
+        .attr("dy", ".35em")
+        .text(function(d) { 
+            return d.name; 
+        });
     },
+
 
     /////////////////////////////////////////////////////////////
 
@@ -367,15 +372,10 @@ var CalendarControlApp = Class.extend({
     /////////////////////////////////////////////////////////////
 
     updateData: function () {
-        var date = this.dateAsString;
-        var day, month, year, time;
-        month = date.substring(0, 2);
-        day = date.substring(3, 5);
-        year = date.substring(6, 10);
-        var fileToLoad = "App/json/Map/trips_by_day/trips_data_by_day_" + month + "_" + day + "_" + year + ".csv";
-        console.log("File to be loaded: " + fileToLoad);
+    var unformattedDate = this.dateAsString.split(" ");
+    var date = new Date(unformattedDate[0]);
+        var fileToLoad = "App/json/Map/trips_by_day/trips_data_by_day_" + this.monthFormated(date) + "_" + date.getDate() + "_" + date.getFullYear() + ".csv";
         switch (this.myTag) {
-
             case "#Vis1":
                 this.inDataCallbackFunc = this.drawBarChart1.bind(this);
                 d3.csv(fileToLoad, this.inDataCallbackFunc);
@@ -400,15 +400,28 @@ var CalendarControlApp = Class.extend({
         this.myTag = "#Vis1";
         this.updateData();
 
-        this.myTag = "#Vis2";
-        this.updateData();
+        //this.myTag = "#Vis2";
+        //this.updateData();
     },
 
     updateStation: function (element) {
-	var index = element.selectedIndex;
+    var index = element.selectedIndex;
         var selectedItems = element.selectedOptions.valueOf(0);
         for(var index = 0; index < selectedItems.length; index++){
-		this.stationArray.push(selectedItems[index].value);
+        this.stationArray.push(selectedItems[index].value);
         }
+    },
+
+    monthFormated: function(date){
+    month = date.getMonth();
+        return month < 10 ? "0" + (month+1) : month+1;
     }
+   /* convertToDate: function (dateTime,number){
+    var year = dateTime.getFullYear();
+    var month = dateTime.getMonth();
+    var day = dateTime.getDate();
+    var date = new Date(year,month,day,number,0,0);
+    return date;
+    },*/
+
 });
