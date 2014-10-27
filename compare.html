@@ -24,14 +24,14 @@
 <body onload="init()">
     <div id="compareContainer" style="position: relative;float: left;width: 100%;height: 100%;">
         <div id="station1" style="position: relative;float: left;width: 49%;height: 100%;border-right: thin solid #d3d3d3;">
-        	<div id="station1List" style="float: top;width: 100%;height: 14%;border: thin solid #d3d3d3;">
+        	<div id="station1List" style="float: left;width: 100%;height: 14%;">
                 <select name = "stationSelection2" id="stationSelection2" 
                 onchange="comparisionApp.setStation1(this);" size="5" style="width: 100%">
                 </select>
             </div>
             <!-- Div for Graphs -->
             <div style="width: 100%;height: 2%;"></div>
-        	<div id="station1Graphs" style="width: 100%;height: 84%;border: thin solid #d3d3d3;">
+        	<div id="station1Graphs" style="width: 100%;height: 84%;">
                  <div id="barchart1" style="width: 100%;height:43%"></div>
                 <div style="width: 100%;height: 4%;"></div>
                  <div id="barchart2" style="width: 100%;height:43%"></div>
@@ -39,13 +39,13 @@
             </div>
         </div>
         <div id="station2" style="position: relative;float: left;width: 49%;height: 100%;">
-        	<div id="station2List" style="float: top;width: 100%;height: 14%;border: thin solid #d3d3d3;">
+        	<div id="station2List" style="float: left;width: 100%;height: 14%;">
                 <select name = "stationSelection1" id="stationSelection1" 
                 onchange="comparisionApp.setStation2(this);" size="5" style="width: 100%">
                 </select>
             </div>
             <div style="width: 100%;height: 2%;"></div>
-        	<div id="station2Graphs" style="width: 100%;height: 84%;border: thin solid #d3d3d3;">
+        	<div id="station2Graphs" style="width: 100%;height: 84%;">
                  <div id="barchart3" style="width: 100%;height:43%"></div>
                 <div style="width: 100%;height: 4%;"></div>
                  <div id="barchart4" style="width: 100%;height:43%"></div>
