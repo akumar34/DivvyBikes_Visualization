@@ -22,54 +22,54 @@
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
 						>= TIME(STR_TO_DATE('0:00','%H:%i')) AND
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						< TIME(STR_TO_DATE('5:00','%H:%i'))
+						< TIME(STR_TO_DATE('3:59','%H:%i'))
 				)
-			then 'Pre-Breakfast'
+			then '00:00 to 03:59'
 	
 			when 
 				(
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						>= TIME(STR_TO_DATE('5:00','%H:%i')) AND
+						>= TIME(STR_TO_DATE('4:00','%H:%i')) AND
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						< TIME(STR_TO_DATE('11:00','%H:%i'))
+						< TIME(STR_TO_DATE('7:59','%H:%i'))
 				)
-			then 'Breakfast'
+			then '04:00 to 07:59'
 	
 	   	when 
 				(
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						>= TIME(STR_TO_DATE('11:00','%H:%i')) AND
+						>= TIME(STR_TO_DATE('08:00','%H:%i')) AND
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						< TIME(STR_TO_DATE('15:00','%H:%i'))
+						< TIME(STR_TO_DATE('11:59','%H:%i'))
 				)
-			then 'Lunch'
+			then '08:00 to 11:59'
 	
 	   	when 
 				(
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						>= TIME(STR_TO_DATE('15:00','%H:%i')) AND
+						>= TIME(STR_TO_DATE('12:00','%H:%i')) AND
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						< TIME(STR_TO_DATE('17:00','%H:%i'))
+						< TIME(STR_TO_DATE('15:59','%H:%i'))
 				)
-			then 'Pre-Dinner'		
-	
+			then '12:00 to 15:59'		
+
 	   	when 
 				(
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						>= TIME(STR_TO_DATE('17:00','%H:%i')) AND
+						>= TIME(STR_TO_DATE('16:00','%H:%i')) AND
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						< TIME(STR_TO_DATE('22:00','%H:%i'))
+						< TIME(STR_TO_DATE('19:59','%H:%i'))
 				)
-			then 'Dinner'	
-			
+			then '16:00 to 19:59'	
+
 	   	when 
 				(
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
-						>= TIME(STR_TO_DATE('22:00','%H:%i')) AND
+						>= TIME(STR_TO_DATE('20:00','%H:%i')) AND
 					TIME(STR_TO_DATE(i.TIME_INTERVAL,'%H:%i')) 
 						< TIME(STR_TO_DATE('23:59','%H:%i'))
 				)
-			then 'Post-Dinner'	
+			then '20:00 to 23:59'	
 		end	
 	) AS TIME_INTERVAL,
 	o.TOTAL AS OUTBOUND,
