@@ -1,4 +1,4 @@
-var MaxInboundOutboundFlowApp = Class.extend({
+var MaxInboundOutboundFlowWithTimeIntervalApp = Class.extend({
 
 	construct: function() {
 		this.barMargin = {top: 100, right: 20, bottom: 200, left: 110};
@@ -11,6 +11,8 @@ var MaxInboundOutboundFlowApp = Class.extend({
 		this.svgBar = null;
 		
 		this.myTag = "";
+
+		this.timeInterval = "";
 	},
 
 	/////////////////////////////////////////////////////////////
@@ -19,6 +21,14 @@ var MaxInboundOutboundFlowApp = Class.extend({
 	{
 		this.myTag = whereToRender;
 		this.updateScreen();
+	},
+
+	/////////////////////////////////////////////////////////////
+
+	initAppWithTimeInterval: function (element)
+	{
+		this.timeInterval = element;
+
 	},
 
 	/////////////////////////////////////////////////////////////
@@ -65,7 +75,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 		});
 				
 		x0.domain(data.map(function(d) { 
-			return d.TIME_INTERVAL; 
+			return d.STATION; 
 		}));
 		x1.domain(flowNames).rangeRoundBands([0, x0.rangeBand()]);
 		y.domain([0, d3.max(data, function(d) { 
@@ -88,12 +98,12 @@ var MaxInboundOutboundFlowApp = Class.extend({
 			.style("text-anchor", "end")
 			.text("Number of Trips");
 				
-		var age_interval = svg.selectAll(".time_interval")
+		var age_interval = svg.selectAll(".station")
 			.data(data)
 			.enter().append("g")
 			.attr("class", "g")
 			.attr("transform", function(d) { 
-				return "translate(" + x0(d.TIME_INTERVAL) + ",0)"; 
+				return "translate(" + x0(d.STATION) + ",0)"; 
 			})
 			
 		age_interval.selectAll("rect")
@@ -118,10 +128,10 @@ var MaxInboundOutboundFlowApp = Class.extend({
 			.enter()
 			.append("text")
 			.text(function(d) {
-				return d.STATION;
+				return d.INBOUND + "," + d.OUTBOUND;
 		    })
 			.attr("x", function(d, index) {
-			return (x0(d.TIME_INTERVAL) + (x0.rangeBand()/2)) - 25;
+			return (x0(d.STATION) + (x0.rangeBand()/2)) - 25;
 		    })
 		    .attr("y", function(d) {
 		    	return y(Math.max(d.INBOUND, d.OUTBOUND) + 10);
@@ -187,7 +197,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "../App/json/InboundOutboundTrips/max_inbound_outbound_flow.json";
+		var fileToLoad = "../App/json/InboundOutboundTrips/max_inbound_outbound_flow_by_time_interval_" + this.timeInterval + ".json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
@@ -196,6 +206,11 @@ var MaxInboundOutboundFlowApp = Class.extend({
 
 	updateScreen: function (){
 	  this.updateWindow();
+	  this.updateData();
+	},
+
+	setTimeInterval: function(element){
+	  this.timeInterval = element;
 	  this.updateData();
 	},
 });
