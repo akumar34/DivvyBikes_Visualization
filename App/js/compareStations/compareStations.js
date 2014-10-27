@@ -543,7 +543,7 @@ var Compare = Class.extend({
         var table = d3.select("#table1").append("table")
             .style("border-collapse", "collapse")
             .style("width", "100%")
-            .style("margin-top", "-6%")
+            .style("margin-top", "-2%")
             .style("margin-left", "10%")
             .attr("align", "left");
 
@@ -607,7 +607,7 @@ var Compare = Class.extend({
         var table = d3.select("#table2").append("table")
             .style("border-collapse", "collapse")
             .style("width", "100%")
-            .style("margin-top", "-6%")
+            .style("margin-top", "-2%")
             .style("margin-left", "10%")
             .attr("align", "left");
 
