@@ -200,7 +200,7 @@
 
     function showMultiMap(){
         parent.document.getElementById("framesets").cols="25%,75%";
-                top.frames['TargetPage1'].location = 'map.html';
+        top.frames['TargetPage1'].location = 'map.html';
         top.frames['TargetPage'].location = 'graphs.html';
 
     }
@@ -208,19 +208,19 @@
 
 </head>
 <body onload="initDropDownChangeHandler()">
-<center><h1>Map 1</h1></center>
+<center><h1>Map 2</h1></center>
 <br/>
 
 <div id="container" style="position: absolute;width: 100%;height: 90%;border-right: thin solid #d3d3d3">
 <div id="controls" style="position: relative;float: left;width:100%;height: 7%">
     <center>
-    <!--<button id="Overall" value="OverallData" onclick="showOverAllData()">Overall Data</button>
-    <button id="Compare" value="CompareData" onclick="showCompare()">Compare Mode</button>-->
-    <button id="PlayBack" value="PlayBack" onclick="showPlayBack()">Play Back</button>
-    <button id="Flow" value="Flow Control" onclick="showFlow()">Flow Control</button>
-    <button id="Pattern" value="Pattern Mode" onclick="showPattern()">Pattern Mode</button>
-    <button id="MultiMap" value="MultiMap" onclick="showMultiMap()">Single Map Mode</button>
-    <!-- Define this onclick TODO-->
+        <!--<button id="Overall" value="OverallData" onclick="showOverAllData()">Overall Data</button>
+        <button id="Compare" value="CompareData" onclick="showCompare()">Compare Mode</button>-->
+        <button id="PlayBack" value="PlayBack" onclick="showPlayBack()">Play Back</button>
+        <button id="Flow" value="Flow Control" onclick="showFlow()">Flow Control</button>
+        <button id="Pattern" value="Pattern Mode" onclick="showPattern()">Pattern Mode</button>
+        <button id="MultiMap" value="MultiMap" onclick="showMultiMap()">Single Map Mode</button>
+        <!-- Define this onclick TODO-->
     </center>
 </div>
 <div id="MapSegment" style="position: relative;float: left;height: 65%;width: 100%">
