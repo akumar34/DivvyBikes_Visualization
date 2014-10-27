@@ -1,9 +1,9 @@
 var CalendarControlApp = Class.extend({
 
     construct: function () {
-        this.barMargin = {top: 100, right: 20, bottom: 100, left: 20};
-        this.barCanvasWidth = 670;
-        this.barCanvasHeight = 585;
+        this.barMargin = {top: 20, right: 20, bottom: 70, left: 120};
+        this.barCanvasWidth = 790;
+        this.barCanvasHeight = 410;
 
         this.barWidth = 0;
         this.barHeight = 0;
@@ -65,7 +65,7 @@ var CalendarControlApp = Class.extend({
 	});
 
         var x = d3.scale.linear().domain([0, dataCount.length]).range([0, width]);
-        var y = d3.scale.linear().domain([0, 80+d3.max(dataCount)])
+        var y = d3.scale.linear().domain([0, 140+d3.max(dataCount)])
             .range([height, 0]);
         var color = d3.scale.ordinal()
             .range(["#98abc5"]);
@@ -141,10 +141,10 @@ var CalendarControlApp = Class.extend({
 	   .enter()
 	   .append("text")
 	   .attr("x", width/2)
-	   .attr("y", height-355)
+	   .attr("y", height-295)
 	   .attr("text-anchor","middle")
 	   .attr("font-family", "sans-serif")
-	   .attr("font-size","20pt")
+	   .attr("font-size","85%")
 	   .text("Overall Active Rides Line Chart");
 
     },
@@ -237,7 +237,7 @@ var CalendarControlApp = Class.extend({
 		 });
 	});
 
-        var y = d3.scale.linear().domain([0, sum])
+        var y = d3.scale.linear().domain([0, 120+sum])
         .range([height, 0]);
 
         var color = d3.scale.ordinal()
@@ -349,10 +349,10 @@ var CalendarControlApp = Class.extend({
 	   .enter()
 	   .append("text")
 	   .attr("x", width/2)
-	   .attr("y", height-355)
+	   .attr("y", height-295)
 	   .attr("text-anchor","middle")
 	   .attr("font-family", "sans-serif")
-	   .attr("font-size","20pt")
+	   .attr("font-size","85%")
 	   .text("Stations Active Rides Line Chart");
     },
 

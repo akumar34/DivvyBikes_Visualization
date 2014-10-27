@@ -97,9 +97,11 @@
 	</head>
 	<body onload="init()">
 		<div id="container" style="position: relative;float: left;width: 100%;height:100%;">
-		    <div id="leftContainer" style="margin-left: 5%; margin-top: 8.5%; position: relative;float: left;width:20%;height: 45%;">
+		    <div id="leftContainer" style="margin-left: 5%; position: relative;float: left;width:20%;height: 100%;">
 			<div id="calView" style="position: relative;float: left;width: 100%;height: 45%;">
+                            <legend>Calendar Playback</legend><br />
 			    <div id="datetimepicker"></div>
+
 			    <script>
 				$('#datetimepicker').datetimepicker({
 				    showSecond: false,
@@ -122,12 +124,10 @@
 
 			</div>
 
-			<div id="placeHolder" style="position: relative;float: left;width: 100%;height: 45%;">
-
-			</div><br />
+			<br />
 			<div id="calView" style="position: relative;float: left;width: 100%;height: 45%;"><br /><br />
 
-				<legend>Demographics Filtering<br /><br /><br />
+				<legend>Demographics Filtering<br /><br />
 				<button onclick="gender()">Gender</button>
 				<button onclick="memberType()">Member</button>
 				<button onclick="ageRange()">Age</button><br /><br />
@@ -179,17 +179,18 @@
 			</div>
 		    </div>
 	            <!--<div id="line" style="height:100%; width:2%; position: relative;float: left; border-right: thin solid #d3d3d3;"></div>-->
-		    <div id="rightContainer" style="position: relative;float: left;width:71%;height: 55%;">
-			<div id="Vis1" style="margin-left: 2%; margin-top: 8.5%;position: relative;float: left;width: 100%;height: 45%;">
+		    <div id="rightContainer" style="position: relative;float: left;width:71%;height: 100%;">
+			<div id="Vis1" style="position: relative;float: left;width: 100%;height: 48%;">
 
 			</div>
-			<div id="Vis2" style="margin-left: 2%; position: relative;float: left;width: 100%;height: 45%;">
+			<div id="Vis2" style="position: relative;float: left;width: 100%;height: 48%;">
 
 			</div>
 		    </div>
-		    <div id="DateAndTimePickerValue" style="position: relative; height: 8%;visibility: hidden;">
-
-		    </div>
+		    
 		</div>
+<div id="DateAndTimePickerValue" style="position: relative; height: 8%;display: none;visibility: hidden;">
+
+		    </div>
 	</body>
 </html>
