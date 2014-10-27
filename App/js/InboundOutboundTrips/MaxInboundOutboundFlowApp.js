@@ -11,6 +11,8 @@ var MaxInboundOutboundFlowApp = Class.extend({
 		this.svgBar = null;
 		
 		this.myTag = "";
+
+		this.timeInterval = "";
 	},
 
 	/////////////////////////////////////////////////////////////
@@ -187,7 +189,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "App/json/InboundOutboundTrips/max_inbound_outbound_flow.json";
+		var fileToLoad = "App/json/InboundOutboundTrips/max_inbound_outbound_flow_by_time_interval_" + this.timeInterval + ".json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
@@ -197,5 +199,9 @@ var MaxInboundOutboundFlowApp = Class.extend({
 	updateScreen: function (){
 	  this.updateWindow();
 	  this.updateData();
+	}
+
+	setTimeInterval: function(element){
+	  this.timeInterval = element;
 	}
 });

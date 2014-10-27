@@ -7,7 +7,7 @@
     $server = mysql_connect($host, $username, $password);
     $connection = mysql_select_db($database, $server);
 
-    $sql = "SELECT * FROM(
+    $sql = "SELECT '22:00' AS TIME_INTERVAL, STATION_ID, STATION, OUTBOUND, INBOUND, DIFF FROM(
 	SELECT i.STATION_ID AS STATION_ID,
 	i.STATION AS STATION,
 	i.TIME_INTERVAL AS TIME_INTERVAL,
@@ -20,8 +20,8 @@
 	where i.STATION_ID = o.STATION_ID
 	AND i.TIME_INTERVAL = o.TIME_INTERVAL
 	AND i.STATION = o.STATION
-	) T1 WHERE TIME_INTERVAL = "00:00:00"
-	ORDER BY DIFF DESC";
+	) T1 WHERE TIME_INTERVAL = '22:00:00'
+	ORDER BY DIFF DESC LIMIT 0,10";
 	
 	$sql_query = mysql_query($sql);
 
