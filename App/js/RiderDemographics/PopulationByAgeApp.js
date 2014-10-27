@@ -155,7 +155,7 @@ var PopulationByAgeApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "../App/json/RiderDemographics/population_by_age.json";
+		var fileToLoad = "App/json/RiderDemographics/population_by_age.json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
