@@ -2,7 +2,7 @@
 <head>
     <title>Project 2: Bicycle Race</title>
     <style>
-        body{
+        body {
             font-family: sans-serif;
         }
     </style>
@@ -13,61 +13,90 @@
     <script src="App/js/RiderDemographics/GenderDistApp.js"></script>
     <script src="App/js/RideDist/BikeDistApp.js"></script>
     <script src="App/js/RiderDemographics/MembersDistApp.js"></script>
+    <script src="App/js/RiderDemographics/MaleFemaleUnknownApp.js"></script>
+    <script src="App/js/InboundOutboundTrips/MaxInboundOutboundFlowApp.js"></script>
+    <script src="App/js/InboundOutboundTrips/MealsInboundOutboundFlowApp.js"></script>
     <script src="App/js/bikesDistTime/BikesOutByDay_Of_Year.js"></script>
+    <script src="App/js/RiderDemographics/MembersDistApp.js"></script>
+    <script src="App/js/RiderDemographics/PopulationByAgeApp.js"></script>
     <script>
 
         //An instance of OriginApp class is created here. Three groups of the visualizations are generated with "Chicago" the default area.
         var genderDistApp;
         var membersDistApp;
+        var maleFemaleUnknownApp;
         var rideDistApp;
         var bikeDistApp;
         var bikesDistribution;
-
-        function init(){
+        var mealsInboundOutboundFlowApp;
+        var membersDistApp;
+        var populationByAge;
+        function init() {
             /*if(document.body.clientWidth < 3000){
-                document.body.style.width = Math.round(document.body.clientWidth * 2);
-            }*/
-
+             document.body.style.width = Math.round(document.body.clientWidth * 2);
+             }*/
+        populationByAge = new PopulationByAgeApp;
+            populationByAge.startup("#PopByAgeBar")
             genderDistApp = new GenderDistApp;
             genderDistApp.startup("#barchart");
-            membersDistApp = new MembersDistApp;
-            membersDistApp.startup("#piechart");
+            //membersDistApp = new MembersDistApp;
+            //membersDistApp.startup("#piechart");
+            maleFemaleUnknownApp = new MaleFemaleUnknownApp;
+            maleFemaleUnknownApp.startup("#piechart");
             rideDistApp = new RideDistApp;
             rideDistApp.startup("#barchart1");
             rideDistApp.startup("#barchart2");
             bikeDistApp = new BikeDistApp;
-            bikeDistApp.startup("#Bikebarchart");     //Scatterchart is left
+            bikeDistApp.startup("#Bikebarchart");
             bikesDistribution = new Bikes_DayOfWeek;
             bikesDistribution.startup("#Bikebarchart1");
             bikesDistribution.startup("#Bikebarchart2");
             bikesDistribution = new Bikes_DayOfYear;
             bikesDistribution.startup("#areaChart1");
+            mealsInboundOutboundFlowApp = new MealsInboundOutboundFlowApp;
+            mealsInboundOutboundFlowApp.startup("#barchartMealsInboundOutbound");
+            membersDistApp = new MembersDistApp;
+            membersDistApp.startup("#MembersDistPie")
+            maxInboundOutboundFlowApp = new MaxInboundOutboundFlowApp;
+            maxInboundOutboundFlowApp.startup("#barchartMaxInboundOutbound");
         }
     </script>
 </head>
-<body onload="init()" >
-    <div id="dataDiv" style="position: relative;float: left;
+<body onload="init()">
+<div id="dataDiv" style="position: relative;float: left;
     height: 100%;width: 100%">
-        <div id="DemoPanel" style="position: relative;float:left;width: 25%;
-        height: 100%;border-right: thin solid #d3d3d3;">
-            <b><center>Demographics</center></b>
-            <div id="barchart" style="position: relative;float:left;width: 100%;height:50%"></div>
-            <div id="piechart" style="position: relative;float:left;width: 100%;height:50%"></div>
-        </div>
-        <div id="TripsPanel" style="position: relative;float: left;height: 100%;
-        width:25%;border-right: thin solid #d3d3d3;">
-            <b><center>Trips Data</center></b>
-            <div id="barchart1" style="position: relative;float:left;width: 100%;height:50%"></div>
-            <div id="barchart2" style="position: relative;float:left;width: 100%;height:50%"></div>
-        </div>
-        <div id="BikesPanel" style="position: relative;float: left;width: 49%;
-        height: 100%;">
-            <center><b>Bikes Data</b></center>
-            <div id="Bikebarchart" style="position: relative;float:left;width: 50%;height:50%"></div>
-            <div id="areaChart1" style="position: relative;float:left;width: 50%;height:50%"></div>
-            <div id="Bikebarchart1" style="position: relative;float:left;width: 50%;height:50%"></div>
-            <div id="Bikebarchart2" style="position: relative;float:left;width: 50%;height:50%"></div>
-        </div>
+    <div id="DemoPanel" style="position: relative;float:left;width: 100%;
+        height: 33%;border-bottom: thin solid #d3d3d3;">
+        <b>
+            <center>Demographics</center>
+        </b>
+
+        <div id="barchart" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="piechart" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="MembersDistPie" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="PopByAgeBar" style="position: relative;float:left;width: 25%;height:100%"></div>
+
     </div>
+    <div id="TripsPanel" style="position: relative;float: left;height: 33%;
+        width:100%;border-bottom: thin solid #d3d3d3;">
+        <b>
+            <center>Trips Data</center>
+        </b>
+
+        <div id="barchart1" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="barchart2" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="barchartMealsInboundOutbound" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="barchartMaxInboundOutbound" style="position: relative;float:left;width: 25%;height:100%"></div>
+
+    </div>
+    <div id="BikesPanel" style="position: relative;float: left;width: 100%;
+        height: 33%;">
+        <center><b>Bikes Data</b></center>
+        <div id="Bikebarchart" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="areaChart1" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="Bikebarchart1" style="position: relative;float:left;width: 25%;height:100%"></div>
+        <div id="Bikebarchart2" style="position: relative;float:left;width: 25%;height:100%"></div>
+    </div>
+</div>
 </body>
 </html>

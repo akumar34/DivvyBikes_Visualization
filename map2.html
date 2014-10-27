@@ -3,208 +3,208 @@
 <!-- this is the Calendar PlayBack HTML -->
 <!-- Last Changes made by Sharad for Pattern Mode-->
 <head>
-    <title>Bicycle Race!</title>
+<title>Bicycle Race!</title>
 
-    <link
-            rel="stylesheet"
-            href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
-            />
-    <style>
+<link
+        rel="stylesheet"
+        href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+        />
+<style>
 
-        .info {
-            padding: 6px 8px;
-            font: 14px/16px Arial, Helvetica, sans-serif;
-            background: white;
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
+    .info {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
 
-        .info h4 {
-            margin: 0 0 5px;
-            color: #777;
-        }
+    .info h4 {
+        margin: 0 0 5px;
+        color: #777;
+    }
 
-        .legend {
-            text-align: left;
-            line-height: 18px;
-            color: #555;
-        }
+    .legend {
+        text-align: left;
+        line-height: 18px;
+        color: #555;
+    }
 
-        .legend i {
-            width: 45px;
-            height: 17px;
-            float: left;
-            margin-right: 8px;
-            opacity: 0.7;
-        }
+    .legend i {
+        width: 45px;
+        height: 17px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+    }
 
-        .legend2 {
-            text-align: left;
-            line-height: 18px;
-            color: #555;
-        }
+    .legend2 {
+        text-align: left;
+        line-height: 18px;
+        color: #555;
+    }
 
-        .legend2 i {
-            width: 30px;
-            height: 17px;
-            float: left;
-            margin-right: 8px;
-            opacity: 0.7;
-        }
+    .legend2 i {
+        width: 30px;
+        height: 17px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+    }
 
-        .weatherlegend {
-            text-align: left;
-            line-height: 18px;
-            color: #555;
-        }
+    .weatherlegend {
+        text-align: left;
+        line-height: 18px;
+        color: #555;
+    }
 
-        .weatherlegend i {
-            width: 18px;
-            height: 18px;
-            float: left;
-            margin-right: 8px;
-            opacity: 0.7;
-            font-size: 20px;
-        }
+    .weatherlegend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+        font-size: 20px;
+    }
 
-        .Inflowlegend {
-            text-align: left;
-            line-height: 18px;
-            color: #555;
-        }
+    .Inflowlegend {
+        text-align: left;
+        line-height: 18px;
+        color: #555;
+    }
 
-        .Inflowlegend i {
-            width: 18px;
-            height: 18px;
-            float: left;
-            margin-right: 8px;
-            opacity: 0.7;
-            font-size: 20px;
-        }
+    .Inflowlegend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+        font-size: 20px;
+    }
 
-            /*
-                    SELECT, INPUT[type="text"] {
-                        width: 20%;
-                        box-sizing: border-box;
-                    }
+        /*
+                SELECT, INPUT[type="text"] {
+                    width: 20%;
+                    box-sizing: border-box;
+                }
 
-                    SECTION {
-                        padding: 8px;
-                        background-color: #f0f0f0;
-                        overflow: auto;
-                    }
+                SECTION {
+                    padding: 8px;
+                    background-color: #f0f0f0;
+                    overflow: auto;
+                }
 
-                    SECTION > DIV {
-                        float: left;
-                        padding: 4px;
-                    }
+                SECTION > DIV {
+                    float: left;
+                    padding: 4px;
+                }
 
-                    SECTION > DIV + DIV {
-                        text-align: center;
-                    }
-            */
-    </style>
+                SECTION > DIV + DIV {
+                    text-align: center;
+                }
+        */
+</style>
 
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="App/js/ClassExtension.js"></script>
-    <script src="App/js/USWeatherApp.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="App/Map/jquery-timepicker.css">
-    <script src="App/Map/jquery-1.11.1.min.js"></script>
-    <script src="App/Map/jquery_ui_js.js"></script>
-    <script src="App/Map/jquery-timepicker-addon.js"></script>
-    <script src="App/Map/jquery-timpicker-ui.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="App/js/ClassExtension.js"></script>
+<script src="App/js/USWeatherApp.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="App/Map/jquery-timepicker.css">
+<script src="App/Map/jquery-1.11.1.min.js"></script>
+<script src="App/Map/jquery_ui_js.js"></script>
+<script src="App/Map/jquery-timepicker-addon.js"></script>
+<script src="App/Map/jquery-timpicker-ui.js"></script>
 
-    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="App/js/calendar/CalendarControl.js"></script>
-    <script type="text/javascript" src="App/js/calendar/CalendarControlApp.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="App/js/calendar/CalendarControl.js"></script>
+<script type="text/javascript" src="App/js/calendar/CalendarControlApp.js"></script>
 
-    <script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js">
+<script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js">
 
-    </script>
+</script>
 
-    <script src="App/js/suncalc.js"></script>
-    <script type="text/javascript">
-        console.log('Run this sss');
-        var usWeatherApp;
-        console.log('Inside Init1');
-        function init() {
-            console.log('Inside Init2');
-            usWeatherApp = new USweatherApp;
-            usWeatherApp.init(1, '#viz');
-            console.log('Inside Init3');
-        }
-    </script>
-    <script>
-        function showOverAllData() {
+<script src="App/js/suncalc.js"></script>
+<script type="text/javascript">
+    console.log('Run this sss');
+    var usWeatherApp;
+    console.log('Inside Init1');
+    function init() {
+        console.log('Inside Init2');
+        usWeatherApp = new USweatherApp;
+        usWeatherApp.init(1, '#viz');
+        console.log('Inside Init3');
+    }
+</script>
+<script>
+    function showOverAllData() {
 
-            top.frames['TargetPage'].location = 'data.html';
+        top.frames['TargetPage'].location = 'data.html';
 
-            var element1 = document.getElementById("PatternContainer");
-            element1.style.display = "none";
-            var element2 = document.getElementById("FlowContainer");
-            element2.style.display = "none";
+        var element1 = document.getElementById("PatternContainer");
+        element1.style.display = "none";
+        var element2 = document.getElementById("FlowContainer");
+        element2.style.display = "none";
 
-            var element3 = document.getElementById("SelectionDivContainer");
-            element3.style.display = "none";
+        var element3 = document.getElementById("SelectionDivContainer");
+        element3.style.display = "none";
 
-        }
-        function showCompare() {
+    }
+    function showCompare() {
 
-            top.frames['TargetPage'].location = 'compare.html';
-            var element1 = document.getElementById("PatternContainer");
-            element1.style.display = "none";
-            var element2 = document.getElementById("FlowContainer");
-            element2.style.display = "none";
+        top.frames['TargetPage'].location = 'compare.html';
+        var element1 = document.getElementById("PatternContainer");
+        element1.style.display = "none";
+        var element2 = document.getElementById("FlowContainer");
+        element2.style.display = "none";
 
-            var element3 = document.getElementById("SelectionDivContainer");
-            element3.style.display = "none";
+        var element3 = document.getElementById("SelectionDivContainer");
+        element3.style.display = "none";
 
-        }
-        function showPlayBack() {
+    }
+    function showPlayBack() {
 
-            //top.frames['TargetPage'].location = 'playBack.html';
+        //top.frames['TargetPage'].location = 'playBack.html';
 
-            var element1 = document.getElementById("PatternContainer");
-            element1.style.display = "none";
-            var element2 = document.getElementById("FlowContainer");
-            element2.style.display = "none";
+        var element1 = document.getElementById("PatternContainer");
+        element1.style.display = "none";
+        var element2 = document.getElementById("FlowContainer");
+        element2.style.display = "none";
 
-            var element3 = document.getElementById("SelectionDivContainer");
-            element3.style.display = "block";
+        var element3 = document.getElementById("SelectionDivContainer");
+        element3.style.display = "block";
 
-        }
-        function showFlow() {
-            var element1 = document.getElementById("PatternContainer");
-            element1.style.display = "none";
-            var element2 = document.getElementById("FlowContainer");
-            element2.style.display = "block";
+    }
+    function showFlow() {
+        var element1 = document.getElementById("PatternContainer");
+        element1.style.display = "none";
+        var element2 = document.getElementById("FlowContainer");
+        element2.style.display = "block";
 
-            var element3 = document.getElementById("SelectionDivContainer");
-            element3.style.display = "none";
-            var element4 = document.getElementById("SelectionDivContainer");
-            element3.style.display = "none";
-        }
+        var element3 = document.getElementById("SelectionDivContainer");
+        element3.style.display = "none";
+        var element4 = document.getElementById("SelectionDivContainer");
+        element3.style.display = "none";
+    }
 
-        function showPattern() {
-            var element1 = document.getElementById("PatternContainer");
-            element1.style.display = "block";
-            var element2 = document.getElementById("FlowContainer");
-            element2.style.display = "none";
+    function showPattern() {
+        var element1 = document.getElementById("PatternContainer");
+        element1.style.display = "block";
+        var element2 = document.getElementById("FlowContainer");
+        element2.style.display = "none";
 
-            var element3 = document.getElementById("SelectionDivContainer");
-            element3.style.display = "none";
-        }
+        var element3 = document.getElementById("SelectionDivContainer");
+        element3.style.display = "none";
+    }
 
-        function showMultiMap(){
-            parent.document.getElementById("framesets").cols="50%,50%";
-            top.frames['TargetPage1'].location = 'map2.html';
-            top.frames['TargetPage'].location = 'map2.html';
+    function showMultiMap(){
+        parent.document.getElementById("framesets").cols="25%,75%";
+                top.frames['TargetPage1'].location = 'map.html';
+        top.frames['TargetPage'].location = 'graphs.html';
 
-        }
-    </script>
+    }
+</script>
 
 </head>
 <body onload="initDropDownChangeHandler()">
@@ -213,13 +213,15 @@
 
 <div id="container" style="position: absolute;width: 100%;height: 90%;border-right: thin solid #d3d3d3">
 <div id="controls" style="position: relative;float: left;width:100%;height: 7%">
-    <button id="Overall" value="OverallData" onclick="showOverAllData()">Overall Data</button>
-    <button id="Compare" value="CompareData" onclick="showCompare()">Compare Mode</button>
+    <center>
+    <!--<button id="Overall" value="OverallData" onclick="showOverAllData()">Overall Data</button>
+    <button id="Compare" value="CompareData" onclick="showCompare()">Compare Mode</button>-->
     <button id="PlayBack" value="PlayBack" onclick="showPlayBack()">Play Back</button>
     <button id="Flow" value="Flow Control" onclick="showFlow()">Flow Control</button>
     <button id="Pattern" value="Pattern Mode" onclick="showPattern()">Pattern Mode</button>
-    <button id="MultiMap" value="MultiMap" onclick="showMultiMap()">Multi-Map Mode</button>
+    <button id="MultiMap" value="MultiMap" onclick="showMultiMap()">Single Map Mode</button>
     <!-- Define this onclick TODO-->
+    </center>
 </div>
 <div id="MapSegment" style="position: relative;float: left;height: 65%;width: 100%">
     <div id="map" style="height: 100%;"></div>
@@ -906,13 +908,13 @@
     <option id="TimesOfTheDay" class="TimesOfTheDay">TimesOfTheDay</option>
     <option id="DaysOfTheWeek" class="DaysOfTheWeek">DaysOfTheWeek</option>
 </select>
-<select id="TOD" name="TimesOfTheDay" style="position: relative;float: left;width: 50%;">
+<select id="TOD" name="TimesOfTheDay" style="position: relative;float: left;width: 33%;">
     <option id="Morning" value="Morning">Morning</option>
     <option id="Lunch" value="Lunch">Lunch</option>
     <option id="Evening" value="Evening">Evening</option>
     <option id="Night" value="Night">Night</option>
 </select>
-<select id="DOW" name="DaysOfTheWeek" style="position: relative;float: left;width: 50%;">
+<select id="DOW" name="DaysOfTheWeek" style="position: relative;float: left;width: 33%;height: 50%;">
     <option id="Monday" value="Monday">Monday</option>
     <option id="Tuesday" value="Tuesday">Tuesday</option>
     <option id="Wednesday" value="Wednesday">Wednesday</option>
@@ -922,7 +924,7 @@
     <option id="Sunday" value="Sunday">Sunday</option>
 </select>
 
-<div id="PatternDiv" class="PatternDiv" style="position:relative; float: left; width:50%;">
+<div id="PatternDiv" class="PatternDiv" style="position:relative; float: left; width:33%;">
 <select id="PatternChicago" onchange="updateDropDownTarget()">
     <option id="PatternStations" class="PatternsStation" value="PatternsStation" size="4">Stations</option>
     <option id="PatternCommunities" class="PatternCommunities" value="PatternCommunities" size="4">Communities</option>
@@ -934,7 +936,7 @@
     <input type="button" id="PatternButtonLeft" value="&lt;&lt;"/>
     <input type="button" id="PatternButtonRight" value="&gt;&gt;"/>
 </div>
-<select id="rightPattern1" name="PatternsStation" size="4" multiple style="position: relative;float:left;width: 45%;">
+<select id="rightPattern1" name="PatternsStation" size="4" multiple style="position: relative;float:left;width: 40%;">
 <option>Wilton Ave & Diversey Pkwy</option>
 <option>Morgan St & 18th St</option>
 <option>Racine Ave & 18th St</option>
@@ -1235,7 +1237,7 @@
 <option>Ashland Ave & Chicago Ave</option>
 <option>Cottage Grove Ave & 51st St</option>
 </select>
-<select id="rightPattern2" name="PatternCommunities" size="4" multiple style="position: relative;float:left;width: 45%;">
+<select id="rightPattern2" name="PatternCommunities" size="4" multiple style="position: relative;float:left;width: 40%;">
     <option>The Loop</option>
     <option>Lincoln Park</option>
     <option>Lower West Side</option>
@@ -1285,8 +1287,8 @@
             element2.onchange();
             element.onchange = updateDropDownTarget;
             element.onchange();
-                element3.onchange = updateDropDownTarget;
-                element3.onchange();
+            element3.onchange = updateDropDownTarget;
+            element3.onchange();
         }
 
         function updateDropDownTarget() {
@@ -1376,10 +1378,10 @@
 
             var e3 = document.getElementById("PatternChicago");
             var e4 = e3.options[e3.selectedIndex].text;
-                console.log('e4'  + e4);
-                if (e4 == "Stations"){
+            console.log('e4'  + e4);
+            if (e4 == "Stations"){
 
-                    $("#PatternButtonLeft").click(function () {
+                $("#PatternButtonLeft").click(function () {
 
                     var selectedItem = $("#rightPattern1 option:selected");
                     $("#leftPattern1").append(selectedItem);
@@ -1405,25 +1407,25 @@
                 });
 
 
-                }
-                else if (e4 == "Communities"){
-                    //$('#rightValues2').html(backup2);
-                    //$('#rightValues1 option').remove();
-                    $("#PatternButtonLeft").click(function () {
+            }
+            else if (e4 == "Communities"){
+                //$('#rightValues2').html(backup2);
+                //$('#rightValues1 option').remove();
+                $("#PatternButtonLeft").click(function () {
 
                     var selectedItem = $("#rightPattern2 option:selected");
 
                     $("#leftPattern2").append(selectedItem);
                 });
 
-                    $("#PatternButtonRight").click(function () {
+                $("#PatternButtonRight").click(function () {
                     var selectedItem = $("#leftPattern2 option:selected");
                     $("#rightPattern2").append(selectedItem);
 
                 });
 
-                    //sorting the list alphabetically
-                    $("#PatternButtonRight").click(function(){
+                //sorting the list alphabetically
+                $("#PatternButtonRight").click(function(){
                     $("#rightPattern2").html($("#rightPattern2 option").sort(function (first, second) {
                         return first.text == second.text ? 0 : first.text < second.text ? -1 : 1
                     }));
