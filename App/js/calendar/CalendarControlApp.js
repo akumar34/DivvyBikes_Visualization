@@ -2,8 +2,8 @@ var CalendarControlApp = Class.extend({
 
     construct: function () {
         this.barMargin = {top: 50, right: 20, bottom: 20, left: 20};
-        this.barCanvasWidth = 1000;
-        this.barCanvasHeight = 500;
+        this.barCanvasWidth = 700;
+        this.barCanvasHeight = 600;
 
         this.barWidth = 0;
         this.barHeight = 0;
@@ -53,7 +53,7 @@ var CalendarControlApp = Class.extend({
     });
 
         var x = d3.scale.linear().domain([0, dataCount.length]).range([0, width]);
-        var y = d3.scale.linear().domain([0, d3.max(dataCount)])
+        var y = d3.scale.linear().domain([0, 80+d3.max(dataCount)])
             .range([height, 0]);
         var color = d3.scale.ordinal()
             .range(["#98abc5"]);
@@ -68,9 +68,6 @@ var CalendarControlApp = Class.extend({
         xAxis.tickSize(-height).tickSubdivide(true);
         var line = d3.svg.line()
             .x(function (d, i) {
-                // verbose logging to show what's actually being done
-                console.log('data: ' + dataCount);
-                // return the X coordinate where we want to plot this datapoint
                 return x(i);
             })
             .y(function (d) {
@@ -95,8 +92,7 @@ var CalendarControlApp = Class.extend({
             .attr("x", width / 2)
             .attr("dx", ".71em")
             .style("text-anchor", "middle")
-            .text("Time Interval")
-        ;
+            .text("Time Interval");
 
     graph.selectAll("label")
          .data(dataCount.filter(function(d,i){
@@ -111,24 +107,33 @@ var CalendarControlApp = Class.extend({
         return x(ticker);
         })
          .attr("y", function(d){
-        return y(d);
+        return y(d) ;
         })
-         .style("font-size", "120%");
+         .style("font-size", "120%")
+             .style("font-color", "steelblue");
 
         graph.append("svg:g")
             .attr("class", "y axis")
-            //.attr("transform", "translate(-25,0)")
             .call(yAxis)
             .append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", -50)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("#Active Bikes")
-        ;
+            .text("#Active Bikes");
 
         graph.append("svg:path").attr("d", line(dataCount));
 
+    graph.selectAll(".chart-title")
+        .data(data)
+       .enter()
+       .append("text")
+       .attr("x", width/2)
+       .attr("y", height-500)
+       .attr("text-anchor","middle")
+       .attr("font-family", "sans-serif")
+       .attr("font-size","20pt")
+       .text("Overall Active Rides Line Chart");
 
     },
 
