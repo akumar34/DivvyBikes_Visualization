@@ -128,7 +128,7 @@ var MaxInboundOutboundFlowWithTimeIntervalApp = Class.extend({
 			.enter()
 			.append("text")
 			.text(function(d) {
-				return d.INBOUND + "," + d.OUTBOUND;
+				return "Inbound: " + d.INBOUND + ", Outbound: " + d.OUTBOUND;
 		    })
 			.attr("x", function(d, index) {
 			return (x0(d.STATION) + (x0.rangeBand()/2)) - 25;

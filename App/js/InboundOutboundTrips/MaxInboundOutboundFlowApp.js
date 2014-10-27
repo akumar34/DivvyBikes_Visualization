@@ -187,7 +187,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "../App/json/InboundOutboundTrips/max_inbound_outbound_flow.json";
+		var fileToLoad = "App/json/InboundOutboundTrips/max_inbound_outbound_flow.json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
