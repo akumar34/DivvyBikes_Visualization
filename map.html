@@ -189,8 +189,7 @@
 <body onload="initDropDownChangeHandler()">
 <center><h1>Bicycle Race</h1></center>
 <br/>
-
-<div id="container" style="position: absolute;width: 100%;height: 90%;border-right: thin solid #d3d3d3">
+<div id="container" style="position: absolute;width: 100%;height: 95%;border-right: thin solid #d3d3d3"> 
 <div id="controls" style="position: relative;float: left;width:100%;height: 7%">
     <button id="Overall" value="OverallData" onclick="showOverAllData()">Overall Data</button>
     <button id="Compare" value="CompareData" onclick="showCompare()">Compare Mode</button>
@@ -200,16 +199,16 @@
     <button id="MultiMap" value="MultiMap" onclick="showMultiMap()">Multi-Map Mode</button>
     <!-- Define this onclick TODO-->
 </div>
-<div id="MapSegment" style="position: relative;float: left;height: 65%;width: 100%">
+<div id="MapSegment" style="position: relative;float: left;height: 62%;width: 100%">
     <div id="map" style="height: 100%;"></div>
         <script type="text/javascript">
             var calendarControlApp = new CalendarControlApp();
         </script>
 </div>
-    <div id="selectionSectionContainer" style="position: relative;float:left;height: 25%;width: 100%;">
+    <div id="selectionSectionContainer" style="position: relative;float:left;height: 33%;width: 100%;">
         <div id="SelectionDivContainer" style="position: relative;height: 100%;width: 100%;">
 
-            <select id="Chicago_Data" onchange="updateDropDownTarget()" style="position: relative;float:left;width: 100%;">
+            <select id="Chicago_Data" onchange="updateDropDownTarget()" style="position: relative;float:left;width: 49%;">
                 <option id="Stations" class="Stations" size="4">Stations</option>
                 <option id="Communities" class="Communities" size="4">Communities</option>
             </select>
@@ -881,17 +880,17 @@
 </div>
 <div id="PatternContainer" style="position: relative;height: 100%;width: 100%;">
 <select id="PatternList" name="PatternList" onchange="updateDropDownTarget()"
-        style="position: relative;float: left;width: 50%;">
+        style="position: relative;float: left;width: 33%;">
     <option id="TimesOfTheDay" class="TimesOfTheDay">TimesOfTheDay</option>
     <option id="DaysOfTheWeek" class="DaysOfTheWeek">DaysOfTheWeek</option>
 </select>
-<select id="TOD" name="TimesOfTheDay" style="position: relative;float: left;width: 50%;">
+<select id="TOD" name="TimesOfTheDay" style="position: relative;float: left;width: 33%;">
     <option id="Morning" value="Morning">Morning</option>
     <option id="Lunch" value="Lunch">Lunch</option>
     <option id="Evening" value="Evening">Evening</option>
     <option id="Night" value="Night">Night</option>
 </select>
-<select id="DOW" name="DaysOfTheWeek" style="position: relative;float: left;width: 50%;">
+<select id="DOW" name="DaysOfTheWeek" style="position: relative;float: left;width: 33%;">
     <option id="Monday" value="Monday">Monday</option>
     <option id="Tuesday" value="Tuesday">Tuesday</option>
     <option id="Wednesday" value="Wednesday">Wednesday</option>
@@ -901,19 +900,19 @@
     <option id="Sunday" value="Sunday">Sunday</option>
 </select>
 
-<div id="PatternDiv" class="PatternDiv" style="position:relative; float: left; width:50%;">
+<div id="PatternDiv" class="PatternDiv" style="position:relative; float: left; width:100%;">
 <select id="PatternChicago" onchange="updateDropDownTarget()">
     <option id="PatternStations" class="PatternStations" value="PatternStations" size="4">Stations</option>
     <option id="PatternCommunities" class="PatternCommunities" value="PatternCommunities" size="4">Communities</option>
 </select>
 
-<select id="leftPattern1" name="PatternsStation" size="5" multiple style="position: relative;float:left;width: 45%;"></select>
-<select id="leftPattern2" name="PatternCommunities" size="5" multiple style="position: relative;float:left;width: 45%;"></select>
-<div id="PatternButtonsForSelection" style="position: relative;float:left;width: 10%;">
+<select id="leftPattern1" name="PatternsStation" size="5" multiple style="position: relative;float:left;width: 42%;"></select>
+<select id="leftPattern2" name="PatternCommunities" size="5" multiple style="position: relative;float:left;width: 42%;"></select>
+<div id="PatternButtonsForSelection" style="position: relative;float:left;width: 12%;">
     <input type="button" id="PatternButtonLeft" value="&lt;&lt;"/>
     <input type="button" id="PatternButtonRight" value="&gt;&gt;"/>
 </div>
-<select id="rightPattern1" name="PatternsStation" size="4" multiple style="position: relative;float:left;width: 45%;">
+<select id="rightPattern1" name="PatternsStation" size="4" multiple style="position: relative;float:left;width: 42%;">
 <option>Wilton Ave & Diversey Pkwy</option>
 <option>Morgan St & 18th St</option>
 <option>Racine Ave & 18th St</option>
@@ -1214,7 +1213,7 @@
 <option>Ashland Ave & Chicago Ave</option>
 <option>Cottage Grove Ave & 51st St</option>
 </select>
-<select id="rightPattern2" name="PatternCommunities" size="4" multiple style="position: relative;float:left;width: 45%;">
+<select id="rightPattern2" name="PatternCommunities" size="4" multiple style="position: relative;float:left;width: 42%;">
     <option>The Loop</option>
     <option>Lincoln Park</option>
     <option>Lower West Side</option>
@@ -1242,7 +1241,7 @@
 </select>
 
 <input type="button" name="PatternMode" id="PatternModeButton" onclick="setMap(2)" value="Show on Map"
-       style="position: relative;float: left;width: 40%;"/>
+       style="position: relative;float: left;width: 95%;"/>
 </div>
 <div>
     <script>
