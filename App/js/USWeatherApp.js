@@ -46,7 +46,27 @@ var USweatherApp = Class.extend({
         this.gwin.iconstormsnight = new Image();
         this.gwin.iconcloudynight = new Image();
 
-        this.gwin.numIconsLoaded = 0;
+        this.gwin.iconchanceflurriesnight = new Image();
+        this.gwin.iconchanceflurries = new Image();
+        this.gwin.iconstormschancerainnight = new Image();
+        this.gwin.iconstormschancerain = new Image();
+        this.gwin.iconchancesleet = new Image();
+
+        this.gwin.iconchancesleetnight = new Image();
+        this.gwin.iconchancestorms= new Image();
+        this.gwin.iconchancestormsnight = new Image();
+
+        this.gwin.iconflurriesnight = new Image();
+        this.gwin.iconflurries = new Image();
+        this.gwin.iconfognight = new Image();
+        this.gwin.iconfog = new Image();
+        this.gwin.iconrainnight = new Image();
+        this.gwin.iconrain = new Image();
+        this.gwin.icontstormsnight = new Image();
+        this.gwin.icontstorms = new Image();
+        this.gwin.iconhazynight = new Image();
+        this.gwin.iconhazy = new Image();
+
     },
 ///////////////////////////////////////
 
@@ -95,8 +115,22 @@ var USweatherApp = Class.extend({
             sunset += 24;
         // Check if night or not
         if ((userHour < sunrise) || (userHour > sunset)) {
-            if ((weatherName == "mostlycloudy") || (weatherName == "partlycloudy") ||
-                (weatherName == "clear")) {
+            if ((weatherName == "mostlycloudy") 
+                || (weatherName == "partlycloudy") 
+                || (weatherName == "clear") 
+                || (weatherName=="chanceflurries" )
+                || (weatherName=="chancerain") 
+                || (weatherName=="chancesleet")
+                || (weatherName=="chancestorms") 
+                || (weatherName=="chancetstorms") 
+                || (weatherName=="cloudy") 
+                || (weatherName=="flurries" )
+                || (weatherName=="fog")
+                || (weatherName=="rain" )
+                || (weatherName=="snow")
+                || (weatherName=="storms")
+                || (weatherName=="tstorms")
+                || (weatherName=="hazy")) {
                 weatherImage = this.getCorrectWeatherIcon(weatherName, 1);
             }
         }
@@ -107,7 +141,7 @@ var USweatherApp = Class.extend({
 
 ///////////////////////////////////////
 
-    updateOutsideTemp: function () {
+    updateOutsideTemp: function (DateStringThing) {
         //Getting the temperature
         console.log('inside updateOutsideTemp');
         var lat, lon;
@@ -115,7 +149,7 @@ var USweatherApp = Class.extend({
         var self = this;
         var replace = 0;
 
-        var userSelectedTime = document.getElementById("TimeControl").value;
+        var userSelectedTime = DateStringThing
 
         var timeSS = new Date(userSelectedTime);
 
@@ -123,7 +157,11 @@ var USweatherApp = Class.extend({
 
         //console.log('timeSS.getMonth() +1).length' + ((timeSS.getMonth()).length) );
 
-        var parseDate = timeSS.getFullYear() + '_' + (((timeSS.getMonth() + 1) >= 10) ? (timeSS.getMonth() + 1) : '0' + (timeSS.getMonth() + 1)) + '_' + timeSS.getDate();
+        var parseDate = timeSS.getFullYear() 
+                        + '_' 
+                        + (((timeSS.getMonth() + 1) >= 10) ? (timeSS.getMonth() + 1) : '0' + (timeSS.getMonth() + 1)) 
+                        + '_' 
+                        + (((timeSS.getDate()) <9) ? '0' + timeSS.getDate(): timeSS.getDate());
 
         console.log('parseDate' + parseDate);
 
@@ -146,6 +184,8 @@ var USweatherApp = Class.extend({
 ////////////////////////////////////////
 
     drawEverything: function (weather, iconSrc) {
+
+        console.log('Weather' + weather + 'iconSrc ' + iconSrc);
         var weatherlegend = L.control({position: 'bottomright'});
 
         weatherlegend.onAdd = function (map) {
@@ -171,6 +211,26 @@ var USweatherApp = Class.extend({
                     return(this.gwin.iconpartlycloudynight);
                 case "clear":
                     return(this.gwin.iconclearnight);
+                case "chanceflurries":
+                    return(this.gwin.iconchanceflurriesnight);
+                case "chancerain":
+                    return(this.gwin.iconchancerainnight);
+                case "chancetstorms":
+                    return(this.gwin.iconchancestormsnight);
+                case "cloudy":
+                    return(this.gwin.iconcloudynight);
+                case "flurries":
+                    return(this.gwin.iconflurriesnight);
+                case "fog":
+                    return(this.gwin.iconfognight);
+                case "rain":
+                    return(this.gwin.iconrainnight);
+                case "storms":
+                    return(this.gwin.iconstormsnight);
+                case "tstorms":
+                    return(this.gwin.icontstormsnight);
+                case "snow":
+                    return(this.gwin.iconsnownight);
             }
         }
         else // night === 0
@@ -235,6 +295,11 @@ var USweatherApp = Class.extend({
         };
         this.gwin.iconcloudynight.src = path + "cloudy-night.jpg";
         this.gwin.iconcloudynight.onload = function () {
+            self.gwin.numIconsLoaded++
+        };
+
+        this.gwin.iconhazynight.src = path + "hazy-night.jpg";
+        this.gwin.iconhazynight.onload = function () {
             self.gwin.numIconsLoaded++
         };
 
