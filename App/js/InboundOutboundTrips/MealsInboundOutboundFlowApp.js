@@ -172,7 +172,7 @@ var MealsInboundOutboundFlowApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "../App/json/InboundOutboundTrips/meals_inbound_outbound_flow.json";
+		var fileToLoad = "App/json/InboundOutboundTrips/meals_inbound_outbound_flow.json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
