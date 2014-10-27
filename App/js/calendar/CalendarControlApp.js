@@ -1,7 +1,7 @@
 var CalendarControlApp = Class.extend({
 
     construct: function () {
-        this.barMargin = {top: 50, right: 20, bottom: 20, left: 20};
+        this.barMargin = {top: 20, right: 20, bottom: 20, left: 20};
         this.barCanvasWidth = 700;
         this.barCanvasHeight = 600;
 
@@ -13,8 +13,8 @@ var CalendarControlApp = Class.extend({
 
         this.myTag = "";
 
-    this.stationArray = ["Millennium Park", "Michigan Ave & Oak St", "Lake Shore Dr & Monroe St"];
-        this.dateAsString = "07/20/2013 11";
+    this.stationArray = null;
+        this.dateAsString = null;
     },
 
 
@@ -25,6 +25,12 @@ var CalendarControlApp = Class.extend({
         this.updateScreen();
     },
 
+    /////////////////////////////////////////////////////////////
+
+    initAppWithTickerAndStations: function (stations,ticker){
+    this.stationArray = stations;
+    this.dateAsString = ticker;
+    },
 
     /////////////////////////////////////////////////////////////
 
@@ -139,8 +145,164 @@ var CalendarControlApp = Class.extend({
 
     /////////////////////////////////////////////////////////////
 
-    //Drawing the bar chart for Origin distribution for the second visualization group.
+    
     drawBarChart2: function (error, data) {
+       var top = this.barMargin.top,
+            bottom = this.barMargin.bottom,
+            left = this.barMargin.left,
+            right = this.barMargin.right;
+        var width = this.barCanvasWidth - left - right;
+        var height = this.barCanvasHeight - top - bottom;
+        var date = this.dateAsString;
+    var dataCount = new Array(25);    
+    var ticker = this.dateAsString.split(" ")[1];
+    var Stations = this.stationArray;
+        var graph = this.svgBar2;
+    var sum = 0;
+        graph.selectAll("*").remove();
+    
+
+    for(var i = 0; i < 25; i++){
+        dataCount[i] = {};
+    }
+
+    for(var i = 0; i < 25; i++){
+        for(var j = 0; j < Stations.length; j++){
+            dataCount[i].intervals = i;
+            dataCount[i][Stations[j]] = 0;
+        }
+    }
+
+        Stations.forEach(function(s,i){
+            data.forEach(function (d) {
+                d.starttime = new Date(d.starttime);
+            if(d.from_station_name === s){
+                dataCount[ d.starttime.getHours() ].intervals = d.starttime.getHours();
+                dataCount[ d.starttime.getHours() ][Stations[i]] += 1;
+
+            }
+         });
+    });
+        
+
+    Stations.forEach(function(s,i){
+            dataCount.forEach(function (d) {
+                d.intervals = +d.intervals;
+            d[Stations[i]] = +d[Stations[i]];
+         });
+    });
+
+        var x = d3.scale.linear().domain([0, dataCount.length]).range([0, width]);
+
+    sum = 0;
+
+    Stations.forEach(function(s){
+        dataCount.forEach(function (d) {
+            sum = sum + d[s];
+         });
+    });
+
+        var y = d3.scale.linear().domain([0, sum])
+        .range([height, 0]);
+
+        var color = d3.scale.ordinal()
+            .range(["#98abc5"]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .tickFormat(d3.format(".2s"));
+        xAxis.tickSize(-height).tickSubdivide(true);
+        
+    var line = d3.svg.line()
+            .x(
+        function (d) {
+            return x(+d.intervals);
+                }
+        )
+            .y(
+        function (d) {
+            sum = 0;
+
+            Stations.forEach(function(s){
+                sum = sum + (+d[s]);
+            });
+            return y(sum);
+                }
+        );
+
+        graph
+            .attr("width", width)
+            .attr("height", height)
+            .append("svg:g")
+            .attr("transform", "translate(" + right + "," + top + ")");
+        xAxis.ticks(23);
+
+
+        graph.append("svg:g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+            .append("text")
+            .attr("y", 50)
+            .attr("x", width / 2)
+            .attr("dx", ".71em")
+            .style("text-anchor", "middle")
+            .text("Time Interval");
+
+    graph.selectAll("text.label")
+         .data(dataCount.filter(function(d){
+               return d.intervals === (+ticker);
+          }))
+         .enter()
+         .append("text")
+         .text(function(d){
+                  sum = 0;
+              Stations.forEach(function(s){
+              sum += d[s];
+                  });
+          return sum;
+               })
+         .attr("x", function(d){
+        return x(ticker);
+        })
+         .attr("y", function(d){
+        return y(sum) ;
+        })
+         .style("font-size", "120%")
+             .style("font-color", "steelblue");
+
+        graph.append("svg:g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -50)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("#Active Bikes");
+
+        graph.append("svg:path").attr("d", line(dataCount));
+
+    graph.selectAll(".chart-title")
+        .data(data)
+       .enter()
+       .append("text")
+       .attr("x", width/2)
+       .attr("y", height-500)
+       .attr("text-anchor","middle")
+       .attr("font-family", "sans-serif")
+       .attr("font-size","20pt")
+       .text("Overall Active Rides Line Chart");
+    },
+
+
+
+//Drawing the bar chart for Origin distribution for the second visualization group.
+    /*drawBarChart2: function (error, data) {
         var top = this.barMargin.top,
             bottom = this.barMargin.bottom,
             left = this.barMargin.left,
@@ -156,7 +318,7 @@ var CalendarControlApp = Class.extend({
 
         svg.selectAll("*").remove();
 
-    /*for(var i = 0; i < 25; i++){
+    for(var i = 0; i < 25; i++){
         dataCount[i] = {};
     }
     for(var i = 0; i < 25; i++){
@@ -181,7 +343,7 @@ var CalendarControlApp = Class.extend({
         d[Stations[0]] = +d[Stations[0]];
         d[Stations[1]] = +d[Stations[1]];
         d[Stations[2]] = +d[Stations[2]];
-    });*/
+    });
 
     var x = d3.time.scale()
         .range([0, width]);
@@ -284,7 +446,7 @@ var CalendarControlApp = Class.extend({
         .text(function(d) { 
             return d.name; 
         });
-    },
+    },*/
 
 
     /////////////////////////////////////////////////////////////
@@ -348,8 +510,8 @@ var CalendarControlApp = Class.extend({
         this.myTag = "#Vis1";
         this.updateData();
 
-        //this.myTag = "#Vis2";
-        //this.updateData();
+        this.myTag = "#Vis2";
+        this.updateData();
     },
 
     updateStation: function (element) {

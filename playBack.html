@@ -31,6 +31,32 @@
 		    stroke: #000;
 		}
     .ui-datepicker { font-size: 7pt !important; }
+		   path {
+				stroke: steelblue;
+				stroke-width: 1;
+				fill: none;
+			}
+			
+			.axis {
+			  shape-rendering: crispEdges;
+			}
+ 
+			.x.axis line {
+			  stroke: lightgrey;
+			}
+ 
+			.x.axis .minor {
+			  stroke-opacity: .5;
+			}
+ 
+			.x.axis path {
+			  display: none;
+			}
+ 
+			.y.axis line, .y.axis path {
+			  fill: none;
+			  stroke: #000;
+			}
 	    </style>
 	    <title></title>
 	    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -45,18 +71,22 @@
 	    <script src="App/js/calendar/CalendarControlApp.js"></script>
 	    <!--<script src="App/js/CalendarPlayBack.js"></script>-->
 	    <script>
-		var calendarControlApp = new CalendarControlApp();
+		var calendarControlApp;
 		function init() {
 		    //calendarControlApp.startup('#Vis1');
+                    calendarControlApp = new CalendarControlApp();
+                    calendarControlApp.initAppWithTickerAndStations(
+			//["Millennium Park", "Michigan Ave & Oak St", "Lake Shore Dr & Monroe St"],"07/20/2013 11");
+			["Lake Shore Dr & Monroe St"],"07/20/2013 11");
 		    calendarControlApp.startup('#Vis1');
+		    calendarControlApp.startup('#Vis2');
 
 		}
 	    </script>
 	</head>
 	<body onload="init()">
 		<div id="container" style="position: relative;float: left;width: 100%;height:100%;">
-		    <div id="leftContainer"
-			 style="margin-left: 5%; margin-top: 8.5%; position: relative;float: left;width:20%;height: 45%;border-right: thin solid #d3d3d3;">
+		    <div id="leftContainer" style="margin-left: 5%; margin-top: 8.5%; position: relative;float: left;width:20%;height: 45%;">
 			<div id="calView" style="position: relative;float: left;width: 100%;height: 45%;">
 			    <div id="datetimepicker"></div>
 			    <script>
@@ -90,18 +120,14 @@
 
 			</div>
 		    </div>
-		    <div id="rightContainer" style="position: relative;float: left;width:71%;height: 100%;">
-			<div id="Vis1" style="margin-top: 8.5%;position: relative;float: left;width: 100%;height: 45%;">
+	            <!--<div id="line" style="height:100%; width:2%; position: relative;float: left; border-right: thin solid #d3d3d3;"></div>-->
+		    <div id="rightContainer" style="position: relative;float: left;width:71%;height: 55%;">
+			<div id="Vis1" style="margin-left: 2%; margin-top: 8.5%;position: relative;float: left;width: 100%;height: 45%;">
 
 			</div>
-			<!--<div id="activeBikes" style="position: relative;float: left;width: 100%;height: 10%;">
-			    <label id="activeBikesLabel">Active Bikes: </label><label id="activeBikesData">Active Bikes: </label>
+			<div id="Vis2" style="margin-left: 2%; position: relative;float: left;width: 100%;height: 45%;">
 
-			    <div id="noOfBikes"></div>
 			</div>
-			<div id="Vis2" style="position: relative;float: left;width: 100%;height: 45%;">
-
-			</div>-->
 		    </div>
 		    <div id="DateAndTimePickerValue" style="position: relative; height: 8%;visibility: hidden;">
 
