@@ -80,7 +80,6 @@
 	    <script src="http://d3js.org/d3.v3.min.js"></script>
 	    <script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js"></script>
 	    <script src="App/js/calendar/CalendarControlApp.js"></script>
-	    <!--<script src="App/js/CalendarPlayBack.js"></script>-->
 	    <script>
 		var calendarControlApp;
 		function init() {
@@ -114,13 +113,9 @@
 				    inline: true,
 				    onSelect: function (dateText, inst) {
 				        var dateAsString;
-				        //var dateAsObject;
 				        dateAsString = dateText; 
-				        //dateAsObject = $(this.value).datepicker('getDate');
-				        //dateAsObject = $.datepicker.formatDate('mm/dd/yy', new Date(dateAsObject));
 				        var div = document.getElementById("DateAndTimePickerValue");
 				        calendarControlApp.setDateAndTime(dateAsString);
-					//drawTrips(dateAsString);
 				    }
 				});
 			    </script>
@@ -139,29 +134,20 @@
 				<script>
 					function gender(){
 						document.getElementById("GenderContainer").style.display = 'block';
-						//document.getElementById("GenderContainer").style.height = 50;
 						document.getElementById("MemberContainer").style.display = 'none';
-						//document.getElementById("MemberContainer").style.height = 0;
 						document.getElementById("AgeContainer").style.display = 'none';
-						//document.getElementById("AgeContainer").style.height = 0;
 						
 					}
 					function memberType(){
 						document.getElementById("GenderContainer").style.display = 'none';
-						//document.getElementById("GenderContainer").style.height = 0px;
 						document.getElementById("MemberContainer").style.display = 'block';
-						//document.getElementById("MemberContainer").style.height = 50%;
 						document.getElementById("AgeContainer").style.display = 'none';
-						//document.getElementById("AgeContainer").style.height = 0px;
 						
 					}
 					function ageRange(){
 						document.getElementById("GenderContainer").style.display = 'none';
-						//document.getElementById("GenderContainer").style.height = 0px;
 						document.getElementById("MemberContainer").style.display = 'none';
-						//document.getElementById("MemberContainer").style.height = 0px;
 						document.getElementById("AgeContainer").style.display = 'block';
-						//document.getElementById("AgeContainer").style.height = 50%;
 						
 					}
 				</script>

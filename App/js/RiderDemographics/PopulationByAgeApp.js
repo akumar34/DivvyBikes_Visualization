@@ -2,8 +2,8 @@ var PopulationByAgeApp = Class.extend({
 
 	construct: function() {
 		this.barMargin = {top: 100, right: 20, bottom: 200, left: 110};
-		this.barCanvasWidth = 1200;
-		this.barCanvasHeight = 400;
+		this.barCanvasWidth = 800;
+		this.barCanvasHeight = 300;
 
 		this.barWidth = 0;
 		this.barHeight = 0;
@@ -48,14 +48,21 @@ var PopulationByAgeApp = Class.extend({
 			.tickFormat(d3.format(".2s"));
 
 		color.domain(d3.keys(data[0])
-			.filter(function(key) {return key == "POPULATION"}));		 
+			.filter(function(key) {return key === "POPULATION"}));		 
 			
 		data.forEach(function(d) {
-			d.AGE_INTERVAL = +d.AGE_INTERVAL;
+			d.AGE_INTERVAL = d.AGE_INTERVAL;
 			d.POPULATION = +d.POPULATION;
 		});
 		 
-		x.domain(data.map(function(d) { return d.AGE_INTERVAL; }));
+		x.domain(
+
+		data.sort(
+			function(d1, d2)
+			{ 
+				return d3.ascending(+d1.AGE_INTERVAL.split(" - ")[0], +d2.AGE_INTERVAL.split(" - ")[1]); 
+			})
+		.map(function(d) { return d.AGE_INTERVAL; }));
 		y.domain([0, d3.max(data, function(d) { return d.POPULATION; })]);
 
 		svg.append("g")
@@ -80,16 +87,39 @@ var PopulationByAgeApp = Class.extend({
 		.text("Population");
 		 
 		svg.selectAll("bar")
-			.data(data)
+			.data(
+			data.sort(
+				function(d1, d2)
+				{ 
+					return d3.ascending(+d1.AGE_INTERVAL.split(" - ")[0], +d2.AGE_INTERVAL.split(" - ")[1]); 
+				}))
 			.enter().append("rect")
 			.style("fill", "steelblue")
 			.attr("x", function(d) { return x(d.AGE_INTERVAL); })
 			.attr("width", x.rangeBand())
 			.attr("y", function(d) { return y(d.POPULATION); })
 			.attr("height", function(d) { return height - y(d.POPULATION); });
+
+		svg.selectAll("text.label")
+			.data(data)
+			.enter().append("text")
+			.text(function(d) {
+		        return d.POPULATION;
+		    })
+		    .attr("x", function(d, index) {
+		        return (x(d.AGE_INTERVAL) + (x.rangeBand()/2)) - 25;
+		    })
+		    .attr("y", function(d) {
+		    	return y(d.POPULATION);
+		    })
+		    .style("font-size","80%");
 		
 		svg.selectAll(".chart-title")
-			.data(data)
+			.data(data.sort(
+			function(d1, d2)
+			{ 
+				return d3.ascending(+d1.AGE_INTERVAL.split(" - ")[0], +d2.AGE_INTERVAL.split(" - ")[1]); 
+			}))
 		   .enter()
 		   .append("text")
 		   .attr("x", width/2)
@@ -125,7 +155,7 @@ var PopulationByAgeApp = Class.extend({
 	/////////////////////////////////////////////////////////////
 
 	updateData: function (){	
-		var fileToLoad = "App/json/RiderDemographics/population_by_age.json";
+		var fileToLoad = "../App/json/RiderDemographics/population_by_age.json";
 		this.inDataCallbackFunc = this.drawBarChart.bind(this);
 		d3.json(fileToLoad, this.inDataCallbackFunc);
 	},
