@@ -30,7 +30,7 @@
 		    fill: none;
 		    stroke: #000;
 		}
-    .ui-datepicker { font-size: 7pt !important; }
+                .ui-datepicker { font-size: 7pt !important; }
 		   path {
 				stroke: steelblue;
 				stroke-width: 1;
@@ -69,18 +69,16 @@
 	    <script src="http://d3js.org/d3.v3.min.js"></script>
 	    <script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js"></script>
 	    <script src="App/js/calendar/CalendarControlApp.js"></script>
-	    <!--<script src="App/js/CalendarPlayBack.js"></script>-->
+	    <script src="App/js/CalendarPlayBack.js"></script>
 	    <script>
 		var calendarControlApp;
 		function init() {
-		    //calendarControlApp.startup('#Vis1');
                     calendarControlApp = new CalendarControlApp();
                     calendarControlApp.initAppWithTickerAndStations(
 			//["Millennium Park", "Michigan Ave & Oak St", "Lake Shore Dr & Monroe St"],"07/20/2013 11");
 			["Lake Shore Dr & Monroe St"],"07/20/2013 11");
 		    calendarControlApp.startup('#Vis1');
 		    calendarControlApp.startup('#Vis2');
-
 		}
 	    </script>
 	</head>
@@ -109,7 +107,7 @@
 				        dateAsObject = $.datepicker.formatDate('mm/dd/yy', new Date(dateAsObject));
 				        var div = document.getElementById("DateAndTimePickerValue");
 				        calendarControlApp.setDateAndTime(dateAsString);
-					//drawTrips(dateAsString);
+					drawTrips(dateAsString);
 				    }
 				});
 			    </script>

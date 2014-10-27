@@ -13,8 +13,8 @@ var CalendarControlApp = Class.extend({
 
         this.myTag = "";
 
-    this.stationArray = null;
-        this.dateAsString = null;
+    this.stationArray = [];
+        this.dateAsString = '';
     },
 
 

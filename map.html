@@ -137,6 +137,9 @@
             console.log('Inside Init3');
         }
     </script>
+    <script type="text/javascript">
+          var calendarControlApp = new CalendarControlApp();
+        </script>
     <script>
         function showOverAllData() {
 
@@ -265,7 +268,7 @@
         style="position: relative;float:left;width: 45%;"></select>
 
 <div id="ButtonsForSelection" style="position: relative;float:left;width: 10%;">
-    <input type="button" id="btnLeft" value="&lt;&lt;"/>
+    <input type="button" id="btnLeft" onclick="calendarControlApp.updateStation(document.getElementById('rightValues1'));" value="&lt;&lt;"/>
     <input type="button" id="btnRight" value="&gt;&gt;"/>
 </div>
 <select id="rightValues1" name="Stations" size="4" multiple style="position: relative;float:left;width: 40%;">
