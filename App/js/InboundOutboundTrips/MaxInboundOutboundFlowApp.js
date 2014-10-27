@@ -2,7 +2,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 
 	construct: function() {
 		this.barMargin = {top: 100, right: 20, bottom: 200, left: 110};
-		this.barCanvasWidth = 1200;
+		this.barCanvasWidth = 1500;
 		this.barCanvasHeight = 400;
 
 		this.barWidth = 0;
@@ -120,6 +120,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 			.text(function(d) {
 				return d.STATION;
 		    })
+		    .attr("text-anchor", "middle") 
 			.attr("x", function(d, index) {
 			return (x0(d.TIME_INTERVAL) + (x0.rangeBand()/2)) - 25;
 		    })
@@ -160,7 +161,7 @@ var MaxInboundOutboundFlowApp = Class.extend({
 		   .attr("text-anchor","middle")
 		   .attr("font-family", "sans-serif")
 		   .attr("font-size","20pt")
-		   .text("Inbound Outbound Inbalance Bar Chart");
+		   .text("Inbound Outbound Imbalance Bar Chart");
 	},
 
 	/////////////////////////////////////////////////////////////

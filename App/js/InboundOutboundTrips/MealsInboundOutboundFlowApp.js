@@ -2,7 +2,7 @@ var MealsInboundOutboundFlowApp = Class.extend({
 
 	construct: function() {
 		this.barMargin = {top: 100, right: 20, bottom: 200, left: 110};
-		this.barCanvasWidth = 1200;
+		this.barCanvasWidth = 1500;
 		this.barCanvasHeight = 400;
 
 		this.barWidth = 0;
@@ -87,6 +87,21 @@ var MealsInboundOutboundFlowApp = Class.extend({
 			.attr("dy", ".71em")
 			.style("text-anchor", "end")
 			.text("Number of Trips");
+        svg.selectAll("text.label")
+            .data(data)
+            .enter()
+            .append("text")
+            .text(function(d) {
+                return "Inbound = " + d.INBOUND + " Outbound = " + d.OUTBOUND;
+            })
+            .attr("text-anchor", "middle")
+            .attr("x", function(d, index) {
+                return (x0(d.TIME_INTERVAL) + (x0.rangeBand()/2)) - 25;
+            })
+            .attr("y", function(d) {
+                return y(Math.max(d.INBOUND, d.OUTBOUND) + 10);
+            })
+            .style("font-size","60%");
 				
 		var age_interval = svg.selectAll(".time_interval")
 			.data(data)

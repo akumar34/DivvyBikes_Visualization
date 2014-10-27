@@ -1,8 +1,8 @@
 var CalendarControl = Class.extend({
 
     construct: function () {
-        this.dateAsString = "07/26/2013 00";
-        this.station = null;
+        this.station = ["Millennium Park", "Michigan Ave & Oak St", "Lake Shore Dr & Monroe St"];
+        this.dateAsString = "07/20/2013 11";
 
         //this.barMargin = {top: 20, right: 20, bottom: 20, left: 20};
         this.barMargin = {top: 50, right: 20, bottom: 20, left: 20};
@@ -210,91 +210,101 @@ var CalendarControl = Class.extend({
         var svg = this.svgBar2;
 
         svg.selectAll("*").remove();
-        var dataCount = [];
+        var dataCount = {Stations : {
+
+        },
+        Intervals:{}
+        };
         // = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         var Stations = this.station;
-        dataCount[0] = Stations;
+
         Stations.forEach(function (s,j){
-        for(var i=1;i<=24;i++){
-            dataCount[i][j] = 0;
+            dataCount.Stations += s;
+            dataCount.Intervals += s;
+            //dataCount.Stations[s] += 'interval';
+            for(var i=1;i<24;i++){
+                dataCount.Intervals[s] += i;
+                dataCount.Intervals[s][i] = 0;
         }});
-        dataCount[0].forEach(function(s,i){
+
+        dataCount.forEach(function(s){
         data.forEach(function (d) {
             d.starttime = new Date(d.starttime);
 
-if(d.from_station_name == s){
+        if(d.from_station_name === s){
             switch (d.starttime.getHours()) {
                 case 0 :
-                    dataCount[1][i] += 1;
+                    dataCount.Intervals[s][0] += 1;
                     break;
                 case 1 :
-                    dataCount[2][i] += 1;
+                    dataCount.Intervals[s][1] += 1;
                     break;
                 case 2 :
-                    dataCount[3][i] += 1;
+                    dataCount.Intervals[s][2] += 1;
                     break;
                 case 3 :
-                    dataCount[4][i] += 1;
+                    dataCount.Intervals[s][3] += 1;
                     break;
                 case 4 :
-                    dataCount[5][i] += 1;
+                    dataCount.Intervals[s][4] += 1;
                     break;
                 case 5 :
-                    dataCount[6][i] += 1;
+                    dataCount.Intervals[s][5] += 1;
+                    //dataCount[6][i] += 1;
                     break;
                 case 6 :
-                    dataCount[7][i] += 1;
+                    dataCount.Intervals[s][6] += 1;
                     break;
                 case 7 :
-                    dataCount[8][i] += 1;
+                    dataCount.Intervals[s][7] += 1;
                     break;
                 case 8 :
-                    dataCount[9][i] += 1;
+                    dataCount.Intervals[s][8] += 1;
                     break;
                 case 9 :
-                    dataCount[10][i] += 1;
+                    dataCount.Intervals[s][9] += 1;
                     break;
                 case 10 :
-                    dataCount[11][i] += 1;
+                    dataCount.Intervals[s][10] += 1;
                     break;
                 case 11 :
-                    dataCount[12][i] += 1;
+                    dataCount.Intervals[s][11] += 1;
                     break;
                 case 12 :
-                    dataCount[13][i] += 1;
+                    dataCount.Intervals[s][12] += 1;
                     break;
                 case 13 :
-                    dataCount[14][i] += 1;
+                    dataCount.Intervals[s][13] += 1;
                     break;
                 case 14 :
-                    dataCount[15][i] += 1;
+                    dataCount.Intervals[s][14] += 1;
                     break;
                 case 15 :
-                    dataCount[16][i] += 1;
+                    dataCount.Intervals[s][15] += 1;
                     break;
                 case 16 :
-                    dataCount[17][i] += 1;
+                    dataCount.Intervals[s][16] += 1;
                     break;
                 case 17 :
-                    dataCount[18][i] += 1;
+                    dataCount.Intervals[s][17] += 1;
                     break;
                 case 18 :
-                    dataCount[19][i] += 1;
+                    dataCount.Intervals[s][18] += 1;
                     break;
                 case 19 :
-                    dataCount[20][i] += 1;
+                    dataCount.Intervals[s][19] += 1;
                     break;
                 case 20 :
-                    dataCount[21][i] += 1;
+                    dataCount.Intervals[s][20] += 1;
                     break;
                 case 21 :
-                    dataCount[22][i] += 1;
+                    dataCount.Intervals[s][21] += 1;
                     break;
                 case 22 :
-                    dataCount[23][i] += 1;
+                    dataCount.Intervals[s][22] += 1;
                     break;
                 case 23 :
-                    dataCount[24][i] += 1;
+                    dataCount.Intervals[s][23] += 1;
                     break;
                 default :
                     console.log("default case reached... something wrong");
@@ -322,14 +332,71 @@ if(d.from_station_name == s){
 
         var line = d3.svg.line()
             .interpolate("basis")
-            .x(function(d,i){return x(d[i])})
-            .y(function(d,i){d[i].forEach(function(s){return y(d[i][s])});})
+            .x(function(d){return x(d.Intervals);})
+            .y(function(d, i){return y(d.Intervals[i]);})
         ;
-        var symbols = d3.nest()
+        svg.attr("width", width + left + right)
+            .attr("height", height + top + bottom)
+            .append("g")
+            .attr("transform", "translate(" + left + "," + top + ")");
+        color.domain(dataCount.Stations);
+        //From Here
+
+        var cities = color.domain().map(function(name) {
+            return {
+                name: name,
+                values: dataCount.map(function(d,i) {
+                    return {Stations: d.Stations, intervals: +d.Intervals[i]};
+                })
+            };
+        });
+
+        x.domain(d3.extent(dataCount, function(d) { return d.intervals; }));
+
+        y.domain([
+            d3.min(cities, function(c) { return d3.min(c.values, function(v,i) { return v.intervals; }); }),
+            d3.max(cities, function(c) { return d3.max(c.values, function(v,i) { return v.intervals; }); })
+        ]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+        .text("Active Bikes");
+
+        var city = svg.selectAll(".city")
+            .data(cities)
+            .enter().append("g")
+            .attr("class", "city");
+
+        city.append("path")
+            .attr("class", "line")
+            .attr("d", function(d) { return line(d.values); })
+            .style("stroke", function(d) { return color(d.name); });
+
+        city.append("text")
+            .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+            .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.intervals) + ")"; })
+            .attr("x", 3)
+            .attr("dy", ".35em")
+            .text(function(d) { return d.name; });
+
+
+
+        /*var symbols = d3.nest()
             .key(function(d) { return d.from_station_name; })
             .entries(data);
         symbols.forEach(function(s) {
-            s.maxPrice = d3.max(s.values, function(d,i) { return d[i]; });
+            s.maxPrice = d3.max(s.values, function(d,i) { return d; });
         });
         x.domain([
             d3.min(symbols, function(s) { return s.values[0]; }),
@@ -359,7 +426,7 @@ if(d.from_station_name == s){
             .attr("x", width - 6)
             .attr("y", height - 6)
             .style("text-anchor", "end")
-            .text(function(d) { return d.key; });
+            .text(function(d) { return d.key; });*/
     },
 
     /////////////////////////////////////////////////////////////
