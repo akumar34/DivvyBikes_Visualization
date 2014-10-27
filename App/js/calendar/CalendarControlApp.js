@@ -374,7 +374,7 @@ var CalendarControlApp = Class.extend({
     updateData: function () {
     var unformattedDate = this.dateAsString.split(" ");
     var date = new Date(unformattedDate[0]);
-        var fileToLoad = "App/json/Map/trips_by_day/trips_data_by_day_" + this.monthFormated(date) + "_" + date.getDate() + "_" + date.getFullYear() + ".csv";
+        var fileToLoad = "App/json/Map/trips_by_day/trips_data_by_day_" + this.monthFormated(date) + "_" + this.dayFormated(date) + "_" + date.getFullYear() + ".csv";
         switch (this.myTag) {
             case "#Vis1":
                 this.inDataCallbackFunc = this.drawBarChart1.bind(this);
@@ -413,8 +413,13 @@ var CalendarControlApp = Class.extend({
     },
 
     monthFormated: function(date){
-    month = date.getMonth();
+    var month = date.getMonth();
         return month < 10 ? "0" + (month+1) : month+1;
+    },
+
+    dayFormated: function(date){
+       day = date.getDate();
+       return day < 10 ? "0" + (day) : day;
     }
    /* convertToDate: function (dateTime,number){
     var year = dateTime.getFullYear();
