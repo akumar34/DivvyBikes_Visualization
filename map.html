@@ -879,32 +879,37 @@
 <input type="button" name="ShowFlow" id="ShowFlow" onclick="setMap(1)" value="Show On Map" size="5"/>
 </div>
 <div id="PatternContainer" style="position: relative;height: 100%;width: 100%;">
-<select id="PatternList" name="PatternList" onchange="updateDropDownTarget()"
-        style="position: relative;float: left;width: 33%;">
-    <option id="TimesOfTheDay" class="TimesOfTheDay">TimesOfTheDay</option>
-    <option id="DaysOfTheWeek" class="DaysOfTheWeek">DaysOfTheWeek</option>
-</select>
-<select id="TOD" name="TimesOfTheDay" style="position: relative;float: left;width: 33%;">
-    <option id="Morning" value="Morning">Morning</option>
-    <option id="Lunch" value="Lunch">Lunch</option>
-    <option id="Evening" value="Evening">Evening</option>
-    <option id="Night" value="Night">Night</option>
-</select>
-<select id="DOW" name="DaysOfTheWeek" style="position: relative;float: left;width: 33%;">
-    <option id="Monday" value="Monday">Monday</option>
-    <option id="Tuesday" value="Tuesday">Tuesday</option>
-    <option id="Wednesday" value="Wednesday">Wednesday</option>
-    <option id="Thursday" value="Thursday">Thursday</option>
-    <option id="Friday" value="Friday">Friday</option>
-    <option id="Saturday" value="Saturday">Saturday</option>
-    <option id="Sunday" value="Sunday">Sunday</option>
-</select>
-
-<div id="PatternDiv" class="PatternDiv" style="position:relative; float: left; width:100%;">
-<select id="PatternChicago" onchange="updateDropDownTarget()">
-    <option id="PatternStations" class="PatternStations" value="PatternStations" size="4">Stations</option>
-    <option id="PatternCommunities" class="PatternCommunities" value="PatternCommunities" size="4">Communities</option>
-</select>
+<div id="patternListDiv" style="position: relative;float: left;width: 33%;">
+    <select id="PatternList" name="PatternList" onchange="updateDropDownTarget()"
+            >
+        <option id="TimesOfTheDay" class="TimesOfTheDay" >Time Of The Day</option>
+        <option id="DaysOfTheWeek" class="DaysOfTheWeek">Day Of The Week</option>
+    </select>
+</div>
+<div id ="secondDropDownDiv1"  style="position: relative;float: left;width: 33%;">
+    <select id="TOD" name="TimesOfTheDay">
+        <option id="Morning" value="Morning">Morning</option>
+        <option id="Lunch" value="Lunch">Lunch</option>
+        <option id="Evening" value="Evening">Evening</option>
+        <option id="Night" value="Night">Night</option>
+    </select>
+</div>
+    <div id="secondDropDownDiv2"  style="position: relative;float: left;width: 33%;">
+    <select id="DOW" name="DaysOfTheWeek">
+        <option id="Monday" value="Monday">Monday</option>
+        <option id="Tuesday" value="Tuesday">Tuesday</option>
+        <option id="Wednesday" value="Wednesday">Wednesday</option>
+        <option id="Thursday" value="Thursday">Thursday</option>
+        <option id="Friday" value="Friday">Friday</option>
+        <option id="Saturday" value="Saturday">Saturday</option>
+        <option id="Sunday" value="Sunday">Sunday</option>
+    </select>
+</div>
+    <div id="PatternDiv" class="PatternDiv" style="position:relative; float: left; width:100%;">
+    <select id="PatternChicago" onchange="updateDropDownTarget()">
+        <option id="PatternStations" class="PatternsStation" value="PatternsStation" size="4">Stations</option>
+        <option id="PatternCommunities" class="PatternCommunities" value="PatternCommunities" size="4">Communities</option>
+    </select>
 
 <select id="leftPattern1" name="PatternsStation" size="5" multiple style="position: relative;float:left;width: 42%;"></select>
 <select id="leftPattern2" name="PatternCommunities" size="5" multiple style="position: relative;float:left;width: 42%;"></select>
@@ -1268,10 +1273,24 @@
             }
 
             function updateDropDownTarget() {
-            var patternTOD = document.getElementById("TOD");
-            var patternDOW = document.getElementById("DOW");
-            patternTOD.onselect = showPatternStationList();
-            patternDOW.onselect = showPatternStationList();
+                var selectedOption = $("#PatternList option:selected").text();
+                //console.log("Snadofndaonf" + selectedOption);
+                document.getElementById("TimesOfTheDay").style.display = 'block';
+                document.getElementById("DaysOfTheWeek").style.display = 'block';
+
+                var patternTOD = document.getElementById("secondDropDownDiv1");
+                var patternDOW = document.getElementById("secondDropDownDiv2");
+                if (selectedOption == "Time Of The Day"){
+                    patternTOD.style.display = 'block';
+                    patternDOW.style.display = 'none';
+                }
+                else if(selectedOption == "Day Of The Week"){
+                    patternDOW.style.display = 'block';
+                    patternTOD.style.display = 'none';
+                }
+                patternTOD.onselect = showPatternStationList();
+
+                patternDOW.onselect = showPatternStationList();
                 var id = this.options[this.selectedIndex].value;
 
                 var getTag = this.parentNode.getElementsByTagName("select");
