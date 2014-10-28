@@ -914,14 +914,16 @@
 
             }
         }
+
+    
     ////////////////////////////////////////////////////////////
     //   DEFINING MAP VIEWS TO SHOW AS BASE LAYERS
     ///////////////////////////////////////////////////////////
         var mapURL2 = 'http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png';
-        var mapCopyright2 = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
+        var mapCopyright2 = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX';
 
         var mapURL1 = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
-        var mapCopyright1 = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
+        var mapCopyright1 = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX';
 
         var mapURL3 = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         var mapCopyright3 = '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
@@ -951,7 +953,7 @@
 
         var map = L.map('map', {
             center: [41.869910, -87.65],
-            zoom: 13,
+            zoom: 11,
             layers: [ColorView,MapView,Aerial]
             });
 

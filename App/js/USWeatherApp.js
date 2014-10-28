@@ -192,7 +192,7 @@ var USweatherApp = Class.extend({
 
             var div = L.DomUtil.create('div', 'map image');
 
-            div.innerHTML = '<img src="' + iconSrc + '"/>' + '<I class="WeatherIcon" font-size=20px>' + weather + ' F</I>';
+            div.innerHTML = '<img src="' + iconSrc + '"/>' + '<i class="WeatherIcon" style="color:blue;font-size=30%;font-weight:bold">' + weather + ' F</i>';
             return div;
         };
 

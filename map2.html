@@ -82,7 +82,7 @@
         opacity: 0.7;
         font-size: 20px;
     }
-
+    .ui-datepicker { font-size: 7pt !important; }
         /*
                 SELECT, INPUT[type="text"] {
                     width: 20%;
@@ -124,7 +124,9 @@
 <script type="text/javascript" src="App/js/storejsDirectory/store+json2.min.js">
 
 </script>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="App/js/suncalc.js"></script>
 <script type="text/javascript">
     console.log('Run this sss');
@@ -200,7 +202,7 @@
 
     function showMultiMap(){
         parent.document.getElementById("framesets").cols="25%,75%";
-                top.frames['TargetPage1'].location = 'map.html';
+        top.frames['TargetPage1'].location = 'map.html';
         top.frames['TargetPage'].location = 'graphs.html';
 
     }
@@ -211,19 +213,19 @@
 <center><h1>Map 1</h1></center>
 <br/>
 
-<div id="container" style="position: absolute;width: 100%;height: 90%;border-right: thin solid #d3d3d3">
-<div id="controls" style="position: relative;float: left;width:100%;height: 7%">
+<div id="container" style="position: absolute;width: 100%;height: 95%;border-right: thin solid #d3d3d3">
+<div id="controls" style="position: relative;float: left;width:100%;height: 5%">
     <center>
-    <!--<button id="Overall" value="OverallData" onclick="showOverAllData()">Overall Data</button>
-    <button id="Compare" value="CompareData" onclick="showCompare()">Compare Mode</button>-->
-    <button id="PlayBack" value="PlayBack" onclick="showPlayBack()">Play Back</button>
-    <button id="Flow" value="Flow Control" onclick="showFlow()">Flow Control</button>
-    <button id="Pattern" value="Pattern Mode" onclick="showPattern()">Pattern Mode</button>
-    <button id="MultiMap" value="MultiMap" onclick="showMultiMap()">Single Map Mode</button>
-    <!-- Define this onclick TODO-->
+        <!--<button id="Overall" value="OverallData" onclick="showOverAllData()">Overall Data</button>
+        <button id="Compare" value="CompareData" onclick="showCompare()">Compare Mode</button>
+        <button id="PlayBack" value="PlayBack" onclick="showPlayBack()">Calendar Mode</button>-->
+        <button id="Flow" value="Flow Control" onclick="showFlow()">Flow Control</button>
+        <button id="Pattern" value="Pattern Mode" onclick="showPattern()">Pattern Mode</button>
+        <button id="MultiMap" value="MultiMap" onclick="showMultiMap()">Single Map Mode</button>
+        <!-- Define this onclick TODO-->
     </center>
 </div>
-<div id="MapSegment" style="position: relative;float: left;height: 65%;width: 100%">
+<div id="MapSegment" style="position: relative;float: left;height: 62%;width: 100%">
     <div id="map" style="height: 100%;"></div>
 
     <!--<div id="buttons" style="width:100%; height:10%; text-align: center; background: #fff">
@@ -254,14 +256,14 @@
         </script>
 </div>-->
 </div>
-<div id="selectionSectionContainer" style="position: relative;float:left;height: 25%;width: 100%;">
+<div id="selectionSectionContainer" style="position: relative;float:left;height: 33%;width: 100%;">
 <div id="SelectionDivContainer" style="position: relative;height: 100%;width: 100%;">
 
-<select id="Chicago_Data" onchange="updateDropDownTarget()" style="position: relative;float:left;width: 100%;">
+<select id="Chicago_Data" onchange="updateDropDownTarget()" style="position: relative;float:left;width: 49%;">
     <option id="Stations" class="Stations" size="4">Stations</option>
     <option id="Communities" class="Communities" size="4">Communities</option>
 </select>
-
+<input id="calendarInput" type="text" style="position: relative;float: left;width: 49%" />
 <select id="leftValues1" name="Stations" size="5" multiple style="position: relative;float:left;width: 45%;"></select>
 <select id="leftValues2" name="Communities" size="4" multiple
         style="position: relative;float:left;width: 45%;"></select>
@@ -597,6 +599,27 @@
     <option>Edge Water</option>
     <option>South Lawndale</option>
 </select>
+
+<script>
+    $('#calendarInput').datepicker(
+            {
+
+                dateFormat: 'mm/dd/yy',
+                //timeFormat: 'HH',
+                showButtonPanel: false,
+                defaultDate: new Date(2013, 6, 1),
+                minDate: new Date(2013, 6, 1),
+                maxDate: new Date(2013, 11, 31),
+                inline: true,
+                onSelect: function (dateText, inst) {
+                    var dateAsString;
+                    var dateAsObject;
+                    dateAsString = dateText;
+                    //Now you can use this string format date
+                }
+            }
+    );
+</script>
 </div>
 <div id="FlowContainer" style="position: relative;height: 100%;width: 100%;">
 <select id="FlowStationList" name="FlowStationList" size="4">
@@ -903,32 +926,37 @@
 <input type="button" name="ShowFlow" id="ShowFlow" onclick="setMap(1)" value="Show On Map" size="5"/>
 </div>
 <div id="PatternContainer" style="position: relative;height: 100%;width: 100%;">
-<select id="PatternList" name="PatternList" onchange="updateDropDownTarget()"
-        style="position: relative;float: left;width: 50%;">
-    <option id="TimesOfTheDay" class="TimesOfTheDay">TimesOfTheDay</option>
-    <option id="DaysOfTheWeek" class="DaysOfTheWeek">DaysOfTheWeek</option>
-</select>
-<select id="TOD" name="TimesOfTheDay" style="position: relative;float: left;width: 33%;">
-    <option id="Morning" value="Morning">Morning</option>
-    <option id="Lunch" value="Lunch">Lunch</option>
-    <option id="Evening" value="Evening">Evening</option>
-    <option id="Night" value="Night">Night</option>
-</select>
-<select id="DOW" name="DaysOfTheWeek" style="position: relative;float: left;width: 33%;height: 50%;">
-    <option id="Monday" value="Monday">Monday</option>
-    <option id="Tuesday" value="Tuesday">Tuesday</option>
-    <option id="Wednesday" value="Wednesday">Wednesday</option>
-    <option id="Thursday" value="Thursday">Thursday</option>
-    <option id="Friday" value="Friday">Friday</option>
-    <option id="Saturday" value="Saturday">Saturday</option>
-    <option id="Sunday" value="Sunday">Sunday</option>
-</select>
-
-<div id="PatternDiv" class="PatternDiv" style="position:relative; float: left; width:33%;">
-<select id="PatternChicago" onchange="updateDropDownTarget()">
-    <option id="PatternStations" class="PatternsStation" value="PatternsStation" size="4">Stations</option>
-    <option id="PatternCommunities" class="PatternCommunities" value="PatternCommunities" size="4">Communities</option>
-</select>
+<div id="patternListDiv" style="position: relative;float: left;width: 33%;">
+    <select id="PatternList" name="PatternList" onchange="updateDropDownTarget()"
+            >
+        <option id="TimesOfTheDay" class="TimesOfTheDay" >Time Of The Day</option>
+        <option id="DaysOfTheWeek" class="DaysOfTheWeek">Day Of The Week</option>
+    </select>
+</div>
+<div id ="secondDropDownDiv1"  style="position: relative;float: left;width: 33%;">
+    <select id="TOD" name="TimesOfTheDay">
+        <option id="Morning" value="Morning">Morning</option>
+        <option id="Lunch" value="Lunch">Lunch</option>
+        <option id="Evening" value="Evening">Evening</option>
+        <option id="Night" value="Night">Night</option>
+    </select>
+</div>
+    <div id="secondDropDownDiv2"  style="position: relative;float: left;width: 33%;">
+    <select id="DOW" name="DaysOfTheWeek">
+        <option id="Monday" value="Monday">Monday</option>
+        <option id="Tuesday" value="Tuesday">Tuesday</option>
+        <option id="Wednesday" value="Wednesday">Wednesday</option>
+        <option id="Thursday" value="Thursday">Thursday</option>
+        <option id="Friday" value="Friday">Friday</option>
+        <option id="Saturday" value="Saturday">Saturday</option>
+        <option id="Sunday" value="Sunday">Sunday</option>
+    </select>
+</div>
+    <div id="PatternDiv" class="PatternDiv" style="position:relative; float: left; width:100%;">
+    <select id="PatternChicago" onchange="updateDropDownTarget()">
+        <option id="PatternStations" class="PatternsStation" value="PatternsStation" size="4">Stations</option>
+        <option id="PatternCommunities" class="PatternCommunities" value="PatternCommunities" size="4">Communities</option>
+    </select>
 
 <select id="leftPattern1" name="PatternsStation" size="5" multiple style="position: relative;float:left;width: 45%;"></select>
 <select id="leftPattern2" name="PatternCommunities" size="5" multiple style="position: relative;float:left;width: 45%;"></select>
@@ -1292,9 +1320,21 @@
         }
 
         function updateDropDownTarget() {
+                var selectedOption = $("#PatternList option:selected").text();
+                //console.log("Snadofndaonf" + selectedOption);
+                document.getElementById("TimesOfTheDay").style.display = 'block';
+                document.getElementById("DaysOfTheWeek").style.display = 'block';
 
-            var patternTOD = document.getElementById("TOD");
-            var patternDOW = document.getElementById("DOW");
+                var patternTOD = document.getElementById("secondDropDownDiv1");
+                var patternDOW = document.getElementById("secondDropDownDiv2");
+                if (selectedOption == "Time Of The Day"){
+                    patternTOD.style.display = 'block';
+                    patternDOW.style.display = 'none';
+                }
+                else if(selectedOption == "Day Of The Week"){
+                    patternDOW.style.display = 'block';
+                    patternTOD.style.display = 'none';
+                }
             patternTOD.onselect = showPatternStationList();
 
             patternDOW.onselect = showPatternStationList();
