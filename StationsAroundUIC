@@ -1,3 +1,14 @@
+The main aim of Visualization course is to observe the pattern and understand the behaviour of the people using that product. In our case Divvy Bikes, the most obvious patterns we noticed are documented below.
+
+General Patterns:
+
+1. Weekends are the most busiest days in the week(DayOfWeekPic)
+2. Most Busiest hours in the day are 5PM, 4PM and 6PM respectively(HourOfDayPic)
+3. Divvy Bikes traffic is constant from 12:00PM to 2:00 PM(HourOfDayPic)
+4. There are more subscribers than customers
+5. Male customers are predominant. Their count is almost thrice that of female count.
+6. Most of the trips are taken from August to October and they decrease gradually as the winter approaches. (Winter is coming!! :-) ) (DayOfYearPic)
+
 Observation around UIC:
 
 The stations around UIC we concentrated are:
@@ -16,3 +27,9 @@ b. Majority of the riders are Male
 c. Majority of the riders are subscribers. There may be some discount available if we subscribe the service for a whole year/semester or there might be some special student annual/semester plans.
 d. Starting from Dec 16th to 30th the number of active bikes is almost 3 times less than regular traffic. These weeks are vacation weeks and this strengthns the point that these stations are predominantly used by students
 e. The busiest hour of the day around these stations in general is 3-5PM and the number of active bikes are almost double in the evening hour compared to morning hour.
+
+
+Observation with weather:
+
+The pattern with weather is same as we expected. The number of active bikes is more during the months of August - mid October because the weather is not so harsh. As winter approaches the number of active bikes decreases. 
+Even in summer during the cold weather conditions the bikes usage is very low.
